@@ -65,7 +65,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-function Homepage() {
+function Aboutpage() {
   return (
     <>
       <ColorizedDiv id="homepage">
@@ -103,4 +103,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Aboutpage;

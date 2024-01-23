@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import foto from './fotka.jpg';
 
 const ColorizedDiv = styled.div<{ blur: string }>`
   color: white;
