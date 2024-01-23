@@ -73,11 +73,24 @@ const Button = styled(motion.button)`
 `;
 
 const Image = styled.img`
+ border-radius:30px;
   position: absolute;
   top: 17vh;
   right: 38vh;
   widht:100%;
   max-width:70vh;
+`;
+
+const DarkGreenBackground = styled.div`
+ border-radius:30px;
+  position: absolute;
+  top: 13vh;
+  right: 30vh;
+  width: 1000vh;
+  max-width: 70vh;
+  height: 52.6vh;
+  background-color: #163c24; /* Dark green color */
+  z-index: 0; /* Ensure it appears behind other elements */
 `;
 
 const Homepage = () => {
@@ -89,6 +102,7 @@ const Homepage = () => {
     <>
       <ColorizedDiv id="homepage">
         <Titleleaf>LeafLoop</Titleleaf>
+        <DarkGreenBackground></DarkGreenBackground>
         <Image src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8dec094c-2586-4ea1-b34b-1a05132af117/ddui50i-3d1d706c-4ea9-4370-ae6a-13713d1847b3.jpg/v1/fill/w_1280,h_960,q_75,strp/pupava___dandelion_by_skofografista_ddui50i-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTYwIiwicGF0aCI6IlwvZlwvOGRlYzA5NGMtMjU4Ni00ZWExLWIzNGItMWEwNTEzMmFmMTE3XC9kZHVpNTBpLTNkMWQ3MDZjLTRlYTktNDM3MC1hZTZhLTEzNzEzZDE4NDdiMy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.oI_yuAFtXIVdF62Bwg2UwirGRXqYoMdTWwDJU4nRTno"  />
         <Textdiv>
           <Title>Personalised</Title>
@@ -115,8 +129,12 @@ const Homepage = () => {
               deleteSpeed={30}
               delaySpeed={6000}
             />
+            
           </StyledTypewriterWrapper>
+
+          
         </Textdiv>
+        
         <Button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
