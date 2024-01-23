@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
 import '../styles.css';
+import logo from "./logo.png";
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -45,7 +46,7 @@ const StyledTypewriterWrapper = styled.div`
 const Textdiv = styled.div`
   margin: 0;
   padding-left: 8vh;
-  padding-top: 20vh;
+  padding-top: 30vh;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -81,6 +82,13 @@ const Image = styled.img`
   max-width:70vh;
 `;
 
+const Logo = styled(motion.img)`
+border-radius:30px;
+  width:6vh;
+  height:6vh;
+`;
+
+
 const DarkGreenBackground = styled.div`
  border-radius:30px;
   position: absolute;
@@ -97,11 +105,20 @@ const Homepage = () => {
   const handleExploreNowClick = () => {
     window.location.href = '/aboutpage';
   };
+  const handleExplorehome = () => {
+    window.location.href = '/';
+  };
 
   return (
     <>
       <ColorizedDiv id="homepage">
+      <Logo 
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleExplorehome}
+                 ></Logo>
         <Titleleaf>LeafLoop</Titleleaf>
+        
         <DarkGreenBackground></DarkGreenBackground>
         <Image src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8dec094c-2586-4ea1-b34b-1a05132af117/ddui50i-3d1d706c-4ea9-4370-ae6a-13713d1847b3.jpg/v1/fill/w_1280,h_960,q_75,strp/pupava___dandelion_by_skofografista_ddui50i-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTYwIiwicGF0aCI6IlwvZlwvOGRlYzA5NGMtMjU4Ni00ZWExLWIzNGItMWEwNTEzMmFmMTE3XC9kZHVpNTBpLTNkMWQ3MDZjLTRlYTktNDM3MC1hZTZhLTEzNzEzZDE4NDdiMy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.oI_yuAFtXIVdF62Bwg2UwirGRXqYoMdTWwDJU4nRTno"  />
         <Textdiv>
