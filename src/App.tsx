@@ -13,12 +13,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const GradientBackground = styled(motion.div)`
-  background: linear-gradient(to top, #888888, #ffffff);
-  min-height: 100vh;
-  overflow: hidden;
-  transition: background 0.5s ease-in-out;
-`;
 
 const AppContainer = styled.div`
   width: 100%;
@@ -38,12 +32,7 @@ const scrollToTop = () => {
 const App: React.FC = () => {
   return (
     <Router>
-      <GradientBackground
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+
         <AppContainer>
           <GlobalStyle />
           <Navbar />
@@ -53,7 +42,6 @@ const App: React.FC = () => {
           </Routes>
           <ScrollToTopButton onClick={scrollToTop}>Scroll to Top</ScrollToTopButton>
         </AppContainer>
-      </GradientBackground>
     </Router>
   );
 };
