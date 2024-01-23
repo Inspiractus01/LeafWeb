@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import "../styles.css";
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
 const NavbarContainer = styled.div`
   display: flex;
@@ -22,8 +23,11 @@ const NavbarContent = styled.div`
   gap: 20px;
 `;
 
+const NavItem = styled(motion.div)`
+  margin-right: 20px;
+`;
+
 const NavLink = styled(Link)`
-  padding-left: 2vh;
   color: white;
   font-family: 'Regular-r', sans-serif;
   font-size: 1em;
@@ -38,6 +42,7 @@ const NavLink = styled(Link)`
 const Title = styled.div`
   font-family: 'Regular-r', sans-serif;
   font-size: 1em;
+  padding-right:30px;
 `;
 
 const Navbar = () => {
@@ -45,10 +50,18 @@ const Navbar = () => {
     <NavbarContainer id="home">
       <NavbarContent>
         <Title>LeafLoop</Title>
-        <div>
-          <NavLink to="/">HOME</NavLink>
-          <NavLink to="/aboutpage">ABOUT</NavLink>
-        </div>
+          <NavItem
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <NavLink to="/">HOME</NavLink>
+          </NavItem>
+          <NavItem
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <NavLink to="/aboutpage">ABOUT</NavLink>
+          </NavItem>
       </NavbarContent>
     </NavbarContainer>
   );

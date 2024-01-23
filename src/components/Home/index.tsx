@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link as ScrollLink } from 'react-scroll';
 import styled from 'styled-components';
 import { Typewriter } from 'react-simple-typewriter';
+import { motion } from 'framer-motion';
 import '../styles.css';
 
 const ColorizedDiv = styled.div`
@@ -51,7 +51,7 @@ const Textdiv = styled.div`
   flex-direction: column;
 `;
 
-const Button = styled.button`
+const Button = styled(motion.button)`
   position: absolute;
   top: 2.5vh;
   right: 5vh;
@@ -66,10 +66,11 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-function Homepage() {
+const Homepage = () => {
   const handleExploreNowClick = () => {
     window.location.href = '/aboutpage';
   };
+
   return (
     <>
       <ColorizedDiv id="homepage">
@@ -101,10 +102,16 @@ function Homepage() {
             />
           </StyledTypewriterWrapper>
         </Textdiv>
-        <Button onClick={handleExploreNowClick}>Explore Now</Button>
+        <Button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={handleExploreNowClick}
+        >
+          Explore Now
+        </Button>
       </ColorizedDiv>
     </>
   );
-}
+};
 
 export default Homepage;
