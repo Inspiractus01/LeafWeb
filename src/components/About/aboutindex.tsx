@@ -68,33 +68,14 @@ const Button = styled.button`
 function Aboutpage() {
   return (
     <>
-      <ColorizedDiv id="homepage">
+      <ColorizedDiv id="aboutpage">
         <Titleleaf>LeafLoop</Titleleaf>
         <Textdiv>
           <Title>Personalised</Title>
           <Title>help with</Title>
           <Title>plants</Title>
           <StyledTypewriterWrapper>
-            <Typewriter
-              cursor
-              cursorStyle='_'
-              words={[
-                'Personalized care advice for your plants!',
-                'Create a thriving green haven with tailored guidance!',
-                'Unlock custom tips for your unique plant companions!',
-                'Your plants, our personalized expertise!',
-                'Expert advice to enhance your plant parenting!',
-                'Tailored care tips for your beloved green friends!',
-                'Nurture your plants with personalized care insights!',
-                'Get bespoke advice for a flourishing plant life!',
-                'Elevate your plant care journey with personalized tips!',
-                'Your green companions deserve personalized attention!',
-              ]}
-              loop={true}
-              typeSpeed={50}
-              deleteSpeed={30}
-              delaySpeed={6000}
-            />
+           
           </StyledTypewriterWrapper>
         </Textdiv>
         <Button>Explore Now</Button>

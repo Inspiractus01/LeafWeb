@@ -4,7 +4,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import styled, { createGlobalStyle } from 'styled-components';
 import Homepage from './components/Home';
 import Navbar from './components/Navbar';
-
+import Aboutpage from './components/About/aboutindex';
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -35,6 +35,7 @@ const App: React.FC = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/about" element={<Aboutpage />} />
         </Routes>
         <ScrollToTopButton onClick={scrollToTop}>Scroll to Top</ScrollToTopButton>
       </Body>

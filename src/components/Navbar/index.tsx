@@ -42,13 +42,13 @@ const Title = styled.div`
 const Navbar = () => {
   return (
     <NavbarContainer id="home">
-      <NavbarContent>
+      <NavbarContent>a
         <Title>LeafLoop</Title>
         <div>
           <NavLink to="home" smooth={true} duration={500}>
             HOME
           </NavLink>
-          <NavLink to="about" smooth={true} duration={500}>
+          <NavLink to="aboutpage" smooth={true} duration={500}>
             ABOUT
           </NavLink>
           <NavLink to="contact" smooth={true} duration={500}>
