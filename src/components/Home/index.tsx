@@ -64,6 +64,12 @@ const Button = styled(motion.button)`
   border: 2px solid white; /* White border */
   border-radius: 10px; /* Add border radius */
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: white;
+    color: #2AB96B;
+  }
 `;
 
 const Homepage = () => {
