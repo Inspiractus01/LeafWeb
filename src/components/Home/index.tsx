@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 import styled from 'styled-components';
 import { Typewriter } from 'react-simple-typewriter';
 import '../styles.css';
@@ -66,6 +67,9 @@ const Button = styled.button`
 `;
 
 function Homepage() {
+  const handleExploreNowClick = () => {
+    window.location.href = '/aboutpage';
+  };
   return (
     <>
       <ColorizedDiv id="homepage">
@@ -97,7 +101,7 @@ function Homepage() {
             />
           </StyledTypewriterWrapper>
         </Textdiv>
-        <Button>Explore Now</Button>
+        <Button onClick={handleExploreNowClick}>Explore Now</Button>
       </ColorizedDiv>
     </>
   );

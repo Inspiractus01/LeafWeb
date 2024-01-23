@@ -95,7 +95,6 @@ const About: React.FC = () => {
           </Text>
         </TextDiv>
         <Photodiv>
-          <Fotka src={foto} alt="Me" />
         </Photodiv>
       </Aboutdiv>
     </ColorizedDiv>

@@ -35,7 +35,7 @@ const App: React.FC = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<Aboutpage />} />
+          <Route path="/aboutpage" element={<Aboutpage />} />
         </Routes>
         <ScrollToTopButton onClick={scrollToTop}>Scroll to Top</ScrollToTopButton>
       </Body>

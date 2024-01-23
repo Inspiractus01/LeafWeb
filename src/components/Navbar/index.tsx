@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import "../styles.css";
 
 const NavbarContainer = styled.div`
   display: flex;
-  justify-content: space-between; /* Distribute space between children */
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   bottom: 0;
@@ -19,15 +19,16 @@ const NavbarContainer = styled.div`
 const NavbarContent = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px; /* Adjust the gap between title and links */
+  gap: 20px;
 `;
 
 const NavLink = styled(Link)`
-padding-left:2vh;
+  padding-left: 2vh;
   color: white;
   font-family: 'Regular-r', sans-serif;
   font-size: 1em;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     text-decoration: underline;
@@ -42,18 +43,11 @@ const Title = styled.div`
 const Navbar = () => {
   return (
     <NavbarContainer id="home">
-      <NavbarContent>a
+      <NavbarContent>
         <Title>LeafLoop</Title>
         <div>
-          <NavLink to="home" smooth={true} duration={500}>
-            HOME
-          </NavLink>
-          <NavLink to="aboutpage" smooth={true} duration={500}>
-            ABOUT
-          </NavLink>
-          <NavLink to="contact" smooth={true} duration={500}>
-            CONTACT
-          </NavLink>
+          <NavLink to="/">HOME</NavLink>
+          <NavLink to="/aboutpage">ABOUT</NavLink>
         </div>
       </NavbarContent>
     </NavbarContainer>

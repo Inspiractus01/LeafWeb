@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import { Typewriter } from 'react-simple-typewriter';
 import '../styles.css';
 
 const ColorizedDiv = styled.div`
