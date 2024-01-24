@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
@@ -38,27 +37,6 @@ const StyledTypewriterWrapper = styled.div`
   @media (max-width: 900px) {
     font-size: 0.6em; /* Adjust the font size as needed for smaller screens */
   }
-`;
-
-
-const Logo = styled(motion.img)`
-  border-radius: 30px;
-  width: 6vh;
-  height: 6vh;
-`;
-
-const DarkGreenBackground = styled.div`
-  border-radius: 30px;
-  top: 13vh;
-  right: 30vh;
-  width: 1000vh;
-  max-width: 70vh;
-  height: 52.6vh;
-  background-color: #163c24; /* Dark green color */
-`;
-
-const MainDiv = styled.div`
-  color: green;
 `;
 
 const Div1 = styled.div`
@@ -190,9 +168,7 @@ const Homepage = () => {
   const handleExploreNowClick = () => {
     window.location.href = "/aboutpage";
   };
-  const handleExplorehome = () => {
-    window.location.href = "/";
-  };
+
 
   return (
     <>

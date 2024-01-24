@@ -39,14 +39,7 @@ const Photodiv = styled.div`
   display: flex;
 `;
 
-const Fotka = styled.img`
-  border-radius: 6px;
-  margin: auto;
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  width: 60%;
-`;
+
 
 const Title = styled.h1`
   margin: 0;

@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
 import styled, { createGlobalStyle } from "styled-components";
 import Homepage from "./components/Home";
 import Navbar from "./components/Navbar";
