@@ -126,7 +126,7 @@ const Div2 = styled.div`
 const Textdiv = styled.div`
   margin-left: 3vh;
   display: flex;
-  width: 60%;
+  width: 55%;
   flex-direction: column;
 
   @media (max-width: 900px) {
@@ -135,14 +135,15 @@ const Textdiv = styled.div`
 const Image = styled.img`
   border-radius: 30px;
   width: 70vh;
+  box-shadow: 30px -40px 10px rgba(0, 0, 0, 0.27); /* Add box-shadow for a subtle shadow effect */
 
   @media (max-width: 900px) {
-    margin-left:3vh;
+    margin-left: 3vh;
     align-self: center;
-    justify-self:center;
+    justify-self: center;
     width: 80%;
-    height:80%;
-    
+    height: 80%;
+    box-shadow: 30px -40px 10px rgba(0, 0, 0, 0.25); /* Add box-shadow for a subtle shadow effect */
   }
 `;
 const Imagediv = styled.div`
