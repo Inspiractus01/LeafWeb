@@ -130,12 +130,39 @@ const Textdiv = styled.div`
   flex-direction: column;
 
   @media (max-width: 900px) {
+    margin-top:3vh;
+    width:100%;
+
 `;
+
+const Button2 = styled(motion.button)`
+  margin: 1vh;
+  width: 20vh;
+  height: 5vh;
+  font-family: "Regular-R";
+  font-size: 1em;
+  background-color: #18914A;
+  color: black;
+  border: 2px solid #18914A;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
+  }
+`;
+
 
 const Image = styled.img`
   border-radius: 30px;
   width: 70vh;
-  box-shadow: 30px -40px 10px rgba(0, 0, 0, 0.27); /* Add box-shadow for a subtle shadow effect */
+  box-shadow: 30px -40px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
 
   @media (max-width: 900px) {
     margin-left: 3vh;
@@ -143,7 +170,7 @@ const Image = styled.img`
     justify-self: center;
     width: 80%;
     height: 80%;
-    box-shadow: 30px -40px 10px rgba(0, 0, 0, 0.25); /* Add box-shadow for a subtle shadow effect */
+    box-shadow: 15px -20px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
   }
 `;
 const Imagediv = styled.div`
@@ -151,13 +178,11 @@ const Imagediv = styled.div`
   @media (max-width: 900px) {
     width: 100%;
     height:100%;
-    
-
+  
 `;
 
 
 const Div3 = styled.div`
-border-radius:30px;
 background-color: #155C35;
   flex: 2;
 `;
@@ -210,14 +235,14 @@ const Homepage = () => {
                 delaySpeed={6000}
               />
             </StyledTypewriterWrapper>
-            <Button
+            <Button2
            
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={handleExploreNowClick}
           >
             Explore Now
-          </Button>
+          </Button2>
           </Textdiv>
           <Imagediv>
           <Image src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8dec094c-2586-4ea1-b34b-1a05132af117/ddui50i-3d1d706c-4ea9-4370-ae6a-13713d1847b3.jpg/v1/fill/w_1280,h_960,q_75,strp/pupava___dandelion_by_skofografista_ddui50i-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTYwIiwicGF0aCI6IlwvZlwvOGRlYzA5NGMtMjU4Ni00ZWExLWIzNGItMWEwNTEzMmFmMTE3XC9kZHVpNTBpLTNkMWQ3MDZjLTRlYTktNDM3MC1hZTZhLTEzNzEzZDE4NDdiMy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.oI_yuAFtXIVdF62Bwg2UwirGRXqYoMdTWwDJU4nRTno"  />
