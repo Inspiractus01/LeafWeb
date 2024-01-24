@@ -1,9 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Typewriter } from 'react-simple-typewriter';
-import { motion } from 'framer-motion';
-import '../styles.css';
-import logo from "./logo.png";
+import React from "react";
+import styled from "styled-components";
+import { Typewriter } from "react-simple-typewriter";
+import { motion } from "framer-motion";
+import "../styles.css";
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -13,152 +12,208 @@ const ColorizedDiv = styled.div`
   align-items: top;
   justify-content: center;
   overflow: hidden;
-  background-color: #2AB96B; /* Change the background color here */
+  background-color: #2ab96b; /* Change the background color here */
+  flex-direction: column;
 `;
 
 const Title = styled.h1`
   margin: 0;
   padding: 0;
-  font-family: 'Regular-R';
+  font-family: "Regular-R";
   font-size: 3.5em;
   z-index: 1;
-`;
 
-const Titleleaf = styled.h1`
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding-top: 4vh;
-  padding-left: 8vh; /* Adjust padding as needed */
-  font-family: 'Regular-R';
-  font-size: 1.4em;
-  z-index: 2; /* Ensure it appears above other elements */
+  @media (max-width: 900px) {
+    font-size: 2em; /* Adjust the font size as needed for smaller screens */
+  }
 `;
 
 const StyledTypewriterWrapper = styled.div`
   padding-top: 3vh;
-  font-family: 'Regular-r';
+  padding-bottom: 3vh;
+  font-family: "Regular-r";
   font-size: 1.3em;
   z-index: 1;
-`;
 
-const Textdiv = styled.div`
-  margin: 0;
-  padding-left: 8vh;
-  padding-top: 30vh;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-`;
-
-const Button = styled(motion.button)`
-  position: absolute;
-  top: 2.5vh;
-  right: 5vh;
-  margin: 0;
-  padding: 1.3vh 3vh; /* Adjust padding to make it smaller */
-  font-family: 'Regular-R';
-  font-size: 1em; /* Adjust font size */
-  background-color: #2AB96B; /* Same as ColorizedDiv background color */
-  color: white;
-  border: 2px solid white; /* White border */
-  border-radius: 10px; /* Add border radius */
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: white;
-    color: #2AB96B;
+  @media (max-width: 900px) {
+    font-size: 0.6em; /* Adjust the font size as needed for smaller screens */
   }
 `;
 
-const Image = styled.img`
- border-radius:30px;
-  position: absolute;
-  top: 17vh;
-  right: 38vh;
-  widht:100%;
-  max-width:70vh;
-`;
 
 const Logo = styled(motion.img)`
-border-radius:30px;
-  width:6vh;
-  height:6vh;
+  border-radius: 30px;
+  width: 6vh;
+  height: 6vh;
 `;
 
-
 const DarkGreenBackground = styled.div`
- border-radius:30px;
-  position: absolute;
+  border-radius: 30px;
   top: 13vh;
   right: 30vh;
   width: 1000vh;
   max-width: 70vh;
   height: 52.6vh;
   background-color: #163c24; /* Dark green color */
-  z-index: 0; /* Ensure it appears behind other elements */
 `;
 
+const MainDiv = styled.div`
+  color: green;
+`;
+
+const Div1 = styled.div`
+  justify-content: center; /* Add this line to center content horizontally */
+  align-items: center; /* Optionally, you can also center vertically */
+
+  flex: 0.7;
+  display: flex;
+  flex-direction: row;
+  background-color: red;
+`;
+
+const Titleleaf = styled.h1`
+  margin-top: 4vh;
+  margin-left: 6vh;
+  justify-content: center;
+  width: 90%;
+  font-family: "Regular-R";
+  font-size: 1.4em;
+
+  @media (max-width: 900px) {
+    margin-left: 3vh;
+    font-size: 1em; /* Adjust the font size as needed for smaller screens */
+  }
+`;
+
+const Button = styled(motion.button)`
+  margin: 1vh;
+  width: 20vh;
+  height: 5vh;
+  font-family: "Regular-R";
+  font-size: 1em;
+  background-color: #2ab96b;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: white;
+    color: #2ab96b;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
+  }
+`;
+
+const Div2 = styled.div`
+  justify-content: flex-start;
+  align-items: center;
+  flex: 6;
+  background-color: green;
+  flex-direction:row;
+  display:flex;
+  @media (max-width: 900px) {
+    
+    align-items: flex-start;
+    flex-direction:column;
+    
+  }
+`;
+
+const Textdiv = styled.div`
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+
+  @media (max-width: 900px) {
+`;
+
+const Image = styled.img`
+  border-radius: 30px;
+  width: 70vh;
+
+  @media (max-width: 900px) {
+    width: 10vh;
+  }
+`;
+const Imagediv = styled.div`
+  display: flex;
+  @media (max-width: 900px) {
+
+`;
+
+
+const Div3 = styled.div`
+  background-color: blue;
+  flex: 2;
+`;
 const Homepage = () => {
   const handleExploreNowClick = () => {
-    window.location.href = '/aboutpage';
+    window.location.href = "/aboutpage";
   };
   const handleExplorehome = () => {
-    window.location.href = '/';
+    window.location.href = "/";
   };
 
   return (
     <>
       <ColorizedDiv id="homepage">
-      <Logo 
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={handleExplorehome}
-                 ></Logo>
-        <Titleleaf>LeafLoop</Titleleaf>
-        
-        <DarkGreenBackground></DarkGreenBackground>
-        <Image src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8dec094c-2586-4ea1-b34b-1a05132af117/ddui50i-3d1d706c-4ea9-4370-ae6a-13713d1847b3.jpg/v1/fill/w_1280,h_960,q_75,strp/pupava___dandelion_by_skofografista_ddui50i-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTYwIiwicGF0aCI6IlwvZlwvOGRlYzA5NGMtMjU4Ni00ZWExLWIzNGItMWEwNTEzMmFmMTE3XC9kZHVpNTBpLTNkMWQ3MDZjLTRlYTktNDM3MC1hZTZhLTEzNzEzZDE4NDdiMy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.oI_yuAFtXIVdF62Bwg2UwirGRXqYoMdTWwDJU4nRTno"  />
-        <Textdiv>
-          <Title>Personalised</Title>
-          <Title>help with</Title>
-          <Title>plants</Title>
-          <StyledTypewriterWrapper>
-            <Typewriter
-              cursor
-              cursorStyle='_'
-              words={[
-                'Personalized care advice for your plants!',
-                'Create a thriving green haven with tailored guidance!',
-                'Unlock custom tips for your unique plant companions!',
-                'Your plants, our personalized expertise!',
-                'Expert advice to enhance your plant parenting!',
-                'Tailored care tips for your beloved green friends!',
-                'Nurture your plants with personalized care insights!',
-                'Get bespoke advice for a flourishing plant life!',
-                'Elevate your plant care journey with personalized tips!',
-                'Your green companions deserve personalized attention!',
-              ]}
-              loop={true}
-              typeSpeed={50}
-              deleteSpeed={30}
-              delaySpeed={6000}
-            />
-            
-          </StyledTypewriterWrapper>
+        <Div1>
+          <Titleleaf>LeafLoop</Titleleaf>
+          <Button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleExploreNowClick}
+          >
+            Explore Now
+          </Button>
+        </Div1>
 
-          
-        </Textdiv>
-        
-        <Button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={handleExploreNowClick}
-        >
-          Explore Now
-        </Button>
+        <Div2>
+          <Textdiv>
+            <Title>Personalised</Title>
+            <Title>help with</Title>
+            <Title>plants</Title>
+            <StyledTypewriterWrapper>
+              <Typewriter
+                cursor
+                cursorStyle="_"
+                words={[
+                  "Personalized care advice for your plants!",
+                  "Create a thriving green haven with tailored guidance!",
+                  "Unlock custom tips for your unique plant companions!",
+                  "Your plants, our personalized expertise!",
+                  "Expert advice to enhance your plant parenting!",
+                  "Tailored care tips for your beloved green friends!",
+                  "Nurture your plants with personalized care insights!",
+                  "Get bespoke advice for a flourishing plant life!",
+                  "Elevate your plant care journey with personalized tips!",
+                  "Your green companions deserve personalized attention!",
+                ]}
+                loop={true}
+                typeSpeed={50}
+                deleteSpeed={30}
+                delaySpeed={6000}
+              />
+            </StyledTypewriterWrapper>
+            <Button
+           
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleExploreNowClick}
+          >
+            Explore Now
+          </Button>
+          </Textdiv>
+          <Imagediv>
+          <Image src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8dec094c-2586-4ea1-b34b-1a05132af117/ddui50i-3d1d706c-4ea9-4370-ae6a-13713d1847b3.jpg/v1/fill/w_1280,h_960,q_75,strp/pupava___dandelion_by_skofografista_ddui50i-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTYwIiwicGF0aCI6IlwvZlwvOGRlYzA5NGMtMjU4Ni00ZWExLWIzNGItMWEwNTEzMmFmMTE3XC9kZHVpNTBpLTNkMWQ3MDZjLTRlYTktNDM3MC1hZTZhLTEzNzEzZDE4NDdiMy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.oI_yuAFtXIVdF62Bwg2UwirGRXqYoMdTWwDJU4nRTno"  />
+          </Imagediv>
+       </Div2>
+
+        <Div3>asd</Div3>
       </ColorizedDiv>
     </>
   );
