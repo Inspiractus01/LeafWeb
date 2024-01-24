@@ -68,7 +68,7 @@ const Div1 = styled.div`
   flex: 0.7;
   display: flex;
   flex-direction: row;
-  background-color: red;
+  background-color: transparent;
 `;
 
 const Titleleaf = styled.h1`
@@ -112,7 +112,7 @@ const Div2 = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex: 6;
-  background-color: green;
+  background-color: transparent;
   flex-direction:row;
   display:flex;
   @media (max-width: 900px) {
@@ -124,6 +124,7 @@ const Div2 = styled.div`
 `;
 
 const Textdiv = styled.div`
+  margin-left: 3vh;
   display: flex;
   width: 60%;
   flex-direction: column;
@@ -136,18 +137,27 @@ const Image = styled.img`
   width: 70vh;
 
   @media (max-width: 900px) {
-    width: 10vh;
+    margin-left:3vh;
+    align-self: center;
+    justify-self:center;
+    width: 80%;
+    height:80%;
+    
   }
 `;
 const Imagediv = styled.div`
   display: flex;
   @media (max-width: 900px) {
+    width: 100%;
+    height:100%;
+    
 
 `;
 
 
 const Div3 = styled.div`
-  background-color: blue;
+border-radius:30px;
+background-color: #2a9867;
   flex: 2;
 `;
 const Homepage = () => {
