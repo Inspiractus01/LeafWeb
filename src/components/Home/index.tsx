@@ -30,7 +30,7 @@ const Title = styled.h1`
 
 const StyledTypewriterWrapper = styled.div`
   padding-top: 3vh;
-  padding-bottom: 3vh;
+  padding-bottom: 4vh;
   font-family: "Regular-r";
   font-size: 1.3em;
   z-index: 1;
@@ -157,7 +157,7 @@ const Imagediv = styled.div`
 
 const Div3 = styled.div`
 border-radius:30px;
-background-color: #2a9867;
+background-color: #155C35;
   flex: 2;
 `;
 const Homepage = () => {
