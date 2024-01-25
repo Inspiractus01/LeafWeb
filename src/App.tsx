@@ -1,10 +1,9 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
-import styled, { createGlobalStyle } from 'styled-components';
-import Homepage from './components/Home';
-import Navbar from './components/Navbar';
-import Aboutpage from './components/About/aboutindex';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import styled, { createGlobalStyle } from "styled-components";
+import Homepage from "./components/Home";
+import Navbar from "./components/Navbar";
+import Aboutpage from "./components/About/aboutindex";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -12,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 `;
-
 
 const AppContainer = styled.div`
   width: 100%;
@@ -26,22 +24,23 @@ const ScrollToTopButton = styled.button`
 `;
 
 const scrollToTop = () => {
-  window.scrollTo({ top: 20, behavior: 'smooth' });
+  window.scrollTo({ top: 20, behavior: "smooth" });
 };
 
 const App: React.FC = () => {
   return (
     <Router>
-
-        <AppContainer>
-          <GlobalStyle />
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/aboutpage" element={<Aboutpage />} />
-          </Routes>
-          <ScrollToTopButton onClick={scrollToTop}>Scroll to Top</ScrollToTopButton>
-        </AppContainer>
+      <AppContainer>
+        <GlobalStyle />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/aboutpage" element={<Aboutpage />} />
+        </Routes>
+        <ScrollToTopButton onClick={scrollToTop}>
+          Scroll to Top
+        </ScrollToTopButton>
+      </AppContainer>
     </Router>
   );
 };

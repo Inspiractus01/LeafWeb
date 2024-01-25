@@ -1,7 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import styled from "styled-components";
 
 const NavbarContainer = styled.div`
   display: flex;
@@ -29,7 +28,7 @@ const NavItem = styled(motion.div)`
 
 const NavLink = styled(Link)`
   color: white;
-  font-family: 'Regular-r', sans-serif;
+  font-family: "Regular-r", sans-serif;
   font-size: 1em;
   cursor: pointer;
   text-decoration: none;
@@ -40,9 +39,9 @@ const NavLink = styled(Link)`
 `;
 
 const Title = styled.div`
-  font-family: 'Regular-r', sans-serif;
+  font-family: "Regular-r", sans-serif;
   font-size: 1em;
-  padding-right:30px;
+  padding-right: 30px;
 `;
 
 const Navbar = () => {
@@ -50,18 +49,12 @@ const Navbar = () => {
     <NavbarContainer id="home">
       <NavbarContent>
         <Title>LeafLoop</Title>
-          <NavItem
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <NavLink to="/">HOME</NavLink>
-          </NavItem>
-          <NavItem
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <NavLink to="/aboutpage">ABOUT</NavLink>
-          </NavItem>
+        <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <NavLink to="/">HOME</NavLink>
+        </NavItem>
+        <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <NavLink to="/aboutpage">ABOUT</NavLink>
+        </NavItem>
       </NavbarContent>
     </NavbarContainer>
   );

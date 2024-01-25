@@ -1,47 +1,46 @@
 @font-face {
-  font-family: 'MoonLight-r';
-  src: url('./font/Moon2.0-Regular.otf') format('opentype');
+  font-family: "MoonLight-r";
+  src: url("./font/Moon2.0-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Lombok';
-  src: url('./font/Lombok.ttf') format('truetype');
+  font-family: "Lombok";
+  src: url("./font/Lombok.ttf") format("truetype");
   font-weight: 1000000;
   font-style: normal;
 }
 @font-face {
-  font-family: 'MoonLight-b';
-  src: url('./font/Moon2.0-Bold.otf') format('opentype');
+  font-family: "MoonLight-b";
+  src: url("./font/Moon2.0-Bold.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'MoonLight-l';
-  src: url('./font/Moon2.0-Light.otf') format('opentype');
+  font-family: "MoonLight-l";
+  src: url("./font/Moon2.0-Light.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Regular-r';
-  src: url('./font/RobotoMono-Regular.ttf') format('opentype');
+  font-family: "Regular-r";
+  src: url("./font/RobotoMono-Regular.ttf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Regular-l';
-  src: url('./font/RobotoMono-Light.ttf') format('opentype');
+  font-family: "Regular-l";
+  src: url("./font/RobotoMono-Light.ttf") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Regular-el';
-  src: url('./font/RobotoMono-ExtraLight.ttf') format('opentype');
+  font-family: "Regular-el";
+  src: url("./font/RobotoMono-ExtraLight.ttf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
-

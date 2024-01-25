@@ -1,9 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Typewriter } from 'react-simple-typewriter';
-import { motion } from 'framer-motion';
-import '../styles.css';
-import logo from "./logo.png";
+import styled from "styled-components";
+import { Typewriter } from "react-simple-typewriter";
+import { motion } from "framer-motion";
+import "../styles.css";
+import Logo from "./logo.png";
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -13,152 +12,267 @@ const ColorizedDiv = styled.div`
   align-items: top;
   justify-content: center;
   overflow: hidden;
-  background-color: #2AB96B; /* Change the background color here */
+  background-color: #2ab96b; /* Change the background color here */
+  flex-direction: column;
 `;
 
 const Title = styled.h1`
   margin: 0;
   padding: 0;
-  font-family: 'Regular-R';
+  font-family: "Regular-R";
   font-size: 3.5em;
   z-index: 1;
+
+  @media (max-width: 900px) {
+    font-size: 2em; /* Adjust the font size as needed for smaller screens */
+  }
+`;
+ 
+const StyledTypewriterWrapper = styled.div`
+  padding-top: 3vh;
+  padding-bottom: 4vh;
+  font-family: "Regular-r";
+  font-size: 1.3em;
+  z-index: 1;
+
+  @media (max-width: 900px) {
+    font-size: 0.6em; /* Adjust the font size as needed for smaller screens */
+  }
+`;
+
+const Div1 = styled.div`
+  justify-content: center; /* Add this line to center content horizontally */
+  align-items: center; /* Optionally, you can also center vertically */
+
+  flex: 0.7;
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
 `;
 
 const Titleleaf = styled.h1`
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding-top: 4vh;
-  padding-left: 8vh; /* Adjust padding as needed */
-  font-family: 'Regular-R';
+  margin-top: 2vh;
+  margin-left: 2vh;
+  justify-content: center;
+  width: 90%;
+  font-family: "Regular-R";
   font-size: 1.4em;
-  z-index: 2; /* Ensure it appears above other elements */
-`;
 
-const StyledTypewriterWrapper = styled.div`
-  padding-top: 3vh;
-  font-family: 'Regular-r';
-  font-size: 1.3em;
-  z-index: 1;
+  @media (max-width: 900px) {
+    margin-left: 3vh;
+    font-size: 1em; /* Adjust the font size as needed for smaller screens */
+  }
 `;
-
-const Textdiv = styled.div`
-  margin: 0;
-  padding-left: 8vh;
-  padding-top: 30vh;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
+const Logoloop=styled.img`
+margin-top:1vh;
+margin-left: 1vh;
+  width:8vh;
+  border-radius:20px;
 `;
 
 const Button = styled(motion.button)`
-  position: absolute;
-  top: 2.5vh;
-  right: 5vh;
-  margin: 0;
-  padding: 1.3vh 3vh; /* Adjust padding to make it smaller */
-  font-family: 'Regular-R';
-  font-size: 1em; /* Adjust font size */
-  background-color: #2AB96B; /* Same as ColorizedDiv background color */
+  margin: 1vh;
+  width: 20vh;
+  height: 5vh;
+  font-family: "Regular-R";
+  font-size: 1em;
+  background-color: #2ab96b;
   color: white;
-  border: 2px solid white; /* White border */
-  border-radius: 10px; /* Add border radius */
+  border: 2px solid white;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
     background-color: white;
-    color: #2AB96B;
+    color: #2ab96b;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
   }
 `;
 
+const Div2 = styled.div`
+  justify-content: flex-start;
+  align-items: center;
+  flex: 6;
+  background-color: transparent;
+  flex-direction:row;
+  display:flex;
+  @media (max-width: 900px) {
+    
+    align-items: flex-start;
+    flex-direction:column;
+    
+  }
+`;
+
+const Textdiv = styled.div`
+  margin-left: 3vh;
+  display: flex;
+  width: 55%;
+  flex-direction: column;
+
+  @media (max-width: 900px) {
+    margin-top:3vh;
+    width:100%;
+
+`;
+
+const Button2 = styled(motion.button)`
+  margin: 1vh;
+  width: 20vh;
+  height: 5vh;
+  font-family: "Regular-R";
+  font-size: 1em;
+  background-color: #18914A;
+  color: black;
+  border: 2px solid #18914A;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
+  }
+`;
+
+
 const Image = styled.img`
- border-radius:30px;
-  position: absolute;
-  top: 17vh;
-  right: 38vh;
-  widht:100%;
-  max-width:70vh;
+object-fit: cover; 
+border: 2px solid #363434;
+border-radius: 30px;
+  width: 70vh;
+  box-shadow: 30px -40px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
+
+  @media (max-width: 900px) {
+    margin-left: 3vh;
+    align-self: center;
+    justify-self: center;
+    width: 80%;
+    height: 80%;
+    box-shadow: 15px -20px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
+  }
+`;
+const Imagediv = styled.div`
+  display: flex;
+  @media (max-width: 900px) {
+    width: 100%;
+    height:100%;
+  
 `;
 
-const Logo = styled(motion.img)`
-border-radius:30px;
-  width:6vh;
-  height:6vh;
+
+const Div3 = styled.div`
+background-color: #155C35;
+  flex: 2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 `;
 
 
-const DarkGreenBackground = styled.div`
- border-radius:30px;
-  position: absolute;
-  top: 13vh;
-  right: 30vh;
-  width: 1000vh;
-  max-width: 70vh;
-  height: 52.6vh;
-  background-color: #163c24; /* Dark green color */
-  z-index: 0; /* Ensure it appears behind other elements */
+const Text = styled.h1`
+  width:80%;
+  margin-bottom:10vh;
+  margin-left:10vh;
+  margin-right:10vh;
+  font-family: "Regular-R";
+  font-size: 1em;
+  z-index: 1;
+
+  @media (max-width: 900px) {
+    margin-left:1vh;
+    margin-bottom:10vh;
+    margin-right:0vh;
+    font-size: 0.6em; /* Adjust the font size as needed for smaller screens */
+  }
 `;
+const Platnetlogo = styled.img`
+  
+  width: 20vh;
+  @media (max-width: 900px) {
+
+    margin-right:0vh;
+    margin-left: 0vh;
+    width: 15vh;
+  }
+`;
+
 
 const Homepage = () => {
   const handleExploreNowClick = () => {
-    window.location.href = '/aboutpage';
+    window.location.href = "/aboutpage";
   };
-  const handleExplorehome = () => {
-    window.location.href = '/';
-  };
+
 
   return (
     <>
       <ColorizedDiv id="homepage">
-      <Logo 
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={handleExplorehome}
-                 ></Logo>
-        <Titleleaf>LeafLoop</Titleleaf>
-        
-        <DarkGreenBackground></DarkGreenBackground>
-        <Image src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8dec094c-2586-4ea1-b34b-1a05132af117/ddui50i-3d1d706c-4ea9-4370-ae6a-13713d1847b3.jpg/v1/fill/w_1280,h_960,q_75,strp/pupava___dandelion_by_skofografista_ddui50i-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTYwIiwicGF0aCI6IlwvZlwvOGRlYzA5NGMtMjU4Ni00ZWExLWIzNGItMWEwNTEzMmFmMTE3XC9kZHVpNTBpLTNkMWQ3MDZjLTRlYTktNDM3MC1hZTZhLTEzNzEzZDE4NDdiMy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.oI_yuAFtXIVdF62Bwg2UwirGRXqYoMdTWwDJU4nRTno"  />
-        <Textdiv>
-          <Title>Personalised</Title>
-          <Title>help with</Title>
-          <Title>plants</Title>
-          <StyledTypewriterWrapper>
-            <Typewriter
-              cursor
-              cursorStyle='_'
-              words={[
-                'Personalized care advice for your plants!',
-                'Create a thriving green haven with tailored guidance!',
-                'Unlock custom tips for your unique plant companions!',
-                'Your plants, our personalized expertise!',
-                'Expert advice to enhance your plant parenting!',
-                'Tailored care tips for your beloved green friends!',
-                'Nurture your plants with personalized care insights!',
-                'Get bespoke advice for a flourishing plant life!',
-                'Elevate your plant care journey with personalized tips!',
-                'Your green companions deserve personalized attention!',
-              ]}
-              loop={true}
-              typeSpeed={50}
-              deleteSpeed={30}
-              delaySpeed={6000}
-            />
-            
-          </StyledTypewriterWrapper>
+        <Div1>
+          <Logoloop src={Logo}></Logoloop>
+          <Titleleaf>LeafLoop</Titleleaf>
+          <Button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleExploreNowClick}
+          >
+            Explore Now
+          </Button>
+        </Div1>
 
-          
-        </Textdiv>
-        
-        <Button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={handleExploreNowClick}
-        >
-          Explore Now
-        </Button>
+        <Div2>
+          <Textdiv>
+            <Title>Personalised</Title>
+            <Title>help with</Title>
+            <Title>plants</Title>
+            <StyledTypewriterWrapper>
+              <Typewriter
+                cursor
+                cursorStyle="_"
+                words={[
+                  "Personalized care advice for your plants!",
+                  "Create a thriving green haven with tailored guidance!",
+                  "Unlock custom tips for your unique plant companions!",
+                  "Your plants, our personalized expertise!",
+                  "Expert advice to enhance your plant parenting!",
+                  "Tailored care tips for your beloved green friends!",
+                  "Nurture your plants with personalized care insights!",
+                  "Get bespoke advice for a flourishing plant life!",
+                  "Elevate your plant care journey with personalized tips!",
+                  "Your green companions deserve personalized attention!",
+                ]}
+                loop={true}
+                typeSpeed={50}
+                deleteSpeed={0}
+                delaySpeed={4000}
+              />
+            </StyledTypewriterWrapper>
+            <Button2       
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleExploreNowClick}
+          >
+            Explore Now
+          </Button2>
+          </Textdiv>
+          <Imagediv>
+          <Image src="https://media.discordapp.net/attachments/882706828889296974/1200106454359736379/rastlina.jpg?ex=65c4f93b&is=65b2843b&hm=3e20e7ba54917f93baa21a246af053025b625b7c969604df6ac973d0628fef40&=&format=webp&width=1358&height=905"  />
+          </Imagediv>
+       </Div2>
+        <Div3>
+       <Text>
+"Dive into the green universe with our AI plant encyclopedia and let our charming flower chatbot be your guide. Unearth the beauty of nature effortlessly!"</Text>
+<a href="https://identify.plantnet.org">
+<Platnetlogo src="https://my.plantnet.org/images/powered-by-plantnet-dark.png"  />
+</a>
+        </Div3>
       </ColorizedDiv>
     </>
   );

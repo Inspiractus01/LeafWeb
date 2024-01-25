@@ -196,7 +196,7 @@ const Platnetlogo = styled.img`
 `;
 
 
-const Aboutpage = () => {
+const Chatbot = () => {
   const handleExploreNowClick = () => {
     window.location.href = "/aboutpage";
   };
@@ -240,4 +240,4 @@ const Aboutpage = () => {
   );
 };
 
-export default Aboutpage;
+export default Chatbot;
