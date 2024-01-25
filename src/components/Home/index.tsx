@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import "../styles.css";
+import Logo from "./logo.png";
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -26,7 +27,7 @@ const Title = styled.h1`
     font-size: 2em; /* Adjust the font size as needed for smaller screens */
   }
 `;
-
+ 
 const StyledTypewriterWrapper = styled.div`
   padding-top: 3vh;
   padding-bottom: 4vh;
@@ -50,8 +51,8 @@ const Div1 = styled.div`
 `;
 
 const Titleleaf = styled.h1`
-  margin-top: 4vh;
-  margin-left: 6vh;
+  margin-top: 2vh;
+  margin-left: 2vh;
   justify-content: center;
   width: 90%;
   font-family: "Regular-R";
@@ -61,6 +62,12 @@ const Titleleaf = styled.h1`
     margin-left: 3vh;
     font-size: 1em; /* Adjust the font size as needed for smaller screens */
   }
+`;
+const Logoloop=styled.img`
+margin-top:1vh;
+margin-left: 1vh;
+  width:8vh;
+  border-radius:20px;
 `;
 
 const Button = styled(motion.button)`
@@ -138,7 +145,9 @@ const Button2 = styled(motion.button)`
 
 
 const Image = styled.img`
-  border-radius: 30px;
+object-fit: cover; 
+border: 2px solid #363434;
+border-radius: 30px;
   width: 70vh;
   box-shadow: 30px -40px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
 
@@ -163,7 +172,31 @@ const Imagediv = styled.div`
 const Div3 = styled.div`
 background-color: #155C35;
   flex: 2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 `;
+
+
+const Text = styled.h1`
+  margin-right:10vh;
+  font-family: "Regular-R";
+  font-size: 1em;
+  z-index: 1;
+
+  @media (max-width: 900px) {
+    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
+  }
+`;
+const Platnetlogo = styled.img`
+  width: 20vh;
+  @media (max-width: 900px) {
+    margin-left: 3vh;
+    width: 10vh;
+  }
+`;
+
+
 const Homepage = () => {
   const handleExploreNowClick = () => {
     window.location.href = "/aboutpage";
@@ -174,6 +207,7 @@ const Homepage = () => {
     <>
       <ColorizedDiv id="homepage">
         <Div1>
+          <Logoloop src={Logo}></Logoloop>
           <Titleleaf>LeafLoop</Titleleaf>
           <Button
             whileHover={{ scale: 1.1 }}
@@ -207,12 +241,11 @@ const Homepage = () => {
                 ]}
                 loop={true}
                 typeSpeed={50}
-                deleteSpeed={30}
-                delaySpeed={6000}
+                deleteSpeed={0}
+                delaySpeed={4000}
               />
             </StyledTypewriterWrapper>
-            <Button2
-           
+            <Button2       
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={handleExploreNowClick}
@@ -221,11 +254,16 @@ const Homepage = () => {
           </Button2>
           </Textdiv>
           <Imagediv>
-          <Image src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8dec094c-2586-4ea1-b34b-1a05132af117/ddui50i-3d1d706c-4ea9-4370-ae6a-13713d1847b3.jpg/v1/fill/w_1280,h_960,q_75,strp/pupava___dandelion_by_skofografista_ddui50i-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTYwIiwicGF0aCI6IlwvZlwvOGRlYzA5NGMtMjU4Ni00ZWExLWIzNGItMWEwNTEzMmFmMTE3XC9kZHVpNTBpLTNkMWQ3MDZjLTRlYTktNDM3MC1hZTZhLTEzNzEzZDE4NDdiMy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.oI_yuAFtXIVdF62Bwg2UwirGRXqYoMdTWwDJU4nRTno"  />
+          <Image src="https://media.discordapp.net/attachments/882706828889296974/1200106454359736379/rastlina.jpg?ex=65c4f93b&is=65b2843b&hm=3e20e7ba54917f93baa21a246af053025b625b7c969604df6ac973d0628fef40&=&format=webp&width=1358&height=905"  />
           </Imagediv>
        </Div2>
-
-        <Div3>asd</Div3>
+        <Div3>
+       <Text>
+"Dive into the green universe with our AI plant encyclopedia and let our charming flower chatbot be your guide. Unearth the beauty of nature effortlessly!"</Text>
+<a href="https://identify.plantnet.org">
+<Platnetlogo src="https://my.plantnet.org/images/powered-by-plantnet-dark.png"  />
+</a>
+        </Div3>
       </ColorizedDiv>
     </>
   );
