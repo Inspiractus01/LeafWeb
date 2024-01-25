@@ -179,20 +179,29 @@ background-color: #155C35;
 
 
 const Text = styled.h1`
+  width:80%;
+  margin-bottom:10vh;
+  margin-left:10vh;
   margin-right:10vh;
   font-family: "Regular-R";
   font-size: 1em;
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
+    margin-left:1vh;
+    margin-bottom:10vh;
+    margin-right:0vh;
+    font-size: 0.6em; /* Adjust the font size as needed for smaller screens */
   }
 `;
 const Platnetlogo = styled.img`
+  
   width: 20vh;
   @media (max-width: 900px) {
-    margin-left: 3vh;
-    width: 10vh;
+
+    margin-right:0vh;
+    margin-left: 0vh;
+    width: 15vh;
   }
 `;
 
