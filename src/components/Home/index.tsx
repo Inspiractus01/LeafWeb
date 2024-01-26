@@ -198,7 +198,7 @@ const Platnetlogo = styled.img`
   
   width: 20vh;
   @media (max-width: 900px) {
-
+margin-bottom:7vh;
     margin-right:0vh;
     margin-left: 0vh;
     width: 15vh;
@@ -250,7 +250,7 @@ const Homepage = () => {
                 ]}
                 loop={true}
                 typeSpeed={50}
-                deleteSpeed={0}
+                deleteSpeed={5}
                 delaySpeed={4000}
               />
             </StyledTypewriterWrapper>

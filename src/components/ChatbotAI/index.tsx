@@ -219,13 +219,13 @@ const Chatbot = () => {
                 cursor
                 cursorStyle="_"
                 words={[
-                  "Comming Soon",
+                  "Ai powered chatbot helping your plants to live longer :)- comming soon ",
  ,
                 ]}
                 loop={true}
                 typeSpeed={50}
                 deleteSpeed={0}
-                delaySpeed={4000}
+                delaySpeed={40000000}
               />
             </StyledTypewriterWrapper>
 

@@ -34,7 +34,10 @@ const NavLink = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: under-widthline;
+  }
+  @media(max-width:900px){
+    font-size:1vh;
   }
 `;
 
@@ -50,11 +53,18 @@ const Navbar = () => {
       <NavbarContent>
         <Title>LeafLoop</Title>
         <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <NavLink to="/">HOME</NavLink>
+          <NavLink to="/">Home</NavLink>
         </NavItem>
         <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <NavLink to="/aboutpage">ABOUT</NavLink>
+          <NavLink to="/aboutpage">About us</NavLink>
         </NavItem>
+        <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <NavLink to="/library">Library</NavLink>
+        </NavItem>
+        <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <NavLink to="/chatbot">AI-LeafBot</NavLink>
+        </NavItem>
+        
       </NavbarContent>
     </NavbarContainer>
   );

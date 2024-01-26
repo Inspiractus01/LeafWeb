@@ -225,7 +225,7 @@ const Aboutpage = () => {
                 loop={true}
                 typeSpeed={50}
                 deleteSpeed={0}
-                delaySpeed={4000}
+                delaySpeed={500000}
               />
             </StyledTypewriterWrapper>
 

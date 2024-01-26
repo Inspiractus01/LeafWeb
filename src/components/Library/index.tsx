@@ -219,13 +219,13 @@ const Library= () => {
                 cursor
                 cursorStyle="_"
                 words={[
-                  "Comming Soon",
+                  "Big library of plants-Comming soon",
  ,
                 ]}
                 loop={true}
                 typeSpeed={50}
                 deleteSpeed={0}
-                delaySpeed={4000}
+                delaySpeed={4000000}
               />
             </StyledTypewriterWrapper>
 

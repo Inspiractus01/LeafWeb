@@ -4,6 +4,8 @@ import styled, { createGlobalStyle } from "styled-components";
 import Homepage from "./components/Home";
 import Navbar from "./components/Navbar";
 import Aboutpage from "./components/About/aboutindex";
+import Library from "./components/Library";
+import Chatbot from "./components/ChatbotAI";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -36,6 +38,8 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/aboutpage" element={<Aboutpage />} />
+          <Route path="/library" element={<Library/>} />
+          <Route path="/chatbot" element={<Chatbot  />} />
         </Routes>
         <ScrollToTopButton onClick={scrollToTop}>
           Scroll to Top
