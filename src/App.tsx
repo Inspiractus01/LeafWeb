@@ -19,12 +19,6 @@ const AppContainer = styled.div`
   overflow-x: hidden;
 `;
 
-const ScrollToTopButton = styled.button`
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-`;
-
 const scrollToTop = () => {
   window.scrollTo({ top: 20, behavior: "smooth" });
 };
@@ -35,7 +29,7 @@ const App: React.FC = () => {
       <AppContainer>
         <GlobalStyle />
         <Navbar />
-        <Routes>
+        <Routes> 
           <Route path="/" element={<Homepage />} />
           <Route path="/aboutpage" element={<Aboutpage />} />
           <Route path="/library" element={<Library/>} />
