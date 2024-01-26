@@ -41,9 +41,6 @@ const App: React.FC = () => {
           <Route path="/library" element={<Library/>} />
           <Route path="/chatbot" element={<Chatbot  />} />
         </Routes>
-        <ScrollToTopButton onClick={scrollToTop}>
-          Scroll to Top
-        </ScrollToTopButton>
       </AppContainer>
     </Router>
   );
