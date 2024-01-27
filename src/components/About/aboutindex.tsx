@@ -163,6 +163,8 @@ height:45vh;
 border-radius: 0px;
 
   @media (max-width: 900px) {
+    width:100%;
+    height:30%;
 
   }
 `;
@@ -232,14 +234,14 @@ const Aboutpage = () => {
         <Div2>
             <Title>About us</Title>
             <Text>Curious about the faces behind Leafloop?</Text>
-            <Image src="https://media.discordapp.net/attachments/823230963210256456/1200545467788951563/wallpaperflare.com_wallpaper.jpg?ex=65c69218&is=65b41d18&hm=5f72d4fd3f97d4070dd1ba2ca9a7c7aea02cfbd3c9e5935295516b94911b2193&=&format=webp&width=1609&height=905"></Image>
+            <Image src="https://cdn.discordapp.com/attachments/1096191061015150754/1200639561819242606/LeafLoop.png?ex=65c6e9ba&is=65b474ba&hm=606eb5256c1e4db441e8d17c97618c3f44455a0fad876bc60ebcba49ec9b6447&"></Image>
             <Title2>How this Green project Started?</Title2>
             <Text1>"Curious about the roots of this green project? Let me take you back to the beginning. Leafloop germinated as a hobby project from my mind, Michal Mucha, a young student from Slovakia. I envisioned utilizing new technologies to enhance something as seemingly simple, yet crucial, as plant care. Fueled by my passion to make plant care more accessible and enjoyable, I sowed the seeds of Leafloop. Alongside my friend Palo, we nurtured this vision into the collaborative effort that is Leafloop today. It's a tale of innovation, dedication, and our shared love for the vibrant world of plants."</Text1>
        </Div2>
 
       </ColorizedDiv>
       <ColorizedDiv>\
-      asdasd
+     
       </ColorizedDiv>
 
     </>

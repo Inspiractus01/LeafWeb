@@ -56,7 +56,7 @@ const Scrolldiv = styled(motion.div)`
   height: 100%;
   position: fixed;
   height: 10px;
-  top: 99%;
+  top: 99.3vh;
   left: 0;
   right: 0;
   z-index: 999;
