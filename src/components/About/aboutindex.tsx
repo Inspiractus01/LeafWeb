@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Typewriter } from "react-simple-typewriter";
-import { motion } from "framer-motion";
+import { motion,useScroll,useSpring } from "framer-motion";
 import "../styles.css";
 
 const ColorizedDiv = styled.div`
@@ -215,7 +215,6 @@ width:80%;y
   }
 `;
 
-
 const Aboutpage = () => {
   const handleExploreNowClick = () => {
     window.location.href = "/aboutpage";
@@ -242,6 +241,7 @@ const Aboutpage = () => {
       <ColorizedDiv>\
       asdasd
       </ColorizedDiv>
+
     </>
   );
 };

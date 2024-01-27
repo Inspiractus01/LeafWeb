@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion,useScroll,useSpring } from "framer-motion";
 import styled from "styled-components";
 
 const NavbarContainer = styled.div`
@@ -51,24 +51,58 @@ const Title = styled.div`
   }
 `;
 
+const Scrolldiv = styled(motion.div)`
+  background-color: #2ab96b;
+  height: 100%;
+  position: fixed;
+  height: 10px;
+  top: 99%;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transform-origin: 0%;
+
+  @media(max-width:900px){
+
+    background-color: transparent;
+  }
+  
+`;
+
+
 const Navbar = () => {
+
+  const { scrollYProgress } = useScroll();
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const resetScroll = () => {
+    // Use any method you prefer to scroll to the top
+    window.scrollTo({ top: 0, behavior: 'fast' });
+  };
+
   return (
     <NavbarContainer id="home">
+      
       <NavbarContent>
+
+        <Scrolldiv style={{ scaleX: scaleY }} />
         <Title>LeafLoop</Title>
         <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/" onClick={resetScroll}>Home</NavLink>
         </NavItem>
         <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <NavLink to="/aboutpage">About us</NavLink>
+          <NavLink to="/aboutpage" onClick={resetScroll}>About us</NavLink>
         </NavItem>
         <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <NavLink to="/library">Library</NavLink>
+          <NavLink to="/library" onClick={resetScroll}>Library</NavLink>
         </NavItem>
         <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <NavLink to="/chatbot">AI-LeafBot</NavLink>
+          <NavLink to="/chatbot" onClick={resetScroll}>AI-LeafBot</NavLink>
         </NavItem>
-        
       </NavbarContent>
     </NavbarContainer>
   );

@@ -12,6 +12,16 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
+  /* Hide scrollbar for Chrome, Safari, and Opera */
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+
+  /* Hide scrollbar for Firefox */
+  body {
+    scrollbar-width: none;
+  }
 `;
 
 const AppContainer = styled.div`
@@ -28,6 +38,7 @@ const App: React.FC = () => {
     <Router>
       <AppContainer>
         <GlobalStyle />
+        
         <Navbar />
         <Routes> 
           <Route path="/" element={<Homepage />} />
