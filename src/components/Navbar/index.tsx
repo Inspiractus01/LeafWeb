@@ -37,7 +37,7 @@ const NavLink = styled(Link)`
     text-decoration: under-widthline;
   }
   @media(max-width:900px){
-    font-size:1vh;
+    font-size: 10px;
   }
 `;
 
@@ -45,6 +45,10 @@ const Title = styled.div`
   font-family: "Regular-r", sans-serif;
   font-size: 1em;
   padding-right: 30px;
+  @media(max-width:900px){
+    padding-right: 10px;
+  font-size: 10px;
+  }
 `;
 
 const Navbar = () => {

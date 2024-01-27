@@ -28,13 +28,14 @@ const Title = styled.h1`
 `;
 const Title2 = styled.h1`
   margin: 0;
-  padding: 0;
+  padding-top: 2vh;
   font-family: "Regular-R";
   font-size: 2em;
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 2em; /* Adjust the font size as needed for smaller screens */
+    align-self:center;
+    font-size: 20px; /* Adjust the font size as needed for smaller screens */
   }
 `;
  
@@ -112,7 +113,7 @@ const Div2 = styled.div`
   display:flex;
   @media (max-width: 900px) {
     
-    align-items: flex-start;
+    align-items: center;
     flex-direction:column;
     
   }
@@ -185,16 +186,29 @@ background-color: #155C35;
 
 const Text = styled.h1`
   font-family: "Regular-R";
+  padding-top:5vh;
   font-size: 1em;
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
+    font-size: 10px; /* Adjust the font size as needed for smaller screens */
+  }
+`;
+const Text1 = styled.h1`
+width:80%;
+  font-family: "Regular-R";
+  padding-top:5vh;
+  font-size: 1em;
+  z-index: 1;
+
+  @media (max-width: 900px) {
+    align-self:center;
+    font-size: 10px;
   }
 `;
 
 const Platnetlogo = styled.img`
-  width: 20vh;
+width:80%;y
   @media (max-width: 900px) {
     margin-left: 3vh;
     width: 10vh;
@@ -221,7 +235,7 @@ const Aboutpage = () => {
             <Text>Curious about the faces behind Leafloop?</Text>
             <Image src="https://media.discordapp.net/attachments/823230963210256456/1200545467788951563/wallpaperflare.com_wallpaper.jpg?ex=65c69218&is=65b41d18&hm=5f72d4fd3f97d4070dd1ba2ca9a7c7aea02cfbd3c9e5935295516b94911b2193&=&format=webp&width=1609&height=905"></Image>
             <Title2>How this Green project Started?</Title2>
-            <Text>"Curious about the roots of this green project? Let me take you back to the beginning. Leafloop germinated as a hobby project from my mind, Michal Mucha, a young student from Slovakia. I envisioned utilizing new technologies to enhance something as seemingly simple, yet crucial, as plant care. Fueled by my passion to make plant care more accessible and enjoyable, I sowed the seeds of Leafloop. Alongside my friend Palo, we nurtured this vision into the collaborative effort that is Leafloop today. It's a tale of innovation, dedication, and our shared love for the vibrant world of plants."</Text>
+            <Text1>"Curious about the roots of this green project? Let me take you back to the beginning. Leafloop germinated as a hobby project from my mind, Michal Mucha, a young student from Slovakia. I envisioned utilizing new technologies to enhance something as seemingly simple, yet crucial, as plant care. Fueled by my passion to make plant care more accessible and enjoyable, I sowed the seeds of Leafloop. Alongside my friend Palo, we nurtured this vision into the collaborative effort that is Leafloop today. It's a tale of innovation, dedication, and our shared love for the vibrant world of plants."</Text1>
        </Div2>
 
       </ColorizedDiv>
