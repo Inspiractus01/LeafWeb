@@ -108,7 +108,7 @@ const Div2 = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex: 6;
-  background-color: red;
+  background-color: transparent;
   flex-direction:column;
   display:flex;
   @media (max-width: 900px) {

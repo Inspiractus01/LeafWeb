@@ -3,6 +3,8 @@ import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import "../styles.css";
 import Logo from "./logo.png";
+import Lottie from 'react-lottie';
+import Leafani from "./animation.json"
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -212,6 +214,15 @@ const Homepage = () => {
   };
 
 
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: Leafani,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
+
   return (
     <>
       <ColorizedDiv id="homepage">
@@ -228,6 +239,7 @@ const Homepage = () => {
         </Div1>
 
         <Div2>
+        
           <Textdiv>
             <Title>Personalised</Title>
             <Title>help with</Title>
@@ -274,6 +286,7 @@ const Homepage = () => {
 </a>
         </Div3>
       </ColorizedDiv>
+      <Lottie options={defaultOptions} height={0} width={0} />
     </>
   );
 };
