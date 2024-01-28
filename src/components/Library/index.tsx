@@ -125,6 +125,11 @@ width: 300px;
 height: 200px;  // Set a fixed height if needed
 object-fit: fit;  // You can use other values like 'contain', 'fill', etc.
 margin-bottom: 10px;
+
+@media(max-width:900px){
+  width: 50px;
+  heigth:50px;
+}
 `;
 
 const PlantDescription = styled.p`
@@ -173,7 +178,7 @@ const Library: React.FC = () => {
         </Div1>
 
         <Div2>
-          <Title></Title>
+          <Title>In developement</Title>
           <Text></Text>
           <Title2>How this Green project Started?</Title2>
           <SearchBar />
@@ -187,7 +192,7 @@ const Library: React.FC = () => {
             ))}
           </div>
 
-          <Text1>"asdasdasdasd"</Text1>
+          
         </Div2>
       </ColorizedDiv>
     </>

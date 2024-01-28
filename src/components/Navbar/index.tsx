@@ -20,6 +20,12 @@ const NavbarContent = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media(max-width:900px){
+    width:98%;
+    justify-content:space-around;
+    gap:0px;
+  }
 `;
 
 const NavItem = styled(motion.div)`
@@ -47,6 +53,8 @@ const Title = styled.div`
   padding-right: 30px;
   @media(max-width:900px){
     padding-right: 10px;
+    margin-left:0px;
+    padding-left:0px;
   font-size: 10px;
   }
 `;
