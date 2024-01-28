@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 import SearchBar from "../components/searchbar";
 
 const ColorizedDiv = styled.div`
@@ -11,7 +10,7 @@ const ColorizedDiv = styled.div`
   align-items: top;
   justify-content: center;
   overflow: visible;
-  background-color: #2ab96b; /* Change the background color here */
+  background-color: #2ab96b;
   flex-direction: column;
 `;
 
@@ -23,7 +22,7 @@ const Title = styled.h1`
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 2em; /* Adjust the font size as needed for smaller screens */
+    font-size: 2em;
   }
 `;
 
@@ -36,19 +35,7 @@ const Title2 = styled.h1`
 
   @media (max-width: 900px) {
     align-self: center;
-    font-size: 20px; /* Adjust the font size as needed for smaller screens */
-  }
-`;
-
-const StyledTypewriterWrapper = styled.div`
-  padding-top: 3vh;
-  padding-bottom: 4vh;
-  font-family: "Regular-r";
-  font-size: 1.3em;
-  z-index: 1;
-
-  @media (max-width: 900px) {
-    font-size: 0.6em; /* Adjust the font size as needed for smaller screens */
+    font-size: 20px;
   }
 `;
 
@@ -71,7 +58,7 @@ const Titleleaf = styled.h1`
 
   @media (max-width: 900px) {
     margin-left: 3vh;
-    font-size: 1em; /* Adjust the font size as needed for smaller screens */
+    font-size: 1em;
   }
 `;
 
@@ -81,8 +68,6 @@ const Logoloop = styled.img`
   width: 8vh;
   border-radius: 20px;
 `;
-
-
 
 const Div2 = styled.div`
   justify-content: flex-start;
@@ -104,7 +89,7 @@ const Text = styled.h1`
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 10px; /* Adjust the font size as needed for smaller screens */
+    font-size: 10px;
   }
 `;
 
@@ -126,12 +111,20 @@ const PlantInfoContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 20px;
+  margin: 20px;
+  
+
+  @media (max-width: 900px) {
+    width: 100%; // On smaller screens, set width to 100% to have one item per row
+  }
+
 `;
 
 const PlantImage = styled.img`
-  max-width: 300px;
-  max-height: 300px;
+width: 300px;
+height: 200px;  // Set a fixed height if needed
+object-fit: fit;  // You can use other values like 'contain', 'fill', etc.
+margin-bottom: 10px;
 `;
 
 const PlantDescription = styled.p`
@@ -185,13 +178,15 @@ const Library: React.FC = () => {
           <Title2>How this Green project Started?</Title2>
           <SearchBar />
           
-          {plantData.map((plant) => (
-            <PlantInfoContainer key={plant._id}>
-              <PlantImage src={plant.url} alt={plant.name} />
-              <PlantDescription>{plant.name}</PlantDescription>
-            </PlantInfoContainer>
-          ))}
-          
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center',width:"80%",}}>
+            {plantData.map((plant) => (
+              <PlantInfoContainer key={plant._id}>
+                <PlantImage src={plant.url} alt={plant.name} />
+                <PlantDescription>{plant.name}</PlantDescription>
+              </PlantInfoContainer>
+            ))}
+          </div>
+
           <Text1>"asdasdasdasd"</Text1>
         </Div2>
       </ColorizedDiv>
