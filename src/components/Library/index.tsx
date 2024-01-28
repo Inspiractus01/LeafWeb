@@ -152,6 +152,42 @@ interface PlantData {
 
 const Library: React.FC = () => {
   const [plantData, setPlantData] = useState<PlantData[]>([]);
+  const [newPlantName, setNewPlantName] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleAddPlant = async () => {
+    try {
+      setLoading(true);
+  
+      const response = await fetch(`https://api.leafloop.wiki/addplant?nazovv=${newPlantName}`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+  
+      if (response.status === 200) {
+        // Plant added successfully, fetch updated data
+        const updatedResponse = await fetch("https://api.leafloop.wiki/flowers");
+        const updatedData = await updatedResponse.json();
+  
+        if (updatedData && updatedData.length > 0) {
+          setPlantData(updatedData);
+        }
+  
+        console.log('Plant added successfully');
+      } else {
+        // Handle error, you can log or show an error message
+        console.error('Failed to add plant:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error adding plant:', error);
+    } finally {
+      setLoading(false);
+      setNewPlantName(''); // Clear input field after adding a plant
+    }
+  };
+  
 
   useEffect(() => {
     const fetchPlantData = async () => {
@@ -178,12 +214,26 @@ const Library: React.FC = () => {
         </Div1>
 
         <Div2>
-          <Title>In developement</Title>
+          <Title>In development</Title>
           <Text></Text>
           <Title2>How this Green project Started?</Title2>
+
+          {/* Add input and button for adding plants */}
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+            <input
+              type="text"
+              placeholder="Enter plant name"
+              value={newPlantName}
+              onChange={(e) => setNewPlantName(e.target.value)}
+            />
+            <button onClick={handleAddPlant} disabled={loading}>
+              Add Plant
+            </button>
+          </div>
+
           <SearchBar />
-          
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center',width:"80%",}}>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: "80%" }}>
             {plantData.map((plant) => (
               <PlantInfoContainer key={plant._id}>
                 <PlantImage src={plant.url} alt={plant.name} />
@@ -191,8 +241,6 @@ const Library: React.FC = () => {
               </PlantInfoContainer>
             ))}
           </div>
-
-          
         </Div2>
       </ColorizedDiv>
     </>
