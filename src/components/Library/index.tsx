@@ -123,7 +123,7 @@ const PlantInfoContainer = styled.div`
 const PlantImage = styled.img`
 width: 300px;
 height: 200px;  // Set a fixed height if needed
-object-fit: fit;  // You can use other values like 'contain', 'fill', etc.
+object-fit: cover;  // You can use other values like 'contain', 'fill', etc.
 margin-bottom: 10px;
 
 @media(max-width:900px){
@@ -132,9 +132,10 @@ margin-bottom: 10px;
 }
 `;
 
-const PlantDescription = styled.p`
+const PlantName = styled.p`
+
   font-family: "Regular-R";
-  font-size: 10px;
+  font-size: 15px;
   margin-top: 10px;
 `;
 
@@ -218,7 +219,6 @@ const Library: React.FC = () => {
           <Text></Text>
           <Title2>How this Green project Started?</Title2>
 
-          {/* Add input and button for adding plants */}
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
             <input
               type="text"
@@ -226,9 +226,6 @@ const Library: React.FC = () => {
               value={newPlantName}
               onChange={(e) => setNewPlantName(e.target.value)}
             />
-            <button onClick={handleAddPlant} disabled={loading}>
-              Add Plant
-            </button>
           </div>
 
           <SearchBar />
@@ -237,7 +234,7 @@ const Library: React.FC = () => {
             {plantData.map((plant) => (
               <PlantInfoContainer key={plant._id}>
                 <PlantImage src={plant.url} alt={plant.name} />
-                <PlantDescription>{plant.name}</PlantDescription>
+                <PlantName>{plant.name}</PlantName>
               </PlantInfoContainer>
             ))}
           </div>
@@ -246,5 +243,7 @@ const Library: React.FC = () => {
     </>
   );
 };
+
+            //<button onClick={handleAddPlant} disabled={loading}>
 
 export default Library;
