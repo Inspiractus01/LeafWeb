@@ -227,7 +227,7 @@ const Library: React.FC = () => {
               onChange={(e) => setNewPlantName(e.target.value)}
             />
           </div>
-
+          <button onClick={handleAddPlant} disabled={loading}>add          </button>
           <SearchBar />
 
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: "80%" }}>
