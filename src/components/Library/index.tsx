@@ -112,28 +112,25 @@ const PlantInfoContainer = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 20px;
-  
 
   @media (max-width: 900px) {
-    width: 100%; // On smaller screens, set width to 100% to have one item per row
+    width: 100%;
   }
-
 `;
 
 const PlantImage = styled.img`
-width: 300px;
-height: 200px;  // Set a fixed height if needed
-object-fit: cover;  // You can use other values like 'contain', 'fill', etc.
-margin-bottom: 10px;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
 
-@media(max-width:900px){
-  width: 50px;
-  heigth:50px;
-}
+  @media (max-width: 900px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 const PlantName = styled.p`
-
   font-family: "Regular-R";
   font-size: 15px;
   margin-top: 10px;
@@ -141,13 +138,30 @@ const PlantName = styled.p`
 
 interface PlantData {
   _id: string;
-  name: string;
-  description: string;
-  care: string;
-  taxname: string;
-  carelevel: number;
-  watering: number;
-  light: number;
+  Slovenčina: {
+    špecifikácie: {
+      taxonomické_meno: string;
+      starostlivosť: string;
+      popis: string;
+      dar: string;
+      názov: string;
+      výška: string;
+      spôsob_rastu: string;
+      trvanie: string;
+      rast: {
+        svetlo: string;
+        atmosférická_vlhkosť: string;
+        ph: string;
+        teplota: string;
+        pôda: {
+          vlhkosť: string;
+          pôdne_živiny: string;
+          slanosť_pôdy: string;
+          textúra_pôdy: string;
+        };
+      };
+    };
+  };
   url: string;
 }
 
@@ -159,36 +173,33 @@ const Library: React.FC = () => {
   const handleAddPlant = async () => {
     try {
       setLoading(true);
-  
+
       const response = await fetch(`https://api.leafloop.wiki/addplant?nazovv=${newPlantName}`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
         },
       });
-  
+
       if (response.status === 200) {
-        // Plant added successfully, fetch updated data
         const updatedResponse = await fetch("https://api.leafloop.wiki/flowers");
         const updatedData = await updatedResponse.json();
-  
+
         if (updatedData && updatedData.length > 0) {
           setPlantData(updatedData);
         }
-  
+
         console.log('Plant added successfully');
       } else {
-        // Handle error, you can log or show an error message
         console.error('Failed to add plant:', response.statusText);
       }
     } catch (error) {
       console.error('Error adding plant:', error);
     } finally {
       setLoading(false);
-      setNewPlantName(''); // Clear input field after adding a plant
+      setNewPlantName('');
     }
   };
-  
 
   useEffect(() => {
     const fetchPlantData = async () => {
@@ -227,14 +238,14 @@ const Library: React.FC = () => {
               onChange={(e) => setNewPlantName(e.target.value)}
             />
           </div>
-          <button onClick={handleAddPlant} disabled={loading}>add          </button>
+          <button onClick={handleAddPlant} disabled={loading}>add</button>
           <SearchBar />
 
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: "80%" }}>
             {plantData.map((plant) => (
               <PlantInfoContainer key={plant._id}>
-                <PlantImage src={plant.url} alt={plant.name} />
-                <PlantName>{plant.name}</PlantName>
+                <PlantImage src={plant.url} alt={plant.Slovenčina.špecifikácie.názov} />
+                <PlantName>{plant.Slovenčina.špecifikácie.názov}</PlantName>
               </PlantInfoContainer>
             ))}
           </div>
@@ -243,7 +254,5 @@ const Library: React.FC = () => {
     </>
   );
 };
-
-            //<button onClick={handleAddPlant} disabled={loading}>
 
 export default Library;
