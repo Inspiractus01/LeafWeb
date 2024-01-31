@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Typewriter } from "react-simple-typewriter";
-import { motion } from "framer-motion";
+import { motion,useScroll,useSpring } from "framer-motion";
 import "../styles.css";
 
 const ColorizedDiv = styled.div`
@@ -24,6 +24,18 @@ const Title = styled.h1`
 
   @media (max-width: 900px) {
     font-size: 2em; /* Adjust the font size as needed for smaller screens */
+  }
+`;
+const Title2 = styled.h1`
+  margin: 0;
+  padding-top: 2vh;
+  font-family: "Regular-R";
+  font-size: 2em;
+  z-index: 1;
+
+  @media (max-width: 900px) {
+    align-self:center;
+    font-size: 20px; /* Adjust the font size as needed for smaller screens */
   }
 `;
  
@@ -97,11 +109,11 @@ const Div2 = styled.div`
   align-items: center;
   flex: 6;
   background-color: transparent;
-  flex-direction:row;
+  flex-direction:column;
   display:flex;
   @media (max-width: 900px) {
     
-    align-items: flex-start;
+    align-items: center;
     flex-direction:column;
     
   }
@@ -146,17 +158,14 @@ const Button2 = styled(motion.button)`
 const Image = styled.img`
 object-fit: cover; 
 border: 2px solid #363434;
-border-radius: 30px;
-  width: 70vh;
-  box-shadow: 30px -40px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
+width:135vh;
+height:45vh;
+border-radius: 0px;
 
   @media (max-width: 900px) {
-    margin-left: 3vh;
-    align-self: center;
-    justify-self: center;
-    width: 80%;
-    height: 80%;
-    box-shadow: 15px -20px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
+    width:100%;
+    height:30%;
+
   }
 `;
 const Imagediv = styled.div`
@@ -178,23 +187,35 @@ background-color: #155C35;
 
 
 const Text = styled.h1`
-  margin-right:10vh;
   font-family: "Regular-R";
+  padding-top:5vh;
   font-size: 1em;
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
+    font-size: 10px; /* Adjust the font size as needed for smaller screens */
   }
 `;
+const Text1 = styled.h1`
+width:80%;
+  font-family: "Regular-R";
+  padding-top:5vh;
+  font-size: 1em;
+  z-index: 1;
+
+  @media (max-width: 900px) {
+    align-self:center;
+    font-size: 10px;
+  }
+`;
+
 const Platnetlogo = styled.img`
-  width: 20vh;
+width:80%;y
   @media (max-width: 900px) {
     margin-left: 3vh;
     width: 10vh;
   }
 `;
-
 
 const Aboutpage = () => {
   const handleExploreNowClick = () => {
@@ -204,38 +225,25 @@ const Aboutpage = () => {
 
   return (
     <>
-      <ColorizedDiv id="homepage">
+      <ColorizedDiv id="aboutus">
         <Div1>
           <Logoloop ></Logoloop>
           <Titleleaf>LeafLoop</Titleleaf>
         </Div1>
 
         <Div2>
-          <Textdiv>
-            <Title>COMMING SOON, IN DEVELOPEMENT</Title>
-
-            <StyledTypewriterWrapper>
-              <Typewriter
-                cursor
-                cursorStyle="_"
-                words={[
-                  "Comming Soon",
- ,
-                ]}
-                loop={true}
-                typeSpeed={50}
-                deleteSpeed={0}
-                delaySpeed={4000}
-              />
-            </StyledTypewriterWrapper>
-
-          </Textdiv>
-          <Imagediv>
-          
-          </Imagediv>
+            <Title>About us</Title>
+            <Text>Curious about the faces behind Leafloop?</Text>
+            <Image src="https://cdn.discordapp.com/attachments/1096191061015150754/1200639561819242606/LeafLoop.png?ex=65c6e9ba&is=65b474ba&hm=606eb5256c1e4db441e8d17c97618c3f44455a0fad876bc60ebcba49ec9b6447&"></Image>
+            <Title2>How this Green project Started?</Title2>
+            <Text1>"Curious about the roots of this green project? Let me take you back to the beginning. Leafloop germinated as a hobby project from my mind, Michal Mucha, a young student from Slovakia. I envisioned utilizing new technologies to enhance something as seemingly simple, yet crucial, as plant care. Fueled by my passion to make plant care more accessible and enjoyable, I sowed the seeds of Leafloop. Alongside my friend Palo, we nurtured this vision into the collaborative effort that is Leafloop today. It's a tale of innovation, dedication, and our shared love for the vibrant world of plants."</Text1>
        </Div2>
 
       </ColorizedDiv>
+      <ColorizedDiv>\
+     
+      </ColorizedDiv>
+
     </>
   );
 };

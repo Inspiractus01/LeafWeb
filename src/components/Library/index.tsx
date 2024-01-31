@@ -1,17 +1,16 @@
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Typewriter } from "react-simple-typewriter";
-import { motion } from "framer-motion";
-import "../styles.css";
+import SearchBar from "../components/searchbar";
 
 const ColorizedDiv = styled.div`
   position: relative;
   color: white;
-  height: 100vh;
+  height: 200vh;
   display: flex;
   align-items: top;
   justify-content: center;
-  overflow: hidden;
-  background-color: #2ab96b; /* Change the background color here */
+  overflow: visible;
+  background-color: #2ab96b;
   flex-direction: column;
 `;
 
@@ -23,27 +22,27 @@ const Title = styled.h1`
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 2em; /* Adjust the font size as needed for smaller screens */
+    font-size: 2em;
   }
 `;
- 
-const StyledTypewriterWrapper = styled.div`
-  padding-top: 3vh;
-  padding-bottom: 4vh;
-  font-family: "Regular-r";
-  font-size: 1.3em;
+
+const Title2 = styled.h1`
+  margin: 0;
+  padding-top: 2vh;
+  font-family: "Regular-R";
+  font-size: 2em;
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 0.6em; /* Adjust the font size as needed for smaller screens */
+    align-self: center;
+    font-size: 20px;
   }
 `;
 
 const Div1 = styled.div`
-  justify-content: center; /* Add this line to center content horizontally */
-  align-items: center; /* Optionally, you can also center vertically */
-
-  flex: 0.7;
+  justify-content: center;
+  align-items: center;
+  flex: 0.3;
   display: flex;
   flex-direction: row;
   background-color: transparent;
@@ -59,37 +58,15 @@ const Titleleaf = styled.h1`
 
   @media (max-width: 900px) {
     margin-left: 3vh;
-    font-size: 1em; /* Adjust the font size as needed for smaller screens */
+    font-size: 1em;
   }
 `;
-const Logoloop=styled.img`
-margin-top:1vh;
-margin-left: 1vh;
-  width:8vh;
-  border-radius:20px;
-`;
 
-const Button = styled(motion.button)`
-  margin: 1vh;
-  width: 20vh;
-  height: 5vh;
-  font-family: "Regular-R";
-  font-size: 1em;
-  background-color: #2ab96b;
-  color: white;
-  border: 2px solid white;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: white;
-    color: #2ab96b;
-  }
-
-  @media (max-width: 900px) {
-    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
-  }
+const Logoloop = styled.img`
+  margin-top: 1vh;
+  margin-left: 1vh;
+  width: 8vh;
+  border-radius: 20px;
 `;
 
 const Div2 = styled.div`
@@ -97,144 +74,182 @@ const Div2 = styled.div`
   align-items: center;
   flex: 6;
   background-color: transparent;
-  flex-direction:row;
-  display:flex;
-  @media (max-width: 900px) {
-    
-    align-items: flex-start;
-    flex-direction:column;
-    
-  }
-`;
-
-const Textdiv = styled.div`
-  margin-left: 3vh;
-  display: flex;
-  width: 55%;
   flex-direction: column;
-
-  @media (max-width: 900px) {
-    margin-top:3vh;
-    width:100%;
-
-`;
-
-const Button2 = styled(motion.button)`
-  margin: 1vh;
-  width: 20vh;
-  height: 5vh;
-  font-family: "Regular-R";
-  font-size: 1em;
-  background-color: #18914A;
-  color: black;
-  border: 2px solid #18914A;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: white;
-    color: black;
-  }
-
-  @media (max-width: 900px) {
-    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
-  }
-`;
-
-
-const Image = styled.img`
-object-fit: cover; 
-border: 2px solid #363434;
-border-radius: 30px;
-  width: 70vh;
-  box-shadow: 30px -40px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
-
-  @media (max-width: 900px) {
-    margin-left: 3vh;
-    align-self: center;
-    justify-self: center;
-    width: 80%;
-    height: 80%;
-    box-shadow: 15px -20px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
-  }
-`;
-const Imagediv = styled.div`
   display: flex;
   @media (max-width: 900px) {
-    width: 100%;
-    height:100%;
-  
+    align-items: center;
+    flex-direction: column;
+  }
 `;
-
-
-const Div3 = styled.div`
-background-color: #155C35;
-  flex: 2;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-`;
-
 
 const Text = styled.h1`
-  margin-right:10vh;
   font-family: "Regular-R";
+  padding-top: 5vh;
   font-size: 1em;
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
+    font-size: 10px;
   }
 `;
-const Platnetlogo = styled.img`
-  width: 20vh;
+
+const Text1 = styled.h1`
+  width: 80%;
+  font-family: "Regular-R";
+  padding-top: 5vh;
+  font-size: 1em;
+  z-index: 1;
+
   @media (max-width: 900px) {
-    margin-left: 3vh;
-    width: 10vh;
+    align-self: center;
+    font-size: 10px;
   }
 `;
 
+const PlantInfoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
 
-const Library= () => {
-  const handleExploreNowClick = () => {
-    window.location.href = "/aboutpage";
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+`;
+
+const PlantImage = styled.img`
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+
+  @media (max-width: 900px) {
+    width: 50px;
+    height: 50px;
+  }
+`;
+
+const PlantName = styled.p`
+  font-family: "Regular-R";
+  font-size: 15px;
+  margin-top: 10px;
+`;
+
+interface PlantData {
+  _id: string;
+  Slovenčina: {
+    špecifikácie: {
+      taxonomické_meno: string;
+      starostlivosť: string;
+      popis: string;
+      dar: string;
+      názov: string;
+      výška: string;
+      spôsob_rastu: string;
+      trvanie: string;
+      rast: {
+        svetlo: string;
+        atmosférická_vlhkosť: string;
+        ph: string;
+        teplota: string;
+        pôda: {
+          vlhkosť: string;
+          pôdne_živiny: string;
+          slanosť_pôdy: string;
+          textúra_pôdy: string;
+        };
+      };
+    };
+  };
+  url: string;
+}
+
+const Library: React.FC = () => {
+  const [plantData, setPlantData] = useState<PlantData[]>([]);
+  const [newPlantName, setNewPlantName] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleAddPlant = async () => {
+    try {
+      setLoading(true);
+
+      const response = await fetch(`https://api.leafloop.wiki/addplant?nazovv=${newPlantName}`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+
+      if (response.status === 200) {
+        const updatedResponse = await fetch("https://api.leafloop.wiki/flowers");
+        const updatedData = await updatedResponse.json();
+
+        if (updatedData && updatedData.length > 0) {
+          setPlantData(updatedData);
+        }
+
+        console.log('Plant added successfully');
+      } else {
+        console.error('Failed to add plant:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error adding plant:', error);
+    } finally {
+      setLoading(false);
+      setNewPlantName('');
+    }
   };
 
+  useEffect(() => {
+    const fetchPlantData = async () => {
+      try {
+        const response = await fetch("https://api.leafloop.wiki/flowers");
+        const data = await response.json();
+        if (data && data.length > 0) {
+          setPlantData(data);
+        }
+      } catch (error) {
+        console.error("Error fetching plant data:", error);
+      }
+    };
+
+    fetchPlantData();
+  }, []);
 
   return (
     <>
-      <ColorizedDiv id="homepage">
+      <ColorizedDiv id="library">
         <Div1>
-          <Logoloop ></Logoloop>
+          <Logoloop />
           <Titleleaf>LeafLoop</Titleleaf>
         </Div1>
 
         <Div2>
-          <Textdiv>
-            <Title>COMMING SOON, IN DEVELOPEMENT</Title>
+          <Title>In development</Title>
+          <Text></Text>
+          <Title2>How this Green project Started?</Title2>
 
-            <StyledTypewriterWrapper>
-              <Typewriter
-                cursor
-                cursorStyle="_"
-                words={[
-                  "Comming Soon",
- ,
-                ]}
-                loop={true}
-                typeSpeed={50}
-                deleteSpeed={0}
-                delaySpeed={4000}
-              />
-            </StyledTypewriterWrapper>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+            <input
+              type="text"
+              placeholder="Enter plant name"
+              value={newPlantName}
+              onChange={(e) => setNewPlantName(e.target.value)}
+            />
+          </div>
+          <button onClick={handleAddPlant} disabled={loading}>add</button>
+          <SearchBar />
 
-          </Textdiv>
-          <Imagediv>
-          
-          </Imagediv>
-       </Div2>
-
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: "80%" }}>
+            {plantData.map((plant) => (
+              <PlantInfoContainer key={plant._id}>
+                <PlantImage src={plant.url} alt={plant.Slovenčina.špecifikácie.názov} />
+                <PlantName>{plant.Slovenčina.špecifikácie.názov}</PlantName>
+              </PlantInfoContainer>
+            ))}
+          </div>
+        </Div2>
       </ColorizedDiv>
     </>
   );

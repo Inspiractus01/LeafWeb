@@ -3,6 +3,8 @@ import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import "../styles.css";
 import Logo from "./logo.png";
+import Lottie from 'react-lottie';
+import Leafani from "./animation.json"
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -198,7 +200,7 @@ const Platnetlogo = styled.img`
   
   width: 20vh;
   @media (max-width: 900px) {
-
+margin-bottom:7vh;
     margin-right:0vh;
     margin-left: 0vh;
     width: 15vh;
@@ -211,6 +213,15 @@ const Homepage = () => {
     window.location.href = "/aboutpage";
   };
 
+
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: Leafani,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
 
   return (
     <>
@@ -228,6 +239,7 @@ const Homepage = () => {
         </Div1>
 
         <Div2>
+        
           <Textdiv>
             <Title>Personalised</Title>
             <Title>help with</Title>
@@ -250,7 +262,7 @@ const Homepage = () => {
                 ]}
                 loop={true}
                 typeSpeed={50}
-                deleteSpeed={0}
+                deleteSpeed={5}
                 delaySpeed={4000}
               />
             </StyledTypewriterWrapper>
@@ -274,6 +286,7 @@ const Homepage = () => {
 </a>
         </Div3>
       </ColorizedDiv>
+      <Lottie options={defaultOptions} height={0} width={0} />
     </>
   );
 };
