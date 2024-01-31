@@ -98,9 +98,8 @@ const Navbar = () => {
       <NavbarContent>
 
         <Scrolldiv style={{ scaleX: scaleY }} />
-        <Title>LeafLoop</Title>
         <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <NavLink to="/" onClick={resetScroll}>Home</NavLink>
+          <NavLink to="/" onClick={resetScroll}>LeafLoop</NavLink>
         </NavItem>
         <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
           <NavLink to="/aboutpage" onClick={resetScroll}>About us</NavLink>

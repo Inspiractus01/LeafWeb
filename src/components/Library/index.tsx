@@ -30,7 +30,7 @@ const Title2 = styled.h1`
   margin: 0;
   padding-top: 2vh;
   font-family: "Regular-R";
-  font-size: 2em;
+  font-size: 1em;
   z-index: 1;
 
   @media (max-width: 900px) {
@@ -125,8 +125,8 @@ const PlantImage = styled.img`
   margin-bottom: 10px;
 
   @media (max-width: 900px) {
-    width: 50px;
-    height: 50px;
+    width: 250px;
+    height: 150x;
   }
 `;
 
@@ -226,9 +226,9 @@ const Library: React.FC = () => {
         </Div1>
 
         <Div2>
-          <Title>In development</Title>
+          <Title>Vo vývoji</Title>
           <Text></Text>
-          <Title2>How this Green project Started?</Title2>
+          <Title2>Vitaj v ríši rastlín, kde každý list je knihou a každá vetvička má svoj príbeh!</Title2>
 
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
             <input
