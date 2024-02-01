@@ -228,7 +228,7 @@ const Library: React.FC = () => {
         <Div2>
           <Title>Vo vývoji</Title>
           <Text></Text>
-          <Title2>Vitaj v ríši rastlín, kde každý list je knihou a každá vetvička má svoj príbeh!</Title2>
+          <Title2>Vitaj v ríši rastlín, kde každá vetvička je knihou a každý list má svoj vlastný príbeh!</Title2>
 
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
             <input

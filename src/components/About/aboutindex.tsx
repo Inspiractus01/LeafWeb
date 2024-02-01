@@ -232,11 +232,12 @@ const Aboutpage = () => {
         </Div1>
 
         <Div2>
-            <Title>About us</Title>
-            <Text>Curious about the faces behind Leafloop?</Text>
+            <Title>O nás</Title>
+            <Text>Kto stojí za vytvorením LeafLoopom?</Text>
             <Image src="https://cdn.discordapp.com/attachments/1096191061015150754/1200639561819242606/LeafLoop.png?ex=65c6e9ba&is=65b474ba&hm=606eb5256c1e4db441e8d17c97618c3f44455a0fad876bc60ebcba49ec9b6447&"></Image>
-            <Title2>How this Green project Started?</Title2>
-            <Text1>"Curious about the roots of this green project? Let me take you back to the beginning. Leafloop germinated as a hobby project from my mind, Michal Mucha, a young student from Slovakia. I envisioned utilizing new technologies to enhance something as seemingly simple, yet crucial, as plant care. Fueled by my passion to make plant care more accessible and enjoyable, I sowed the seeds of Leafloop. Alongside my friend Palo, we nurtured this vision into the collaborative effort that is Leafloop today. It's a tale of innovation, dedication, and our shared love for the vibrant world of plants."</Text1>
+            <Title2>Ako sa tento zelený projekt začal?</Title2>
+            <Text1>"Chceš počuť príbeh o vzniku nášho zeleného projektu? Dovoľ mi, aby som ťa zaviedol späť na začiatok. Leafloop nevznikol len ako obyčajný projekt, ale bol výsledkom môjho osobného nadšenia.  Som Michal Mucha, študent zo Slovenska, ktorý mal túžbu spojit moderné technológie, s niečím tak obyčajným ale pritom tak dôležitým a to s rastlinami. Mojou vášňou a oddanosťou pre spojenie moderných technológií s takýmto dôležitým aspektom života som začal projekt Leafloop. Spolu so svojím priateľom Palom sme starostlivo rozvíjali túto myšlienku, a dnes sme svedkami úspechu našej spoločnej inovácie, ktorá vznikla z lásky k fascinujúcemu svetu rastlín."           
+              - Michal</Text1>
        </Div2>
 
       </ColorizedDiv>

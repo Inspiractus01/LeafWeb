@@ -234,36 +234,34 @@ const Homepage = () => {
             whileTap={{ scale: 0.9 }}
             onClick={handleExploreNowClick}
           >
-            Explore Now
+            
+Skúmať teraz
           </Button>
         </Div1>
 
         <Div2>
         
           <Textdiv>
-            <Title>Personalised</Title>
-            <Title>help with</Title>
-            <Title>plants</Title>
+
+          <Title>Personalizovaná</Title>
+          <Title>pomoc s</Title>
+          <Title>rastlinami</Title>
             <StyledTypewriterWrapper>
               <Typewriter
                 cursor
                 cursorStyle="_"
                 words={[
-                  "Personalized care advice for your plants!",
-                  "Create a thriving green haven with tailored guidance!",
-                  "Unlock custom tips for your unique plant companions!",
-                  "Your plants, our personalized expertise!",
-                  "Expert advice to enhance your plant parenting!",
-                  "Tailored care tips for your beloved green friends!",
-                  "Nurture your plants with personalized care insights!",
-                  "Get bespoke advice for a flourishing plant life!",
-                  "Elevate your plant care journey with personalized tips!",
-                  "Your green companions deserve personalized attention!",
+                  "Personalizovaná pomoc pre vaše rastlinky",
+                  "Vaše rastliny, naša personalizovaná odbornosť!",
+                  "Najväčšia knižnica rastlín na Slovensku!",
+                  "Použite naše LeafLoop-API dostupné pre každého",
+                  "Opýtajte sa nášho AI-LeafLoop bota na rady pre vašu rastlinku",
+                  "Zapojte sa a prispejte do našej open-source knižnice rastlín",
                 ]}
                 loop={true}
                 typeSpeed={50}
                 deleteSpeed={5}
-                delaySpeed={4000}
+                delaySpeed={5000}
               />
             </StyledTypewriterWrapper>
             <Button2       
@@ -271,7 +269,8 @@ const Homepage = () => {
             whileTap={{ scale: 0.9 }}
             onClick={handleExploreNowClick}
           >
-            Explore Now
+           
+Skúmať teraz
           </Button2>
           </Textdiv>
           <Imagediv>
@@ -280,7 +279,8 @@ const Homepage = () => {
        </Div2>
         <Div3>
        <Text>
-"Dive into the green universe with our AI plant encyclopedia and let our charming flower chatbot be your guide. Unearth the beauty of nature effortlessly!"</Text>
+"Ponor sa do sveta rastlín s našou AI encyklopédiu rastlín a nechaj si poradit naším chatbotom. 
+Odkryjte krásu přírody bez námahy!"</Text>
 <a href="https://identify.plantnet.org">
 <Platnetlogo src="https://my.plantnet.org/images/powered-by-plantnet-dark.png"  />
 </a>

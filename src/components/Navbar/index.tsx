@@ -102,10 +102,10 @@ const Navbar = () => {
           <NavLink to="/" onClick={resetScroll}>LeafLoop</NavLink>
         </NavItem>
         <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <NavLink to="/aboutpage" onClick={resetScroll}>About us</NavLink>
+          <NavLink to="/aboutpage" onClick={resetScroll}>O nás</NavLink>
         </NavItem>
         <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <NavLink to="/library" onClick={resetScroll}>Library</NavLink>
+          <NavLink to="/library" onClick={resetScroll}>Knižnica</NavLink>
         </NavItem>
         <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
           <NavLink to="/chatbot" onClick={resetScroll}>AI-LeafBot</NavLink>
