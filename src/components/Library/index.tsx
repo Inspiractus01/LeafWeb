@@ -161,7 +161,7 @@ const Library: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const [page, setPage] = useState<number>(1); // Track the current page
-  const plantsPerPage = 6; // Number of plants to display per page
+  const plantsPerPage = 15; // Number of plants to display per page
 
   const handleAddPlant = async () => {
     try {
