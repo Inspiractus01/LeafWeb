@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import SearchBar from "../components/searchbar";
+import { Button, Pagination, Stack } from "@mui/material";
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -13,7 +14,6 @@ const ColorizedDiv = styled.div`
   background-color: #2ab96b;
   flex-direction: column;
 `;
-
 const Title = styled.h1`
   margin: 0;
   padding: 0;
@@ -25,7 +25,6 @@ const Title = styled.h1`
     font-size: 2em;
   }
 `;
-
 const Title2 = styled.h1`
   margin: 0;
   padding-top: 2vh;
@@ -38,7 +37,6 @@ const Title2 = styled.h1`
     font-size: 20px;
   }
 `;
-
 const Div1 = styled.div`
   justify-content: center;
   align-items: center;
@@ -47,7 +45,6 @@ const Div1 = styled.div`
   flex-direction: row;
   background-color: transparent;
 `;
-
 const Titleleaf = styled.h1`
   margin-top: 2vh;
   margin-left: 2vh;
@@ -61,14 +58,12 @@ const Titleleaf = styled.h1`
     font-size: 1em;
   }
 `;
-
 const Logoloop = styled.img`
   margin-top: 1vh;
   margin-left: 1vh;
   width: 8vh;
   border-radius: 20px;
 `;
-
 const Div2 = styled.div`
   justify-content: flex-start;
   align-items: center;
@@ -81,7 +76,6 @@ const Div2 = styled.div`
     flex-direction: column;
   }
 `;
-
 const Text = styled.h1`
   font-family: "Regular-R";
   padding-top: 5vh;
@@ -92,7 +86,6 @@ const Text = styled.h1`
     font-size: 10px;
   }
 `;
-
 const Text1 = styled.h1`
   width: 80%;
   font-family: "Regular-R";
@@ -105,7 +98,6 @@ const Text1 = styled.h1`
     font-size: 10px;
   }
 `;
-
 const PlantInfoContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -117,7 +109,6 @@ const PlantInfoContainer = styled.div`
     width: 100%;
   }
 `;
-
 const PlantImage = styled.img`
   width: 300px;
   height: 200px;
@@ -129,7 +120,6 @@ const PlantImage = styled.img`
     height: 150x;
   }
 `;
-
 const PlantName = styled.p`
   font-family: "Regular-R";
   font-size: 15px;
@@ -170,6 +160,9 @@ const Library: React.FC = () => {
   const [newPlantName, setNewPlantName] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
+  const [page, setPage] = useState<number>(1); // Track the current page
+  const plantsPerPage = 6; // Number of plants to display per page
+
   const handleAddPlant = async () => {
     try {
       setLoading(true);
@@ -201,7 +194,7 @@ const Library: React.FC = () => {
     }
   };
 
-  useEffect(() => {
+    useEffect(() => {
     const fetchPlantData = async () => {
       try {
         const response = await fetch("https://api.leafloop.wiki/flowers");
@@ -216,6 +209,12 @@ const Library: React.FC = () => {
 
     fetchPlantData();
   }, []);
+
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
+
+  const paginatedPlantData = plantData.slice((page - 1) * plantsPerPage, page * plantsPerPage);
 
   return (
     <>
@@ -242,13 +241,24 @@ const Library: React.FC = () => {
           <SearchBar />
 
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: "80%" }}>
-            {plantData.map((plant) => (
+            {paginatedPlantData.map((plant) => (
               <PlantInfoContainer key={plant._id}>
                 <PlantImage src={plant.url} alt={plant.Slovenčina.špecifikácie.názov} />
                 <PlantName>{plant.Slovenčina.špecifikácie.názov}</PlantName>
               </PlantInfoContainer>
             ))}
           </div>
+
+          {/* Pagination */}
+          <Stack spacing={2} justifyContent="center" mt={3}>
+            <Pagination
+              count={Math.ceil(plantData.length / plantsPerPage)}
+              page={page}
+              onChange={handlePageChange}
+              variant="outlined"
+              shape="rounded"
+            />
+          </Stack>
         </Div2>
       </ColorizedDiv>
     </>
