@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import SearchBar from "../components/searchbar";
-import { Button, Pagination, Stack,useMediaQuery } from "@mui/material";
+import { Button, Pagination, Stack, useMediaQuery } from "@mui/material";
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -162,7 +162,7 @@ const Library: React.FC = () => {
 
   const [page, setPage] = useState<number>(1); // Track the current page
   const isMobile = useMediaQuery('(max-width: 900px)');
-  const plantsPerPage = isMobile ? 5 : 12; // Number of plants to display per page
+  const plantsPerPage = isMobile ? 5 : 15; // Number of plants to display per page
 
   const handleAddPlant = async () => {
     try {
@@ -213,6 +213,7 @@ const Library: React.FC = () => {
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
+    window.scrollTo(0, 0); // Scroll to the top of the page
   };
 
   const paginatedPlantData = plantData.slice((page - 1) * plantsPerPage, page * plantsPerPage);
