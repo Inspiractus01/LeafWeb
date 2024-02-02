@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import SearchBar from "../components/searchbar";
-import { Button, Pagination, Stack } from "@mui/material";
+import { Button, Pagination, Stack,useMediaQuery } from "@mui/material";
 
 const ColorizedDiv = styled.div`
   position: relative;
   color: white;
-  height: 200vh;
+  height: 2000px;
   display: flex;
   align-items: top;
   justify-content: center;
@@ -161,7 +161,8 @@ const Library: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const [page, setPage] = useState<number>(1); // Track the current page
-  const plantsPerPage = 15; // Number of plants to display per page
+  const isMobile = useMediaQuery('(max-width: 900px)');
+  const plantsPerPage = isMobile ? 5 : 12; // Number of plants to display per page
 
   const handleAddPlant = async () => {
     try {
@@ -194,7 +195,7 @@ const Library: React.FC = () => {
     }
   };
 
-    useEffect(() => {
+  useEffect(() => {
     const fetchPlantData = async () => {
       try {
         const response = await fetch("https://api.leafloop.wiki/flowers");
