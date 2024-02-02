@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import SearchBar from "../components/searchbar";
 import { Button, Pagination, Stack, useMediaQuery } from "@mui/material";
 
 const ColorizedDiv = styled.div`
@@ -240,7 +239,6 @@ const Library: React.FC = () => {
             />
           </div>
           <button onClick={handleAddPlant} disabled={loading}>add</button>
-          <SearchBar />
 
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: "80%" }}>
             {paginatedPlantData.map((plant) => (
