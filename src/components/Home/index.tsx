@@ -1,11 +1,11 @@
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Typewriter } from "react-simple-typewriter";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import "../styles.css";
-import Logo from "./logo.png";
+import { Typewriter } from "react-simple-typewriter";
 import Lottie from "react-lottie";
 import Leafani from "./animation.json";
-import { useEffect } from "react";
+import "../styles.css";
+import Logo from "./logo.png";
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -95,7 +95,7 @@ const Button = styled(motion.button)`
   @media (max-width: 900px) {
     font-size: 0.8em;
   }
-`;
+}`;
 
 const Div2 = styled.div`
   justify-content: flex-start;
@@ -194,8 +194,9 @@ const Text = styled.h1`
     font-size: 0.6em;
   }
 `;
+
 const Text1 = styled.h1`
-  justify-content:flex-start;
+  justify-content: flex-start;
   font-family: "Regular-R";
   font-size: 1.4em;
   @media (max-width: 900px) {
@@ -205,6 +206,7 @@ const Text1 = styled.h1`
     font-size: 0.6em;
   }
 `;
+
 const Platnetlogo = styled.img`
   width: 20vh;
   @media (max-width: 900px) {
@@ -220,13 +222,32 @@ const CounterWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
 `;
+
 const CounterText = styled(motion.h1)`
   font-family: "Regular-R";
   font-size: 1.5em;
-  padding:10px;
+  padding: 10px;
 `;
 
 const Homepage = () => {
+  const [plantData, setPlantData] = useState([]);
+
+  useEffect(() => {
+    const fetchPlantData = async () => {
+      try {
+        const response = await fetch("https://api.leafloop.wiki/flowers");
+        const data = await response.json();
+        if (data && data.length > 0) {
+          setPlantData(data);
+        }
+      } catch (error) {
+        console.error("Error fetching plant data:", error);
+      }
+    };
+
+    fetchPlantData();
+  }, []);
+
   const handleExploreNowClick = () => {
     window.location.href = "/aboutpage";
   };
@@ -244,10 +265,10 @@ const Homepage = () => {
   const rounded = useTransform(count, Math.round);
 
   useEffect(() => {
-    const animation = animate(count, 512354, { duration: 5 });
+    const animation = animate(count, plantData.length, { duration: 5 });
 
     return animation.stop;
-  }, []);
+  }, [plantData]);
 
   return (
     <>
