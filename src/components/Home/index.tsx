@@ -200,9 +200,6 @@ const Text1 = styled.h1`
   font-family: "Regular-R";
   font-size: 1.4em;
   @media (max-width: 900px) {
-    margin-left: 1vh;
-    margin-bottom: 10vh;
-    margin-right: 0vh;
     font-size: 0.6em;
   }
 `;
@@ -221,12 +218,15 @@ const CounterWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  @media (max-width: 900px) {
 `;
 
 const CounterText = styled(motion.h1)`
   font-family: "Regular-R";
   font-size: 1.5em;
   padding: 10px;
+  @media (max-width: 900px) {
+    font-size: 0.8em;
 `;
 
 const Homepage = () => {
@@ -265,7 +265,7 @@ const Homepage = () => {
   const rounded = useTransform(count, Math.round);
 
   useEffect(() => {
-    const animation = animate(count, plantData.length, { duration: 5 });
+    const animation = animate(count, plantData.length, { duration: 3 });
 
     return animation.stop;
   }, [plantData]);

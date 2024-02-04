@@ -286,23 +286,38 @@ const Library: React.FC = () => {
           </button>
 
           <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              width: "80%",
-            }}
-          >
-            {paginatedFilteredPlantData.map((plant) => (
-              <PlantInfoContainer key={plant._id}>
-                <PlantImage
-                  src={plant.url}
-                  alt={plant.Slovenčina.špecifikácie.názov}
-                />
-                <PlantName>{plant.Slovenčina.špecifikácie.názov}</PlantName>
-              </PlantInfoContainer>
-            ))}
-          </div>
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            width: "80%",
+          }}
+        >
+          {paginatedFilteredPlantData.map((plant) => (
+            <PlantInfoContainer key={plant._id}>
+              {(() => {
+                try {
+                  return (
+                    <PlantImage
+                      src={plant.url}
+                      alt={plant.Slovenčina.špecifikácie.názov}
+                    />
+                  );
+                } catch (error) {
+                  console.error(`Error loading image for plant ${plant._id}:`, error);
+                  // Replace the following line with your placeholder image
+                  return (
+                    <PlantImage
+                      src="path-to-placeholder-image.jpg"
+                      alt="Error loading image"
+                    />
+                  );
+                }
+              })()}
+              <PlantName>{plant.Slovenčina.špecifikácie.názov}</PlantName>
+            </PlantInfoContainer>
+          ))}
+        </div>
 
           <Stack spacing={2} justifyContent="center" mt={3}>
             <Pagination
