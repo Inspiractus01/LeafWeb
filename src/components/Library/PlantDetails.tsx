@@ -15,7 +15,6 @@ const ColorizedDiv = styled.div`
   flex-direction: column;
 `;
 
- 
 const StyledTypewriterWrapper = styled.div`
   padding-top: 3vh;
   padding-bottom: 4vh;
@@ -51,11 +50,11 @@ const Titleleaf = styled.h1`
     font-size: 1em; /* Adjust the font size as needed for smaller screens */
   }
 `;
-const Logoloop=styled.img`
-margin-top:1vh;
-margin-left: 1vh;
-  width:8vh;
-  border-radius:20px;
+const Logoloop = styled.img`
+  margin-top: 1vh;
+  margin-left: 1vh;
+  width: 8vh;
+  border-radius: 20px;
 `;
 
 const Button = styled(motion.button)`
@@ -116,9 +115,9 @@ const Button2 = styled(motion.button)`
   height: 5vh;
   font-family: "Regular-R";
   font-size: 1em;
-  background-color: #18914A;
+  background-color: #18914a;
   color: black;
-  border: 2px solid #18914A;
+  border: 2px solid #18914a;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
@@ -133,16 +132,14 @@ const Button2 = styled(motion.button)`
   }
 `;
 
-
 const Image = styled.img`
-align-items: flex-start;
-justify-content: flex-start;
-width: 550px;
-height: 500px;
-object-fit: cover;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 550px;
+  height: 500px;
+  object-fit: cover;
 
   @media (max-width: 900px) {
-
   }
 `;
 const Imagediv = styled.div`
@@ -152,7 +149,6 @@ const Imagediv = styled.div`
     height:100%;
   
 `;
-
 
 const Title = styled.h1`
   width:100%
@@ -167,10 +163,9 @@ const Title = styled.h1`
   }
 `;
 
-
 const Text = styled.h1`
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
   font-family: "Regular-R";
   font-size: 1em;
   z-index: 1;
@@ -181,11 +176,11 @@ const Text = styled.h1`
 `;
 
 const Textpopis = styled.h1`
-  margin:5px;
-  padding:0px;
+  margin: 5px;
+  padding: 0px;
   font-family: "Regular-R";
   font-size: 0.8em;
-  opacity:0.6;
+  opacity: 0.6;
 
   @media (max-width: 900px) {
     font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
@@ -193,8 +188,8 @@ const Textpopis = styled.h1`
 `;
 
 const Textsmaller = styled.h1`
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
   font-family: "Regular-R";
   font-size: 0.8em;
   z-index: 1;
@@ -212,7 +207,7 @@ const Div4 = styled.div`
   justify-content: flex-start;
   align-items: center;
   height: 100%;
-  max-width:100%;
+  max-width: 100%;
 `;
 const Title2 = styled.h1`
   align-self: center;
@@ -227,8 +222,7 @@ const Title2 = styled.h1`
     font-size: 2em; /* Adjust the font size as needed for smaller screens */
   }
 `;
-//div o popise 
-
+//div o popise
 
 //#155C35
 
@@ -242,11 +236,9 @@ const Div3 = styled.div`
   height: 100%;
 `;
 
-
-
 const Text2 = styled.h1`
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
   font-family: "Regular-R";
   font-size: 1em;
   z-index: 1;
@@ -258,11 +250,11 @@ const Text2 = styled.h1`
 `;
 
 const Textpopis2 = styled.h1`
-  margin:5px;
-  padding:0px;
+  margin: 5px;
+  padding: 0px;
   font-family: "Regular-R";
   font-size: 0.8em;
-  opacity:0.6;
+  opacity: 0.6;
 
   @media (max-width: 900px) {
     font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
@@ -270,8 +262,8 @@ const Textpopis2 = styled.h1`
 `;
 
 const Textsmaller2 = styled.h1`
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
   font-family: "Regular-R";
   font-size: 0.8em;
   z-index: 1;
@@ -295,43 +287,34 @@ const Title3 = styled.h1`
   }
 `;
 const PlantDetails = () => {
- 
-
-
   return (
     <>
       <ColorizedDiv id="plantdetails">
         <Div1>
-          <Logoloop ></Logoloop>
+          <Logoloop></Logoloop>
           <Titleleaf>LeafLoop</Titleleaf>
         </Div1>
 
-
         <Div2>
-
-      <Div4>
-        <Image src="https://www.osiva-semena.sk/1387-superlarge_default/kaktus-saguaro-carnegiea-gigantea-semena-5-ks.jpg"></Image>
-        <Title2>Nazov rastliny</Title2>
-        <Text2>(Taxonomické meno)</Text2>
-        <Textpopis2>Popis:</Textpopis2>
-        <Textsmaller2>popis rastliny</Textsmaller2>
-
-
-
-      </Div4>
+          <Div4>
+            <Image src="https://www.osiva-semena.sk/1387-superlarge_default/kaktus-saguaro-carnegiea-gigantea-semena-5-ks.jpg"></Image>
+            <Title2>Nazov rastliny</Title2>
+            <Text2>(Taxonomické meno)</Text2>
+            <Textpopis2>Popis:</Textpopis2>
+            <Textsmaller2>popis rastliny</Textsmaller2>
+          </Div4>
           <Div3>
-          <Title3>O rastline:</Title3>
+            <Title3>O rastline:</Title3>
 
-          <Text>Špecifikácie</Text>
-          <Textsmaller>Výška:</Textsmaller>
-          <Textsmaller>Spôsob rastu:</Textsmaller>
-          <Textsmaller>Trvanie:</Textsmaller>
-          <Text>Rast:</Text>
-
+            <Text>Špecifikácie</Text>
+            <Textsmaller>Výška:</Textsmaller>
+            <Textsmaller>Spôsob rastu:</Textsmaller>
+            <Textsmaller>Trvanie:</Textsmaller>
+            <Text>Rast:</Text>
           </Div3>
-       </Div2>
-
-      </ColorizedDiv>D
+        </Div2>
+      </ColorizedDiv>
+      D
     </>
   );
 };

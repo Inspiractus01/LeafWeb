@@ -171,39 +171,44 @@ const Library: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const [page, setPage] = useState<number>(1);
-  const isMobile = useMediaQuery('(max-width: 900px)');
+  const isMobile = useMediaQuery("(max-width: 900px)");
   const plantsPerPage = isMobile ? 5 : 15;
 
-  const [searchInput, setSearchInput] = useState<string>('');
+  const [searchInput, setSearchInput] = useState<string>("");
 
   const handleAddPlant = async () => {
     try {
       setLoading(true);
 
-      const response = await fetch(`https://api.leafloop.wiki/addplant?nazovv=${newPlantName}`, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
+      const response = await fetch(
+        `https://api.leafloop.wiki/addplant?nazovv=${newPlantName}`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
         },
-      });
+      );
 
       if (response.status === 200) {
-        const updatedResponse = await fetch("https://api.leafloop.wiki/flowers");
+        const updatedResponse = await fetch(
+          "https://api.leafloop.wiki/flowers",
+        );
         const updatedData = await updatedResponse.json();
 
         if (updatedData && updatedData.length > 0) {
           setPlantData(updatedData);
         }
 
-        console.log('Plant added successfully');
+        console.log("Plant added successfully");
       } else {
-        console.error('Failed to add plant:', response.statusText);
+        console.error("Failed to add plant:", response.statusText);
       }
     } catch (error) {
-      console.error('Error adding plant:', error);
+      console.error("Error adding plant:", error);
     } finally {
       setLoading(false);
-      setNewPlantName('');
+      setNewPlantName("");
     }
   };
 
@@ -223,18 +228,23 @@ const Library: React.FC = () => {
     fetchPlantData();
   }, []);
 
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number,
+  ) => {
     setPage(value);
     window.scrollTo(0, 0);
   };
 
   const filteredPlantData = plantData.filter((plant) =>
-    plant.Slovenčina.špecifikácie.názov.toLowerCase().includes(searchInput.toLowerCase())
+    plant.Slovenčina.špecifikácie.názov
+      .toLowerCase()
+      .includes(searchInput.toLowerCase()),
   );
 
   const paginatedFilteredPlantData = filteredPlantData.slice(
     (page - 1) * plantsPerPage,
-    page * plantsPerPage
+    page * plantsPerPage,
   );
 
   return (
@@ -248,26 +258,47 @@ const Library: React.FC = () => {
         <Div2>
           <Title>Vo vývoji</Title>
           <Text></Text>
-          <Title2>Vitaj v ríši rastlín, kde každá vetvička je knihou a každý list má svoj vlastný príbeh!</Title2>
+          <Title2>
+            Vitaj v ríši rastlín, kde každá vetvička je knihou a každý list má
+            svoj vlastný príbeh!
+          </Title2>
 
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-          <input
-            type="text"
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginBottom: "10px",
+            }}
+          >
+            <input
+              type="text"
               placeholder="Enter plant name"
               value={searchInput}
-                onChange={(e) => {
-                 setSearchInput(e.target.value);
+              onChange={(e) => {
+                setSearchInput(e.target.value);
                 setNewPlantName(e.target.value); // Add this line to update newPlantName
-  }}
-/>
+              }}
+            />
             <button onClick={() => setPage(1)}>Search</button>
           </div>
-          <button onClick={handleAddPlant} disabled={loading}>add</button>
+          <button onClick={handleAddPlant} disabled={loading}>
+            add
+          </button>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: "80%" }}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              width: "80%",
+            }}
+          >
             {paginatedFilteredPlantData.map((plant) => (
               <PlantInfoContainer key={plant._id}>
-                <PlantImage src={plant.url} alt={plant.Slovenčina.špecifikácie.názov} />
+                <PlantImage
+                  src={plant.url}
+                  alt={plant.Slovenčina.špecifikácie.názov}
+                />
                 <PlantName>{plant.Slovenčina.špecifikácie.názov}</PlantName>
               </PlantInfoContainer>
             ))}

@@ -26,7 +26,7 @@ const Title = styled.h1`
     font-size: 2em; /* Adjust the font size as needed for smaller screens */
   }
 `;
- 
+
 const StyledTypewriterWrapper = styled.div`
   padding-top: 3vh;
   padding-bottom: 4vh;
@@ -62,11 +62,11 @@ const Titleleaf = styled.h1`
     font-size: 1em; /* Adjust the font size as needed for smaller screens */
   }
 `;
-const Logoloop=styled.img`
-margin-top:1vh;
-margin-left: 1vh;
-  width:8vh;
-  border-radius:20px;
+const Logoloop = styled.img`
+  margin-top: 1vh;
+  margin-left: 1vh;
+  width: 8vh;
+  border-radius: 20px;
 `;
 
 const Button = styled(motion.button)`
@@ -97,13 +97,11 @@ const Div2 = styled.div`
   align-items: center;
   flex: 6;
   background-color: transparent;
-  flex-direction:row;
-  display:flex;
+  flex-direction: row;
+  display: flex;
   @media (max-width: 900px) {
-    
     align-items: flex-start;
-    flex-direction:column;
-    
+    flex-direction: column;
   }
 `;
 
@@ -125,9 +123,9 @@ const Button2 = styled(motion.button)`
   height: 5vh;
   font-family: "Regular-R";
   font-size: 1em;
-  background-color: #18914A;
+  background-color: #18914a;
   color: black;
-  border: 2px solid #18914A;
+  border: 2px solid #18914a;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
@@ -142,11 +140,10 @@ const Button2 = styled(motion.button)`
   }
 `;
 
-
 const Image = styled.img`
-object-fit: cover; 
-border: 2px solid #363434;
-border-radius: 30px;
+  object-fit: cover;
+  border: 2px solid #363434;
+  border-radius: 30px;
   width: 70vh;
   box-shadow: 30px -40px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
 
@@ -167,18 +164,16 @@ const Imagediv = styled.div`
   
 `;
 
-
 const Div3 = styled.div`
-background-color: #155C35;
+  background-color: #155c35;
   flex: 2;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-
 const Text = styled.h1`
-  margin-right:10vh;
+  margin-right: 10vh;
   font-family: "Regular-R";
   font-size: 1em;
   z-index: 1;
@@ -195,18 +190,16 @@ const Platnetlogo = styled.img`
   }
 `;
 
-
 const Chatbot = () => {
   const handleExploreNowClick = () => {
     window.location.href = "/aboutpage";
   };
 
-
   return (
     <>
       <ColorizedDiv id="homepage">
         <Div1>
-          <Logoloop ></Logoloop>
+          <Logoloop></Logoloop>
           <Titleleaf>LeafLoop</Titleleaf>
         </Div1>
 
@@ -220,7 +213,7 @@ const Chatbot = () => {
                 cursorStyle="_"
                 words={[
                   "Ai powered chatbot helping your plants to live longer :)- comming soon ",
- ,
+                  ,
                 ]}
                 loop={true}
                 typeSpeed={50}
@@ -228,13 +221,9 @@ const Chatbot = () => {
                 delaySpeed={40000000}
               />
             </StyledTypewriterWrapper>
-
           </Textdiv>
-          <Imagediv>
-          
-          </Imagediv>
-       </Div2>
-
+          <Imagediv></Imagediv>
+        </Div2>
       </ColorizedDiv>
     </>
   );
