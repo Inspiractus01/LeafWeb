@@ -251,12 +251,15 @@ const Library: React.FC = () => {
           <Title2>Vitaj v ríši rastlín, kde každá vetvička je knihou a každý list má svoj vlastný príbeh!</Title2>
 
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-            <input
-              type="text"
+          <input
+            type="text"
               placeholder="Enter plant name"
               value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-            />
+                onChange={(e) => {
+                 setSearchInput(e.target.value);
+                setNewPlantName(e.target.value); // Add this line to update newPlantName
+  }}
+/>
             <button onClick={() => setPage(1)}>Search</button>
           </div>
           <button onClick={handleAddPlant} disabled={loading}>add</button>
