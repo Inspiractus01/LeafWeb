@@ -320,10 +320,10 @@ const Aboutpage = () => {
         <Title>Tvoja AI Rastlinná Encyklopédia!</Title>
         <Text1>V LeafLoop veríme v úžasný svet rastlín a chceme vám pomôcť objavovať ho jednoduchým a interaktívnym spôsobom. Naša platforma je viac než len encyklopédia - je to komunita nadšencov, ktorí zdieľajú svoju vášeň pre rastliny.</Text1>
         <Image src="https://cdn.discordapp.com/attachments/1096191061015150754/1200639561819242606/LeafLoop.png?ex=65c6e9ba&is=65b474ba&hm=606eb5256c1e4db441e8d17c97618c3f44455a0fad876bc60ebcba49ec9b6447&"></Image>
-        <Title2>Naše Kúzlo:</Title2>
+        <Title2>Najväčšia knižnica na Slovensku? alebo aj na svete?</Title2>
         <Text>
-      LeafLoop je najväčšia knižnica rastlín na svete, generovaná umelou inteligenciou. Momentálne pracujeme na vývoji vlastnej AI, ktorá bude ešte presnejšia a účinnejšia. Vzhľadom na dynamiku sveta rastlín sa môžu vyskytnúť chyby, no s vašou pomocou a spoluprácou našej komunity stále zdokonaľujeme naše služby.
-      <br></br> <br></br> <strong>Ako to funguje? 🌱:</strong> <br></br>Jednoducho! Ak nenájdeš svoju rastlinu v našej databáze, máš možnosť ju pridať ty sám. Týmto jednoduchým krokom prispievaš k rozširovaniu našej encyklopédie a pomáhaš ostatným milovníkom rastlín objaviť nové druhy.
+      Ako je to možné, že máme tolko rastlín v našej databáze? Je to jednoduché, naša knižnica LeafLoop je  generovaná umelou inteligenciou. Momentálne pracujeme na vývoji vlastnej AI, ktorá bude ešte presnejšia a účinnejšia. Vzhľadom na dynamiku sveta rastlín sa môžu vyskytnúť chyby, no s vašou pomocou a spoluprácou našej komunity stále zdokonaľujeme naše služby.
+      <br></br> <br></br> <strong>Ako to funguje? 🌱:</strong> <br></br>Jednoducho! Ak nenájdeš svoju rastlinu v našej databáze, máš možnosť ju pridať ty sám. Týmto jednoduchým krokom prispievaš k rozširovaniu našej encyklopédie a pomáhaš ostatným milovníkom rastlín objaviť nové druhy. <br></br> <br></br> A takto sme vytvorili      Najvačšiu knižnicu rastlín na SVETE!!!
         </Text>
         <Title2>Prečo LeafLoop:</Title2>
         <Text>
@@ -379,11 +379,11 @@ const Aboutpage = () => {
 </Imagedivv>
   <Title2>Naša Podpora:</Title2>
 <Text1>
-  Tento projekt si všimla renomovaná organizácia PlantNet, ktorá sa zameriava na rozvoj a podporu iniciatív spojených s rastlinami. Ich entuziazmus pre náš projekt LeafLoop nás potešil, a preto sme hrdí, že sme získali ich podporu.
+  Tento projekt si všimla renomovaná organizácia Pl@ntNet, ktorá sa zameriava na rozvoj a podporu iniciatív spojených s rastlinami. Ich entuziazmus pre náš projekt LeafLoop nás potešil, a preto sme hrdí, že sme získali ich podporu.
   <br></br><br></br>
   PlantNet rozpoznal potenciál nášho projektu a jeho prínos pre komunitu milovníkov rastlín. S ich podporou sme získali prístup k ich API na detekciu rastlín z fotky, čo umožňuje našim užívateľom ešte viac interakcie a pohodlia pri identifikácii rastlín prostredníctvom LeafLoop.
   <br></br><br></br>
-  Chceme vyjadriť veľkú vďaku PlantNet za ich dôveru a podporu. Spoločne budeme pokračovať v rozvoji a poskytovaní kvalitných služieb pre všetkých milovníkov rastlín.
+  Chceme vyjadriť veľkú vďaku Pl@ntNetu za ich dôveru a podporu. Spoločne budeme pokračovať v rozvoji a poskytovaní kvalitných služieb pre všetkých milovníkov rastlín.
 </Text1>
 <Image1 src="https://www.digitalcitizen.life/wp-content/uploads/2020/10/plantnet.png"></Image1>
 <Text>

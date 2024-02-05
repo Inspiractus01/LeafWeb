@@ -295,8 +295,6 @@ const Homepage = () => {
                 cursor
                 cursorStyle="_"
                 words={[
-                  "Personalizovaná pomoc pre vaše rastlinky",
-                  "Vaše rastliny, naša personalizovaná odbornosť!",
                   "Najväčšia knižnica rastlín na Slovensku!",
                   "Použite naše LeafLoop-API dostupné pre každého",
                   "Opýtajte sa nášho AI-LeafLoop bota na rady pre vašu rastlinku",
