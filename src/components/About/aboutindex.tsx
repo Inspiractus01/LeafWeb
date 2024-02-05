@@ -1,12 +1,11 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
-import { Typewriter } from "react-simple-typewriter";
-import { motion, useScroll, useSpring } from "framer-motion";
 import "../styles.css";
 
 const ColorizedDiv = styled.div`
   position: relative;
   color: white;
-  height: 3000px;
+  height: 3400px;
   display: flex;
   align-items: top;
   justify-content: center;
@@ -177,6 +176,19 @@ const Image1 = styled.img`
     height: 30%;
   }
 `;
+const Image2 = styled.img`
+  margin-top:20px;
+  object-fit: fill;
+  border: 2px solid #363434;
+  width: 20vh;
+  height:20vh;
+  border-radius: 500px;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 30%;
+  }
+`;
 const Imagediv = styled.div`
   display: flex;
   @media (max-width: 900px) {
@@ -225,10 +237,51 @@ const Platnetlogo = styled.img`
   }
 `;
 
+const HoverOverlay = styled.div`
+  padding-right: 50px;
+  padding-left: 50px;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Added to align items in a column */
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ImageName = styled.p`
+font-family: "Regular-R";
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0;
+  z-index: 1;
+`;
+
+const Imagedivv = styled.div`
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
 const Aboutpage = () => {
-  const handleExploreNowClick = () => {
-    window.location.href = "/aboutpage";
-  };
 
   return (
     <>
@@ -260,8 +313,8 @@ const Aboutpage = () => {
 <Image src="https://cdn.discordapp.com/attachments/1096191061015150754/1204145357542653993/LeafLoop_2.png?ex=65d3aac1&is=65c135c1&hm=82c5efb82b81d90e48170d277e548d5703a33c7d41be12a6fb48f1c13760d15e&"></Image>
 
           
-          <Title2>Ako sa tento zelený projekt vznikol?</Title2>
-          <Text>Kto stojí za vytvorením LeafLoopom?</Text>
+          <Title2>Ako tento zelený projekt vznikol?</Title2>
+ 
           <Text1>
             "Chceš počuť príbeh o vzniku nášho zeleného projektu? Dovoľ mi, aby
             som ťa zaviedol späť na začiatok. Leafloop nevznikol len ako
@@ -275,7 +328,30 @@ const Aboutpage = () => {
             inovácie, ktorá vznikla z nadšenia k fascinujúcemu svetu rastlín." -
             Michal Mucha
           </Text1>
+          <Text>Kto stojí za vytvorením LeafLoopom? Chceš sa dozvediet viac o nás ?</Text>
+          <Imagedivv>
+  <HoverOverlay>
+    <ImageContainer>
+      <Image2
+        src="https://michalfly.site/assets/images/fotka.jpg"
+        alt="Michal Mucha"
+        onClick={() => (window.location.href = "https://michalfly.site")}
+      />
+      <ImageName>Michal Mucha-Junior Developer</ImageName>
+    </ImageContainer>
+  </HoverOverlay>
 
+  <HoverOverlay>
+    <ImageContainer>
+      <Image2
+        src="https://cdn.discordapp.com/attachments/1096191061015150754/1204158597999894528/image.png?ex=65d3b715&is=65c14215&hm=2754b49ca99f2658adaa6b64304e8b1c0f01add16cb260a73d7dc2f90c35a949&"
+        alt="Palo Mihál"
+        onClick={() => (window.location.href = "https://www.instagram.com/mihalpalino/")}
+      />
+      <ImageName>Palo Mihál-</ImageName>
+    </ImageContainer>
+  </HoverOverlay>
+</Imagedivv>
   <Title2>Naša Podpora:</Title2>
 <Text1>
   Tento projekt si všimla renomovaná organizácia PlantNet, ktorá sa zameriava na rozvoj a podporu iniciatív spojených s rastlinami. Ich entuziazmus pre náš projekt LeafLoop nás potešil, a preto sme hrdí, že sme získali ich podporu.
