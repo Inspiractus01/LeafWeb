@@ -161,7 +161,7 @@ const Image = styled.img`
 
   @media (max-width: 900px) {
     width: 100%;
-    height: 30%;
+    height: 10%;
   }
 `;
 const Image1 = styled.img`
@@ -171,9 +171,10 @@ const Image1 = styled.img`
   width: 30vh;
   border-radius: 0px;
 
+
   @media (max-width: 900px) {
     width: 100%;
-    height: 30%;
+    height: 5%;
   }
 `;
 const Image2 = styled.img`
@@ -185,8 +186,8 @@ const Image2 = styled.img`
   border-radius: 500px;
 
   @media (max-width: 900px) {
-    width: 100%;
-    height: 30%;
+  width: 10vh;
+  height:10vh;
   }
 `;
 const Imagediv = styled.div`
@@ -253,12 +254,25 @@ const HoverOverlay = styled.div`
     opacity: 1;
     transform: scale(1.1);
   }
+  @media (max-width: 900px) {
+  
+  width: 30%;
+  height:2vh;
+  }
 `;
 
 const ImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 900px) {
+    padding:0px;
+    margin:0px;
+    width: 30%;
+    }
+  
+  
 `;
 
 const ImageName = styled.p`
@@ -268,6 +282,13 @@ font-family: "Regular-R";
   text-align: center;
   margin: 0;
   z-index: 1;
+  @media (max-width: 900px) {
+    padding:0px;
+    margin:0px;
+    font-size: 1em;
+    }
+  
+
 `;
 
 const Imagedivv = styled.div`
@@ -276,8 +297,12 @@ const Imagedivv = styled.div`
   display: flex;
 
   @media (max-width: 900px) {
+  padding:0px;
+  margin:0px;
+   align-items: center;
     width: 100%;
-    height: 100%;
+    height: 10%;
+    
   }
 `;
 
@@ -348,7 +373,7 @@ const Aboutpage = () => {
         alt="Palo Mihál"
         onClick={() => (window.location.href = "https://www.instagram.com/mihalpalino/")}
       />
-      <ImageName>Palo Mihál-</ImageName>
+      <ImageName>Palo Mihál- Pomocník s rastlinami</ImageName>
     </ImageContainer>
   </HoverOverlay>
 </Imagedivv>
