@@ -1,7 +1,39 @@
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from "styled-components";
-import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import "../styles.css";
+
+interface PlantDetailsProps {}
+
+interface PlantData {
+  _id: string;
+  Slovenčina: {
+    špecifikácie: {
+      taxonomické_meno: string;
+      starostlivosť: string;
+      popis: string;
+      dar: string;
+      názov: string;
+      výška: string;
+      spôsob_rastu: string;
+      trvanie: string;
+      rast: {
+        svetlo: string;
+        atmosférická_vlhkosť: string;
+        ph: string;
+        teplota: string;
+        pôda: {
+          vlhkosť: string;
+          pôdne_živiny: string;
+          slanosť_pôdy: string;
+          textúra_pôdy: string;
+        };
+      };
+    };
+  };
+  url: string;
+}
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -14,7 +46,6 @@ const ColorizedDiv = styled.div`
   background-color: #2ab96b; /* Change the background color here */
   flex-direction: column;
 `;
-
 const StyledTypewriterWrapper = styled.div`
   padding-top: 3vh;
   padding-bottom: 4vh;
@@ -84,7 +115,7 @@ const Div2 = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex: 6;
-  background-color: red;
+  background-color: transparent;
   flex-direction: row;
   display: flex;
   height: 100px;
@@ -262,11 +293,15 @@ const Textpopis2 = styled.h1`
 `;
 
 const Textsmaller2 = styled.h1`
-  margin: 0px;
-  padding: 0px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 0px;
   font-family: "Regular-R";
   font-size: 0.8em;
   z-index: 1;
+  text-align: center; /* Centrování textu */
 
   @media (max-width: 900px) {
     font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
@@ -286,37 +321,61 @@ const Title3 = styled.h1`
     font-size: 2em; /* Adjust the font size as needed for smaller screens */
   }
 `;
-const PlantDetails = () => {
+
+
+
+const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
+  const { id } = useParams<{ id: string }>();
+  const [plantDetails, setPlantDetails] = useState<PlantData | null>(null);
+
+  useEffect(() => {
+    const fetchPlantDetails = async () => {
+      try {
+        const response = await fetch(`https://api.leafloop.wiki/flowers`);
+        const data = await response.json();
+        const plant = data.find((plant: PlantData) => plant._id === id);
+        setPlantDetails(plant);
+      } catch (error) {
+        console.error('Error fetching plant details:', error);
+      }
+    };
+
+    fetchPlantDetails();
+  }, [id]);
+
+  if (!plantDetails) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <>
-      <ColorizedDiv id="plantdetails">
-        <Div1>
-          <Logoloop></Logoloop>
-          <Titleleaf>LeafLoop</Titleleaf>
-        </Div1>
+    <ColorizedDiv id="plantdetails">
+    <Div1>
+      <Logoloop></Logoloop>
+      <Titleleaf>LeafLoop</Titleleaf>
+    </Div1>
 
-        <Div2>
-          <Div4>
-            <Image src="https://www.osiva-semena.sk/1387-superlarge_default/kaktus-saguaro-carnegiea-gigantea-semena-5-ks.jpg"></Image>
-            <Title2>Nazov rastliny</Title2>
-            <Text2>(Taxonomické meno)</Text2>
-            <Textpopis2>Popis:</Textpopis2>
-            <Textsmaller2>popis rastliny</Textsmaller2>
-          </Div4>
-          <Div3>
-            <Title3>O rastline:</Title3>
+    <Div2>
+      <Div4>
+        <Image src={plantDetails.url}></Image>
+        <Title2>{plantDetails.Slovenčina.špecifikácie.názov}</Title2>
+        <Text2>({plantDetails.Slovenčina.špecifikácie.taxonomické_meno})</Text2>
+        <Textpopis2>Popis:</Textpopis2>
+        <Textsmaller2>{plantDetails.Slovenčina.špecifikácie.popis}</Textsmaller2>
+      </Div4>
+      <Div3>
+        <Title3>O rastline:</Title3>
 
-            <Text>Špecifikácie</Text>
-            <Textsmaller>Výška:</Textsmaller>
-            <Textsmaller>Spôsob rastu:</Textsmaller>
-            <Textsmaller>Trvanie:</Textsmaller>
-            <Text>Rast:</Text>
-          </Div3>
-        </Div2>
-      </ColorizedDiv>
-      D
-    </>
-  );
+        <Text>Špecifikácie</Text>
+        <Textsmaller>Výška:</Textsmaller>
+        <Textsmaller>{plantDetails.Slovenčina.špecifikácie.výška}</Textsmaller>
+        <Textsmaller>Spôsob rastu:</Textsmaller>
+        <Textsmaller>Trvanie:</Textsmaller>
+        <Text>Rast:</Text>
+      </Div3>
+    </Div2>
+  </ColorizedDiv>
+);
 };
 
-export default PlantDetails;
+
+export default PlantDetailsPage;
