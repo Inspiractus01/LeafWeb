@@ -26,7 +26,7 @@ const Title = styled.h1`
   }
 `;
 const Title2 = styled.h1`
-  margin: 0;
+  margin: 0; že
   padding-top: 3vh;
   font-family: "Regular-R";
   font-size: 2em;
@@ -366,16 +366,8 @@ const Aboutpage = () => {
     </ImageContainer>
   </HoverOverlay>
 
-  <HoverOverlay>
-    <ImageContainer>
-      <Image2
-        src="https://cdn.discordapp.com/attachments/1096191061015150754/1204158597999894528/image.png?ex=65d3b715&is=65c14215&hm=2754b49ca99f2658adaa6b64304e8b1c0f01add16cb260a73d7dc2f90c35a949&"
-        alt="Palo Mihál"
-        onClick={() => (window.location.href = "https://www.instagram.com/mihalpalino/")}
-      />
-      <ImageName>Palo Mihál- Pomocník s rastlinami</ImageName>
-    </ImageContainer>
-  </HoverOverlay>
+
+
 </Imagedivv>
   <Title2>Naša Podpora:</Title2>
 <Text1>
