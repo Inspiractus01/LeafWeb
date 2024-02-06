@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import SearchBar from "../components/searchbar";
+import { Button, Pagination, Stack, useMediaQuery } from "@mui/material";
 
 const ColorizedDiv = styled.div`
   position: relative;
   color: white;
-  height: 200vh;
+  height: 2000px;
   display: flex;
   align-items: top;
   justify-content: center;
@@ -30,7 +30,7 @@ const Title2 = styled.h1`
   margin: 0;
   padding-top: 2vh;
   font-family: "Regular-R";
-  font-size: 2em;
+  font-size: 1em;
   z-index: 1;
 
   @media (max-width: 900px) {
@@ -125,8 +125,8 @@ const PlantImage = styled.img`
   margin-bottom: 10px;
 
   @media (max-width: 900px) {
-    width: 50px;
-    height: 50px;
+    width: 250px;
+    height: 150x;
   }
 `;
 
@@ -170,34 +170,45 @@ const Library: React.FC = () => {
   const [newPlantName, setNewPlantName] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
+  const [page, setPage] = useState<number>(1);
+  const isMobile = useMediaQuery("(max-width: 900px)");
+  const plantsPerPage = isMobile ? 5 : 15;
+
+  const [searchInput, setSearchInput] = useState<string>("");
+
   const handleAddPlant = async () => {
     try {
       setLoading(true);
 
-      const response = await fetch(`https://api.leafloop.wiki/addplant?nazovv=${newPlantName}`, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
+      const response = await fetch(
+        `https://api.leafloop.wiki/addplant?nazovv=${newPlantName}`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
         },
-      });
+      );
 
       if (response.status === 200) {
-        const updatedResponse = await fetch("https://api.leafloop.wiki/flowers");
+        const updatedResponse = await fetch(
+          "https://api.leafloop.wiki/flowers",
+        );
         const updatedData = await updatedResponse.json();
 
         if (updatedData && updatedData.length > 0) {
           setPlantData(updatedData);
         }
 
-        console.log('Plant added successfully');
+        console.log("Plant added successfully");
       } else {
-        console.error('Failed to add plant:', response.statusText);
+        console.error("Failed to add plant:", response.statusText);
       }
     } catch (error) {
-      console.error('Error adding plant:', error);
+      console.error("Error adding plant:", error);
     } finally {
       setLoading(false);
-      setNewPlantName('');
+      setNewPlantName("");
     }
   };
 
@@ -217,6 +228,25 @@ const Library: React.FC = () => {
     fetchPlantData();
   }, []);
 
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number,
+  ) => {
+    setPage(value);
+    window.scrollTo(0, 0);
+  };
+
+  const filteredPlantData = plantData.filter((plant) =>
+    plant.Slovenčina.špecifikácie.názov
+      .toLowerCase()
+      .includes(searchInput.toLowerCase()),
+  );
+
+  const paginatedFilteredPlantData = filteredPlantData.slice(
+    (page - 1) * plantsPerPage,
+    page * plantsPerPage,
+  );
+
   return (
     <>
       <ColorizedDiv id="library">
@@ -226,29 +256,78 @@ const Library: React.FC = () => {
         </Div1>
 
         <Div2>
-          <Title>In development</Title>
+          <Title>Vo vývoji</Title>
           <Text></Text>
-          <Title2>How this Green project Started?</Title2>
+          <Title2>
+            Vitaj v ríši rastlín, kde každá vetvička je knihou a každý list má
+            svoj vlastný príbeh!
+          </Title2>
 
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginBottom: "10px",
+            }}
+          >
             <input
               type="text"
               placeholder="Enter plant name"
-              value={newPlantName}
-              onChange={(e) => setNewPlantName(e.target.value)}
+              value={searchInput}
+              onChange={(e) => {
+                setSearchInput(e.target.value);
+                setNewPlantName(e.target.value); // Add this line to update newPlantName
+              }}
             />
+            <button onClick={() => setPage(1)}>Search</button>
           </div>
-          <button onClick={handleAddPlant} disabled={loading}>add</button>
-          <SearchBar />
+          <button onClick={handleAddPlant} disabled={loading}>
+            add
+          </button>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: "80%" }}>
-            {plantData.map((plant) => (
-              <PlantInfoContainer key={plant._id}>
-                <PlantImage src={plant.url} alt={plant.Slovenčina.špecifikácie.názov} />
-                <PlantName>{plant.Slovenčina.špecifikácie.názov}</PlantName>
-              </PlantInfoContainer>
-            ))}
-          </div>
+          <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            width: "80%",
+          }}
+        >
+          {paginatedFilteredPlantData.map((plant) => (
+            <PlantInfoContainer key={plant._id}>
+              {(() => {
+                try {
+                  return (
+                    <PlantImage
+                      src={plant.url}
+                      alt={plant.Slovenčina.špecifikácie.názov}
+                    />
+                  );
+                } catch (error) {
+                  console.error(`Error loading image for plant ${plant._id}:`, error);
+                  // Replace the following line with your placeholder image
+                  return (
+                    <PlantImage
+                      src="path-to-placeholder-image.jpg"
+                      alt="Error loading image"
+                    />
+                  );
+                }
+              })()}
+              <PlantName>{plant.Slovenčina.špecifikácie.názov}</PlantName>
+            </PlantInfoContainer>
+          ))}
+        </div>
+
+          <Stack spacing={2} justifyContent="center" mt={3}>
+            <Pagination
+              count={Math.ceil(filteredPlantData.length / plantsPerPage)}
+              page={page}
+              onChange={handlePageChange}
+              variant="outlined"
+              shape="rounded"
+            />
+          </Stack>
         </Div2>
       </ColorizedDiv>
     </>

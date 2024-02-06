@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Aboutpage from "./components/About/aboutindex";
 import Library from "./components/Library";
 import Chatbot from "./components/ChatbotAI";
-
+import PlantDetails from ".//components/Library/PlantDetails";
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -38,13 +38,14 @@ const App: React.FC = () => {
     <Router>
       <AppContainer>
         <GlobalStyle />
-        
+
         <Navbar />
-        <Routes> 
+        <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/aboutpage" element={<Aboutpage />} />
-          <Route path="/library" element={<Library/>} />
-          <Route path="/chatbot" element={<Chatbot  />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/plantdetails" element={<PlantDetails />} />
         </Routes>
       </AppContainer>
     </Router>
