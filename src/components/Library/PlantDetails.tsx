@@ -321,7 +321,12 @@ const Title3 = styled.h1`
     font-size: 2em; /* Adjust the font size as needed for smaller screens */
   }
 `;
-
+//Div kde su informacie ohladom rastlin, 
+const Divinfo=styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+`;
 
 
 const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
@@ -366,11 +371,27 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
         <Title3>O rastline:</Title3>
 
         <Text>Špecifikácie</Text>
+        
+        
+        <Divinfo>
         <Textsmaller>Výška:</Textsmaller>
         <Textsmaller>{plantDetails.Slovenčina.špecifikácie.výška}</Textsmaller>
+        </Divinfo>
+        <Divinfo>
         <Textsmaller>Spôsob rastu:</Textsmaller>
+        
+        </Divinfo>
+       
         <Textsmaller>Trvanie:</Textsmaller>
         <Text>Rast:</Text>
+        <Divinfo>
+        <Textsmaller>Svetlo:</Textsmaller>
+        <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.svetlo}</Textsmaller>
+        </Divinfo>
+        <Divinfo>
+        <Textsmaller>Atmosfericka vlhkosť:</Textsmaller>
+        <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.atmosférická_vlhkost}</Textsmaller>
+        </Divinfo>
       </Div3>
     </Div2>
   </ColorizedDiv>
