@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import "../styles.css";
@@ -360,6 +361,32 @@ const Divider = styled.hr`
   opacity: 0.6;
 `;
 
+const Buttonback = styled(motion.button)`
+  margin: 1vh;
+  width: 20vh;
+  height: 5vh;
+  font-family: "Regular-R";
+  font-size: 1em;
+  background-color: #2ab96b;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: white;
+    color: #2ab96b;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 0.8em;
+  }
+`;
+
+const handleExploreNowClick = () => {
+  window.location.href = "/library";
+};
 const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
   const { id } = useParams<{ id: string }>();
   const [plantDetails, setPlantDetails] = useState<PlantData | null>(null);
@@ -388,6 +415,11 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
       <Div1>
         <Logoloop></Logoloop>
         <Titleleaf>LeafLoop</Titleleaf>
+        <Button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleExploreNowClick}
+          >Späť</Button>
       </Div1>
 
       <Div2>
