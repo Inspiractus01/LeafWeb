@@ -30,6 +30,7 @@ const Title = styled.h1`
 const Title2 = styled.h1`
   margin: 0;
   padding-top: 2vh;
+  padding-bottom: 3vh;
   font-family: "Regular-R";
   font-size: 1em;
   z-index: 1;
@@ -120,6 +121,8 @@ const PlantInfoContainer = styled.div`
 `;
 
 const PlantImage = styled.img`
+  border-radius:30px;
+  border: 3px solid #363434;
   width: 300px;
   height: 200px;
   object-fit: cover;
@@ -145,6 +148,7 @@ interface PlantData {
       starostlivosť: string;
       popis: string;
       dar: string;
+      naročnosť:string;
       názov: string;
       výška: string;
       spôsob_rastu: string;
@@ -258,11 +262,11 @@ const Library: React.FC = () => {
 
         <Div2>
           <Title>Vo vývoji</Title>
-          <Text></Text>
           <Title2>
             Vitaj v ríši rastlín, kde každá vetvička je knihou a každý list má
             svoj vlastný príbeh!
           </Title2>
+
 
           <div
             style={{
