@@ -1,30 +1,30 @@
-# React + TypeScript + Vite
+# LeafLoop - Tvoja AI Rastlinná Encyklopédia!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+V LeafLoop veríme v úžasný svet rastlín a chceme vám pomôcť objavovať ho jednoduchým a interaktívnym spôsobom. Naša platforma je viac než len encyklopédia - je to komunita nadšencov, ktorí zdieľajú svoju vášeň pre rastliny.
 
-Currently, two official plugins are available:
+## O Nás
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+LeafLoop je najväčšia knižnica rastlín na Slovensku, možno aj na celom svete. Sme presvedčení, že spolupráca a zdieľanie informácií vedie k obohacovaniu našej znalostnej bázy. S našou otvorenou databázou rastlín a interaktívnym chatbotom sme pripravení vám poskytnúť všetky potrebné informácie a rady ohľadom starostlivosti o rastliny.
 
-## Expanding the ESLint configuration
+## Ako To Funguje
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Jednoducho! Ak nenájdete svoju rastlinu v našej databáze, máte možnosť ju pridať sami. Týmto jednoduchým krokom prispievate k rozširovaniu našej encyklopédie a pomáhate ostatným milovníkom rastlín objaviť nové druhy.
 
-- Configure the top-level `parserOptions` property like this:
+## Prečo LeafLoop
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Otvorená Databáza Rastlín:** Ponúkame prístup k otvorenej databáze rastlín pre každého.
+- **Interaktívny Chatbot:** Náš chatbot je tu pre vás, aby odpovedal na vaše otázky a poskytol vám rady ohľadom starostlivosti o rastliny.
+- **Komunitná Spolupráca:** LeafLoop nie je len databáza, je to živá komunita. Každý príspevok a pridaná rastlina robia našu encyklopédiu ešte bohatšou.
+- **Open API:** Poskytujeme otvorené API, ktoré umožňuje vývojárom a nadšencom pristupovať k našej databáze rastlín a integrovať ju do vlastných projektov.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Kto Stojí Za LeafLoopom
+
+LeafLoop bol vytvorený Michalom Muchom, študentom zo Slovenska, ktorý mal túžbu spojiť moderné technológie s fascinujúcim svetom rastlín. S podporou renomovanej organizácie Pl@ntNet sme získali prístup k ich API na detekciu rastlín z fotky, čo umožňuje našim užívateľom ešte viac interakcie a pohodlia pri identifikácii rastlín prostredníctvom LeafLoop.
+
+## Podpora a Pripojenie sa
+
+Chcete sa aktívne zapojiť do našej komunity a zdieľať svoju lásku k rastlinám? Pripojte sa k nášmu Discord serveru, kde môžete komunikovať s ostatnými nadšencami, získavať rady a zdieľať svoje skúsenosti!
+
+---
+
+Pripojte sa na náš [Discord server](#) a spoločne objavujme fascinujúci svet rastlín!
