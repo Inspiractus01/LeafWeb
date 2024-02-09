@@ -43,9 +43,10 @@ const ColorizedDiv = styled.div`
   align-items: top;
   justify-content: center;
   overflow: hidden;
-  background-color: #2ab96b; /* Change the background color here */
+  background-color: #2ab96b;
   flex-direction: column;
 `;
+
 const StyledTypewriterWrapper = styled.div`
   padding-top: 3vh;
   padding-bottom: 4vh;
@@ -54,14 +55,13 @@ const StyledTypewriterWrapper = styled.div`
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 0.6em; /* Adjust the font size as needed for smaller screens */
+    font-size: 0.6em;
   }
 `;
 
 const Div1 = styled.div`
-  justify-content: center; /* Add this line to center content horizontally */
-  align-items: center; /* Optionally, you can also center vertically */
-
+  justify-content: center;
+  align-items: center;
   flex: 0.5;
   display: flex;
   flex-direction: row;
@@ -78,9 +78,10 @@ const Titleleaf = styled.h1`
 
   @media (max-width: 900px) {
     margin-left: 3vh;
-    font-size: 1em; /* Adjust the font size as needed for smaller screens */
+    font-size: 1em;
   }
 `;
+
 const Logoloop = styled.img`
   margin-top: 1vh;
   margin-left: 1vh;
@@ -107,7 +108,7 @@ const Button = styled(motion.button)`
   }
 
   @media (max-width: 900px) {
-    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
+    font-size: 0.8em;
   }
 `;
 
@@ -125,7 +126,7 @@ const Div2 = styled.div`
     flex-direction: column;
   }
 
-  height: 100%; /* Add this line to make sure Div2 takes up the full height */
+  height: 100%;
 `;
 
 const Textdiv = styled.div`
@@ -137,7 +138,7 @@ const Textdiv = styled.div`
   @media (max-width: 900px) {
     margin-top:3vh;
     width:100%;
-
+  }
 `;
 
 const Button2 = styled(motion.button)`
@@ -159,7 +160,7 @@ const Button2 = styled(motion.button)`
   }
 
   @media (max-width: 900px) {
-    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
+    font-size: 0.8em;
   }
 `;
 
@@ -173,12 +174,14 @@ const Image = styled.img`
   @media (max-width: 900px) {
   }
 `;
+
 const Imagediv = styled.div`
   display: flex;
+
   @media (max-width: 900px) {
     width: 100%;
     height:100%;
-  
+  }
 `;
 
 const Title = styled.h1`
@@ -190,19 +193,21 @@ const Title = styled.h1`
   font-size: 3em;
 
   @media (max-width: 900px) {
-    font-size: 2em; /* Adjust the font size as needed for smaller screens */
+    font-size: 2em;
   }
 `;
 
 const Text = styled.h1`
+justify-content:center;
+align-self:center;
   margin: 0px;
   padding: 0px;
   font-family: "Regular-R";
-  font-size: 1em;
+  font-size: 1.5em;
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
+    font-size: 0.4em;
   }
 `;
 
@@ -214,24 +219,34 @@ const Textpopis = styled.h1`
   opacity: 0.6;
 
   @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
+    font-size: 0.4em;
   }
 `;
 
 const Textsmaller = styled.h1`
   margin: 0px;
-  padding: 0px;
+  padding-bottom: 10px;
   font-family: "Regular-R";
-  font-size: 0.8em;
-  z-index: 1;
+  font-size: 0.9em;
 
   @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
+    font-size: 0.4em;
+  }
+`;
+const Textsmallerpopis = styled.h1`
+  margin: 0px;
+  padding: 0px;
+  font-family: "Regular-L";
+  font-size: 1.3em;
+
+  @media (max-width: 900px) {
+    font-size: 0.4em;
   }
 `;
 
+
 const Div4 = styled.div`
-  flex-direction: column; /* Corrected typo here */
+  flex-direction: column;
   background-color: blue;
   flex: 1;
   display: flex;
@@ -240,6 +255,7 @@ const Div4 = styled.div`
   height: 100%;
   max-width: 100%;
 `;
+
 const Title2 = styled.h1`
   align-self: center;
   width:100%
@@ -250,15 +266,13 @@ const Title2 = styled.h1`
   font-size: 3em;
 
   @media (max-width: 900px) {
-    font-size: 2em; /* Adjust the font size as needed for smaller screens */
+    font-size: 2em;
   }
 `;
-//div o popise
-
-//#155C35
 
 const Div3 = styled.div`
-  flex-direction: column; /* Corrected typo here */
+  margin-left:10px;
+  flex-direction: column;
   background-color: green;
   flex: 2;
   display: flex;
@@ -276,7 +290,7 @@ const Text2 = styled.h1`
   justify-content: flex-start;
   align-items: flex-start;
   @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
+    font-size: 0.4em;
   }
 `;
 
@@ -288,7 +302,7 @@ const Textpopis2 = styled.h1`
   opacity: 0.6;
 
   @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
+    font-size: 0.4em;
   }
 `;
 
@@ -301,10 +315,10 @@ const Textsmaller2 = styled.h1`
   font-family: "Regular-R";
   font-size: 0.8em;
   z-index: 1;
-  text-align: center; /* Centrování textu */
+  text-align: center;
 
   @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
+    font-size: 0.4em;
   }
 `;
 
@@ -318,16 +332,24 @@ const Title3 = styled.h1`
   font-size: 3em;
 
   @media (max-width: 900px) {
-    font-size: 2em; /* Adjust the font size as needed for smaller screens */
+    font-size: 2em;
   }
 `;
-//Div kde su informacie ohladom rastlin, 
+
 const Divinfo=styled.div`
+flex-direction:column;
 display:flex;
 justify-content:center;
-align-items:center;
+align-items:flex-start;
 `;
 
+const Divider = styled.hr`
+  width: 90%;
+  margin: 10px auto;
+  border: none;
+  border-top: 1px solid #fff;
+  opacity: 0.6;
+`;
 
 const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
   const { id } = useParams<{ id: string }>();
@@ -354,49 +376,110 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
 
   return (
     <ColorizedDiv id="plantdetails">
-    <Div1>
-      <Logoloop></Logoloop>
-      <Titleleaf>LeafLoop</Titleleaf>
-    </Div1>
+      <Div1>
+        <Logoloop></Logoloop>
+        <Titleleaf>LeafLoop</Titleleaf>
+      </Div1>
 
-    <Div2>
-      <Div4>
-        <Image src={plantDetails.url}></Image>
-        <Title2>{plantDetails.Slovenčina.špecifikácie.názov}</Title2>
-        <Text2>({plantDetails.Slovenčina.špecifikácie.taxonomické_meno})</Text2>
-        <Textpopis2>Popis:</Textpopis2>
-        <Textsmaller2>{plantDetails.Slovenčina.špecifikácie.popis}</Textsmaller2>
-      </Div4>
-      <Div3>
-        <Title3>O rastline:</Title3>
+      <Div2>
+        <Div4>
+          <Image src={plantDetails.url}></Image>
+          <Title2>{plantDetails.Slovenčina.špecifikácie.názov}</Title2>
+          <Text2>({plantDetails.Slovenčina.špecifikácie.taxonomické_meno})</Text2>
+          <Textpopis2>Čelaď:</Textpopis2>
+          <Textsmaller2>{plantDetails.Slovenčina.špecifikácie.čelaď}</Textsmaller2>
+          <Textpopis2>Popis:</Textpopis2>
+          <Textsmaller2>{plantDetails.Slovenčina.špecifikácie.popis}</Textsmaller2>
 
-        <Text>Špecifikácie</Text>
-        
-        
-        <Divinfo>
-        <Textsmaller>Výška:</Textsmaller>
-        <Textsmaller>{plantDetails.Slovenčina.špecifikácie.výška}</Textsmaller>
-        </Divinfo>
-        <Divinfo>
-        <Textsmaller>Spôsob rastu:</Textsmaller>
-        
-        </Divinfo>
-       
-        <Textsmaller>Trvanie:</Textsmaller>
-        <Text>Rast:</Text>
-        <Divinfo>
-        <Textsmaller>Svetlo:</Textsmaller>
-        <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.svetlo}</Textsmaller>
-        </Divinfo>
-        <Divinfo>
-        <Textsmaller>Atmosfericka vlhkosť:</Textsmaller>
-        <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.atmosférická_vlhkost}</Textsmaller>
-        </Divinfo>
-      </Div3>
-    </Div2>
-  </ColorizedDiv>
-);
+        </Div4>
+
+        <Div3>
+          <Title3>O rastline:</Title3>
+          <Divider />
+
+          <Text>Špecifikácie</Text>
+          <Divider />
+
+          <Divinfo>
+            <Textsmallerpopis>Starostlivosť:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.starostlivosť}</Textsmaller>
+          </Divinfo>
+
+
+          <Divinfo>
+            <Textsmallerpopis>Dar:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.dar}</Textsmaller>
+          </Divinfo>
+
+
+
+          <Divinfo>
+            <Textsmallerpopis>Výška:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.výška}</Textsmaller>
+          </Divinfo>
+
+
+
+          <Divinfo>
+            <Textsmallerpopis>Trvanie:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.trvanie}</Textsmaller>
+          </Divinfo>
+          <Divider />
+
+          <Text>Rast:</Text>
+          <Divider />
+
+          <Divinfo>
+            <Textsmallerpopis>Spôsob_rastu:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.spôsob_rastu}</Textsmaller>
+          </Divinfo>
+          <Divinfo>
+            <Textsmallerpopis>Svetlo:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.svetlo}</Textsmaller>
+          </Divinfo>
+
+          <Divinfo>
+            <Textsmallerpopis>Atmosferická vlhkosť:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.atmosférická_vlhkosť}</Textsmaller>
+          </Divinfo>
+
+          <Divinfo>
+            <Textsmallerpopis>pH:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.ph}</Textsmaller>
+          </Divinfo>
+
+          <Divinfo>
+            <Textsmallerpopis>Teplota:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.teplota}</Textsmaller>
+          </Divinfo>
+         
+          <Divider />
+          <Text>Pôda:</Text>
+          <Divider />
+          
+          <Divinfo>
+            <Textsmallerpopis>Vlhkosť pôdy:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.pôda.vlhkosť}</Textsmaller>
+          </Divinfo>
+
+          <Divinfo>
+            <Textsmallerpopis>Pôdne živiny:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.pôda.pôdne_živiny}</Textsmaller>
+          </Divinfo>
+
+          <Divinfo>
+            <Textsmallerpopis>Slanosť pôdy:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.pôda.slanosť_pôdy}</Textsmaller>
+          </Divinfo>
+
+          <Divinfo>
+            <Textsmallerpopis>Textúra pôdy:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.pôda.textúra_pôdy}</Textsmaller>
+          </Divinfo>
+        </Div3>
+      </Div2>
+    </ColorizedDiv>
+  );
 };
-
 
 export default PlantDetailsPage;
