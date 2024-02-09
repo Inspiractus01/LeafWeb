@@ -171,6 +171,17 @@ const SearchInput = styled.input`
     }
 `;
 
+const MockupMessage = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2ab96b;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 999;
+`;
 
 interface PlantData {
   _id: string;
@@ -210,7 +221,7 @@ const Library: React.FC = () => {
   const [page, setPage] = useState<number>(1);
   const isMobile = useMediaQuery("(max-width: 900px)");
   const plantsPerPage = isMobile ? 5 : 15;
-
+  const [showMockup, setShowMockup] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
 
   const handleAddPlant = async () => {
@@ -293,6 +304,7 @@ const Library: React.FC = () => {
         </Div1>
 
         <Div2>
+          
           <Title>Vo vývoji</Title>
           <Title2>
             Vitaj v ríši rastlín, kde každá vetvička je knihou a každý list má
