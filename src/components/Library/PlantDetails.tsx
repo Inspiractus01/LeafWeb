@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import "../styles.css";
+import Indicator from './Indicator';
 
 interface PlantDetailsProps {}
 
@@ -20,7 +21,7 @@ interface PlantData {
       trvanie: string;
       rast: {
         svetlo: string;
-        atmosférická_vlhkosť: string;
+        atmosférická_vlhkosť: string; // Zmena na číslo
         ph: string;
         teplota: string;
         pôda: {
@@ -38,7 +39,7 @@ interface PlantData {
 const ColorizedDiv = styled.div`
   position: relative;
   color: white;
-  height: 1200px;
+  height: 1400px;
   display: flex;
   align-items: top;
   justify-content: center;
@@ -62,10 +63,10 @@ const StyledTypewriterWrapper = styled.div`
 const Div1 = styled.div`
   justify-content: center;
   align-items: center;
-  flex: 0.5;
+  flex: 0.4;
   display: flex;
   flex-direction: row;
-  background-color: blue;
+  background-color: transparent;
 `;
 
 const Titleleaf = styled.h1`
@@ -247,7 +248,7 @@ const Textsmallerpopis = styled.h1`
 
 const Div4 = styled.div`
   flex-direction: column;
-  background-color: blue;
+  background-color: transparent;
   flex: 1;
   display: flex;
   justify-content: flex-start;
@@ -271,9 +272,9 @@ const Title2 = styled.h1`
 `;
 
 const Div3 = styled.div`
-  margin-left:10px;
+padding-left:10px;
   flex-direction: column;
-  background-color: green;
+  background-color: #424040;
   flex: 2;
   display: flex;
   justify-content: flex-start;
@@ -342,6 +343,10 @@ display:flex;
 justify-content:center;
 align-items:flex-start;
 `;
+const Divpaddingtext = styled.div`
+padding-left:10px;
+  display: flex;
+`;
 
 const Divider = styled.hr`
   width: 90%;
@@ -371,9 +376,9 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
   }, [id]);
 
   if (!plantDetails) {
-    return <div>Loading...</div>;
+    return <div>Načítavá sa ...</div>;
   }
-
+// <Indicator value={parseInt(plantDetails.Slovenčina.špecifikácie.rast.atmosférická_vlhkosť)} />
   return (
     <ColorizedDiv id="plantdetails">
       <Div1>
@@ -390,6 +395,12 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
           <Textsmaller2>{plantDetails.Slovenčina.špecifikácie.čelaď}</Textsmaller2>
           <Textpopis2>Popis:</Textpopis2>
           <Textsmaller2>{plantDetails.Slovenčina.špecifikácie.popis}</Textsmaller2>
+          <Textpopis2>Svetlo:</Textpopis2>
+          <Indicator value={parseInt(plantDetails.Slovenčina.špecifikácie.rast.svetlo)} />
+          <Textpopis2>Atmosfericka vlhkosť:</Textpopis2>
+          <Indicator value={parseInt(plantDetails.Slovenčina.špecifikácie.rast.atmosférická_vlhkosť)} />
+          <Textpopis2>Vlhkosť pôdy:</Textpopis2>
+          <Indicator value={parseInt(plantDetails.Slovenčina.špecifikácie.rast.pôda.vlhkosť)} />
 
         </Div4>
 
@@ -407,7 +418,7 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
 
 
           <Divinfo>
-            <Textsmallerpopis>Dar:</Textsmallerpopis>
+            <Textsmallerpopis>Výnimočnosť:</Textsmallerpopis>
             <Textsmaller>{plantDetails.Slovenčina.špecifikácie.dar}</Textsmaller>
           </Divinfo>
 
@@ -430,7 +441,7 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
           <Divider />
 
           <Divinfo>
-            <Textsmallerpopis>Spôsob_rastu:</Textsmallerpopis>
+            <Textsmallerpopis>Spôsob rastu:</Textsmallerpopis>
             <Textsmaller>{plantDetails.Slovenčina.špecifikácie.spôsob_rastu}</Textsmaller>
           </Divinfo>
           <Divinfo>
@@ -441,6 +452,7 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
           <Divinfo>
             <Textsmallerpopis>Atmosferická vlhkosť:</Textsmallerpopis>
             <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.atmosférická_vlhkosť}</Textsmaller>
+           
           </Divinfo>
 
           <Divinfo>
