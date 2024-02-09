@@ -17,6 +17,7 @@ interface PlantData {
       dar: string;
       názov: string;
       výška: string;
+      náročnosť:string;
       spôsob_rastu: string;
       trvanie: string;
       rast: {
@@ -199,6 +200,7 @@ const Title = styled.h1`
 `;
 
 const Text = styled.h1`
+color:#2ab96b;
 justify-content:center;
 align-self:center;
   margin: 0px;
@@ -235,6 +237,7 @@ const Textsmaller = styled.h1`
   }
 `;
 const Textsmallerpopis = styled.h1`
+color:#2ab96b;
   margin: 0px;
   padding: 0px;
   font-family: "Regular-L";
@@ -324,6 +327,7 @@ const Textsmaller2 = styled.h1`
 `;
 
 const Title3 = styled.h1`
+color:#2ab96b;
   align-self: center;
   width:100%
   display:flex;
@@ -349,7 +353,7 @@ padding-left:10px;
 `;
 
 const Divider = styled.hr`
-  width: 90%;
+  width: 97%;
   margin: 10px auto;
   border: none;
   border-top: 1px solid #fff;
@@ -395,6 +399,8 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
           <Textsmaller2>{plantDetails.Slovenčina.špecifikácie.čelaď}</Textsmaller2>
           <Textpopis2>Popis:</Textpopis2>
           <Textsmaller2>{plantDetails.Slovenčina.špecifikácie.popis}</Textsmaller2>
+          <Textpopis2>Náročnosť:</Textpopis2>
+          <Indicator value={parseInt(plantDetails.Slovenčina.špecifikácie.naročnosť)} />
           <Textpopis2>Svetlo:</Textpopis2>
           <Indicator value={parseInt(plantDetails.Slovenčina.špecifikácie.rast.svetlo)} />
           <Textpopis2>Atmosfericka vlhkosť:</Textpopis2>
@@ -443,6 +449,10 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
           <Divinfo>
             <Textsmallerpopis>Spôsob rastu:</Textsmallerpopis>
             <Textsmaller>{plantDetails.Slovenčina.špecifikácie.spôsob_rastu}</Textsmaller>
+          </Divinfo>
+          <Divinfo>
+            <Textsmallerpopis>Náročnosť:</Textsmallerpopis>
+            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.naročnosť}</Textsmaller>
           </Divinfo>
           <Divinfo>
             <Textsmallerpopis>Svetlo:</Textsmallerpopis>
