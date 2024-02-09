@@ -268,6 +268,10 @@ const Div4 = styled.div`
   align-items: center;
   height: 100%;
   max-width: 100%;
+
+  @media (max-width: 900px) {
+    padding-bottom:20px;
+  }
 `;
 
 const Title2 = styled.h1`
