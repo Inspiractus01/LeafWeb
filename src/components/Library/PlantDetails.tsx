@@ -48,6 +48,8 @@ const ColorizedDiv = styled.div`
   overflow: hidden;
   background-color: #2ab96b;
   flex-direction: column;
+
+
 `;
 
 const StyledTypewriterWrapper = styled.div`
@@ -69,6 +71,8 @@ const Div1 = styled.div`
   display: flex;
   flex-direction: row;
   background-color: transparent;
+
+
 `;
 
 const Titleleaf = styled.h1`
@@ -127,6 +131,8 @@ const Div2 = styled.div`
   @media (max-width: 900px) {
     align-items: flex-start;
     flex-direction: column;
+    overflow-y:auto;
+    padding-bottom:60px;
   }
 
   height: 100%;
@@ -170,12 +176,15 @@ const Button2 = styled(motion.button)`
 const Image = styled.img`
   align-items: flex-start;
   justify-content: flex-start;
-  width: 550px;
-  height: 500px;
+  width: 480px;
+  height: 480px;
   object-fit: cover;
 
   @media (max-width: 900px) {
+      width:300px;
+   height: 300px;
   }
+
 `;
 
 const Imagediv = styled.div`
@@ -211,7 +220,7 @@ align-self:center;
   z-index: 1;
 
   @media (max-width: 900px) {
-    font-size: 0.4em;
+     font-size: 1em;
   }
 `;
 
@@ -234,7 +243,7 @@ const Textsmaller = styled.h1`
   font-size: 0.9em;
 
   @media (max-width: 900px) {
-    font-size: 0.4em;
+    font-size: 0.7em;
   }
 `;
 const Textsmallerpopis = styled.h1`
@@ -245,7 +254,7 @@ color:#2ab96b;
   font-size: 1.3em;
 
   @media (max-width: 900px) {
-    font-size: 0.4em;
+    font-size: 0.8em;
   }
 `;
 
@@ -307,7 +316,7 @@ const Textpopis2 = styled.h1`
   opacity: 0.6;
 
   @media (max-width: 900px) {
-    font-size: 0.4em;
+    font-size: 0.8em;
   }
 `;
 
@@ -323,7 +332,7 @@ const Textsmaller2 = styled.h1`
   text-align: center;
 
   @media (max-width: 900px) {
-    font-size: 0.4em;
+    font-size: 0.7em;
   }
 `;
 
