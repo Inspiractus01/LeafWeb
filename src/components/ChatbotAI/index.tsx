@@ -1,231 +1,170 @@
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
-import "../styles.css";
+import { AiFillCaretRight } from "react-icons/ai";
+import { IconContext } from "react-icons";
+import Cookies from "js-cookie"; // Importuj modul Cookies
 
-const ColorizedDiv = styled.div`
-  position: relative;
+const ChatbotContainer = styled.div`
+  background-color: #2ab96b;
   color: white;
   height: 100vh;
   display: flex;
-  align-items: top;
-  justify-content: center;
-  overflow: hidden;
-  background-color: #2ab96b; /* Change the background color here */
   flex-direction: column;
-`;
-
-const Title = styled.h1`
-  margin: 0;
-  padding: 0;
-  font-family: "Regular-R";
-  font-size: 3.5em;
-  z-index: 1;
-
-  @media (max-width: 900px) {
-    font-size: 2em; /* Adjust the font size as needed for smaller screens */
-  }
-`;
-
-const StyledTypewriterWrapper = styled.div`
-  padding-top: 3vh;
-  padding-bottom: 4vh;
-  font-family: "Regular-r";
-  font-size: 1.3em;
-  z-index: 1;
-
-  @media (max-width: 900px) {
-    font-size: 0.6em; /* Adjust the font size as needed for smaller screens */
-  }
-`;
-
-const Div1 = styled.div`
-  justify-content: center; /* Add this line to center content horizontally */
-  align-items: center; /* Optionally, you can also center vertically */
-
-  flex: 0.7;
-  display: flex;
-  flex-direction: row;
-  background-color: transparent;
-`;
-
-const Titleleaf = styled.h1`
-  margin-top: 2vh;
-  margin-left: 2vh;
+  align-items: center;
   justify-content: center;
-  width: 90%;
-  font-family: "Regular-R";
-  font-size: 1.4em;
-
-  @media (max-width: 900px) {
-    margin-left: 3vh;
-    font-size: 1em; /* Adjust the font size as needed for smaller screens */
-  }
-`;
-const Logoloop = styled.img`
-  margin-top: 1vh;
-  margin-left: 1vh;
-  width: 8vh;
-  border-radius: 20px;
 `;
 
-const Button = styled(motion.button)`
-  margin: 1vh;
-  width: 20vh;
-  height: 5vh;
-  font-family: "Regular-R";
-  font-size: 1em;
-  background-color: #2ab96b;
-  color: white;
-  border: 2px solid white;
+const ChatWindow = styled.div`
+  background-color: #ffffff;
   border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: white;
-    color: #2ab96b;
-  }
-
-  @media (max-width: 900px) {
-    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
-  }
+  width: 60%;
+  height: 80%;
+  overflow-y: scroll;
+  padding: 20px;
 `;
 
-const Div2 = styled.div`
-  justify-content: flex-start;
-  align-items: center;
-  flex: 6;
-  background-color: transparent;
-  flex-direction: row;
+const MessageContainer = styled.div`
   display: flex;
-  @media (max-width: 900px) {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-`;
-
-const Textdiv = styled.div`
-  margin-left: 3vh;
-  display: flex;
-  width: 55%;
   flex-direction: column;
-
-  @media (max-width: 900px) {
-    margin-top:3vh;
-    width:100%;
-
 `;
 
-const Button2 = styled(motion.button)`
-  margin: 1vh;
-  width: 20vh;
-  height: 5vh;
-  font-family: "Regular-R";
-  font-size: 1em;
-  background-color: #18914a;
-  color: black;
-  border: 2px solid #18914a;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: white;
-    color: black;
-  }
-
-  @media (max-width: 900px) {
-    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
-  }
+const Message = styled.div`
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
 `;
 
-const Image = styled.img`
-  object-fit: cover;
-  border: 2px solid #363434;
-  border-radius: 30px;
-  width: 70vh;
-  box-shadow: 30px -40px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
-
-  @media (max-width: 900px) {
-    margin-left: 3vh;
-    align-self: center;
-    justify-self: center;
-    width: 80%;
-    height: 80%;
-    box-shadow: 15px -20px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
-  }
-`;
-const Imagediv = styled.div`
-  display: flex;
-  @media (max-width: 900px) {
-    width: 100%;
-    height:100%;
-  
+const UserMessage = styled(Message)`
+  align-self: flex-end;
+  background-color: #2ab96b;
 `;
 
-const Div3 = styled.div`
+const BotMessage = styled(Message)`
+  align-self: flex-start;
   background-color: #155c35;
-  flex: 2;
+`;
+
+const InputContainer = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
 `;
 
-const Text = styled.h1`
-  margin-right: 10vh;
-  font-family: "Regular-R";
-  font-size: 1em;
-  z-index: 1;
-
-  @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
-  }
+const InputField = styled.input`
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
 `;
-const Platnetlogo = styled.img`
-  width: 20vh;
-  @media (max-width: 900px) {
-    margin-left: 3vh;
-    width: 10vh;
-  }
+
+const SendButton = styled(motion.button)`
+  background-color: #ffffff;
+  color: #2ab96b;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 `;
 
 const Chatbot = () => {
-  const handleExploreNowClick = () => {
-    window.location.href = "/aboutpage";
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+  const [userId, setUserId] = useState("");
+
+  useEffect(() => {
+    // Získať užívateľské ID z cookies
+    const storedUserId = Cookies.get("userId");
+    if (storedUserId) {
+      setUserId(storedUserId);
+    } else {
+      // Ak neexistuje, vytvorte nové ID a uložte ho do cookies
+      const newUserId = generateUserId();
+      setUserId(newUserId);
+      Cookies.set("userId", newUserId);
+    }
+
+    // Načítanie správ chatu z cookies
+    const storedMessages = Cookies.get("chatMessages");
+    if (storedMessages) {
+      setMessages(JSON.parse(storedMessages));
+    }
+  }, []);
+
+  useEffect(() => {
+    // Uložiť správy chatu do cookies vždy, keď sa zmenia
+    Cookies.set("chatMessages", JSON.stringify(messages));
+  }, [messages]);
+
+  const generateUserId = () => {
+    // Generovanie náhodného užívateľského ID
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  };
+
+  const sendMessage = async () => {
+    if (input.trim() !== "") {
+      const newMessage = { text: input, fromUser: true };
+      setMessages((prevState) => [...prevState, newMessage]);
+      setInput("");
+
+      try {
+        const response = await fetch("https://api.leafloop.wiki/chatbot", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: input, userId: userId }), // Poslať userID spolu s správou
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch response from chatbot");
+        }
+
+        const data = await response.json();
+        const botMessage = { text: data.text, fromUser: false };
+        setMessages((prevState) => [...prevState, botMessage]);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
   };
 
   return (
-    <>
-      <ColorizedDiv id="homepage">
-        <Div1>
-          <Logoloop></Logoloop>
-          <Titleleaf>LeafLoop</Titleleaf>
-        </Div1>
-
-        <Div2>
-          <Textdiv>
-            <Title>COMMING SOON, IN DEVELOPEMENT</Title>
-
-            <StyledTypewriterWrapper>
-              <Typewriter
-                cursor
-                cursorStyle="_"
-                words={[
-                  "Ai powered chatbot helping your plants to live longer :)- comming soon ",
-                  ,
-                ]}
-                loop={true}
-                typeSpeed={50}
-                deleteSpeed={0}
-                delaySpeed={40000000}
-              />
-            </StyledTypewriterWrapper>
-          </Textdiv>
-          <Imagediv></Imagediv>
-        </Div2>
-      </ColorizedDiv>
-    </>
+    <ChatbotContainer>
+      <ChatWindow>
+        <MessageContainer>
+          {messages.map((message, index) =>
+            message.fromUser ? (
+              <UserMessage key={index}>{message.text}</UserMessage>
+            ) : (
+              <BotMessage key={index}>{message.text}</BotMessage>
+            )
+          )}
+        </MessageContainer>
+      </ChatWindow>
+      <InputContainer>
+        <InputField
+          type="text"
+          placeholder="Type your message..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        <SendButton whileTap={{ scale: 0.95 }} onClick={sendMessage}>
+          <IconContext.Provider value={{ size: "1.5em" }}>
+            <AiFillCaretRight />
+          </IconContext.Provider>
+        </SendButton>
+      </InputContainer>
+    </ChatbotContainer>
   );
 };
 
