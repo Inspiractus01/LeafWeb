@@ -18,18 +18,20 @@ const ChatbotContainer = styled.div`
 const ChatWindow = styled.div`
   background-color: #ffffff;
   border-radius: 10px;
-  width: 60%;
-  height: 80%;
+  width: 50%;
+  height: 70%;
   overflow-y: scroll;
   padding: 20px;
 `;
 
 const MessageContainer = styled.div`
+font-family: "Regular-R";
   display: flex;
   flex-direction: column;
 `;
 
 const Message = styled.div`
+font-family: "Regular-R";
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -41,14 +43,16 @@ const UserMessage = styled(Message)`
 `;
 
 const BotMessage = styled(Message)`
+
   align-self: flex-start;
   background-color: #155c35;
 `;
 
 const InputContainer = styled.div`
+  margin-bottom:100px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 20px;
 `;
@@ -141,6 +145,7 @@ const Chatbot = () => {
     <ChatbotContainer>
       <ChatWindow>
         <MessageContainer>
+        <BotMessage> Ahoj! Ako ti môžem pomôcť dnes? Máš nejaké otázky ohľadom rastlín alebo niečo iné, čo ťa zaujíma? Som tu, aby som ti pomohol!</BotMessage>
           {messages.map((message, index) =>
             message.fromUser ? (
               <UserMessage key={index}>{message.text}</UserMessage>
@@ -153,16 +158,14 @@ const Chatbot = () => {
       <InputContainer>
         <InputField
           type="text"
-          placeholder="Type your message..."
+          placeholder="Napíš tvoju otázku"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-        <SendButton whileTap={{ scale: 0.95 }} onClick={sendMessage}>
           <IconContext.Provider value={{ size: "1.5em" }}>
             <AiFillCaretRight />
           </IconContext.Provider>
-        </SendButton>
       </InputContainer>
     </ChatbotContainer>
   );

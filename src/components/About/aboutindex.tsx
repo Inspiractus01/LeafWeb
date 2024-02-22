@@ -104,6 +104,7 @@ const Button = styled(motion.button)`
 `;
 
 const Div2 = styled.div`
+  margin-bottom:100px;
   justify-content: flex-start;
   align-items: center;
   flex: 6;
@@ -335,7 +336,7 @@ const Aboutpage = () => {
   <br></br><br></br>
   <u>⚪Open API:</u> Poskytujeme otvorené API, ktoré umožňuje vývojárom a nadšencom pristupovať k našej databáze rastlín a integrovať ju do vlastných projektov. Tým podporujeme otvorenosť a inovácie vo svete rastlín.
 </Text>
-<Image src="https://cdn.discordapp.com/attachments/1096191061015150754/1204145357542653993/LeafLoop_2.png?ex=65d3aac1&is=65c135c1&hm=82c5efb82b81d90e48170d277e548d5703a33c7d41be12a6fb48f1c13760d15e&"></Image>
+<Image src="https://media.discordapp.net/attachments/1096191061015150754/1204145357542653993/LeafLoop_2.png?ex=65e61fc1&is=65d3aac1&hm=1126274fbf473bbca31b30e66e4a69a7fa13bcff701d6530cfeb54aa52c9f456&=&format=webp&quality=lossless&width=1609&height=905"></Image>
 
           
           <Title2>Ako tento zelený projekt vznikol?</Title2>
