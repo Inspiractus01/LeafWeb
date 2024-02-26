@@ -39,7 +39,7 @@ const StyledTypewriterWrapper = styled.div`
   padding-top: 3vh;
   padding-bottom: 4vh;
   font-family: "Regular-r";
-  font-size: 1.3em;
+  font-size: 1.6em;
   z-index: 1;
 
   @media (max-width: 900px) {
@@ -316,7 +316,7 @@ const Homepage = () => {
                 words={[
                   "Najväčšia knižnica rastlín na Slovensku!",
                   "Použite naše LeafLoop-API dostupné pre každého",
-                  "Opýtajte sa nášho AI-LeafLoop bota na rady pre vašu rastlinku",
+                  "Opýtajte sa nášho AI-LeafLoop bota na rady pre vašu rastlinu",
                   "Zapojte sa a prispejte do našej open-source knižnice rastlín",
                 ]}
                 loop={true}
@@ -333,7 +333,7 @@ const Homepage = () => {
               Skúmať teraz
             </Button2>
             <CounterWrapper>
-              <Text1>Už v máme v našej databáze:</Text1>
+              <Text1>V našej databáze je už:</Text1>
               <CounterText>{rounded}</CounterText>
               <Text1>rastlín 🍀</Text1>
             </CounterWrapper>
