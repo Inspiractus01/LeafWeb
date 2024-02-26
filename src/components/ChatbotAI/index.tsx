@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { AiFillCaretRight } from "react-icons/ai";
 import { IconContext } from "react-icons";
-import Cookies from "js-cookie"; // Importuj modul Cookies
+import BotAvatarImage from "./groot.jpg";
 
 const ChatbotContainer = styled.div`
   background-color: #2ab96b;
@@ -16,22 +16,42 @@ const ChatbotContainer = styled.div`
 `;
 
 const ChatWindow = styled.div`
-  background-color: #ffffff;
+  background-color: #363434;
   border-radius: 10px;
-  width: 50%;
-  height: 70%;
+  width: 90%;
+  height: 80%;
   overflow-y: scroll;
   padding: 20px;
+  /* Style the scrollbar */
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #2ab96b;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #363434;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 `;
 
 const MessageContainer = styled.div`
-font-family: "Regular-R";
+  font-family: "Regular-R";
   display: flex;
   flex-direction: column;
 `;
 
 const Message = styled.div`
-font-family: "Regular-R";
+  font-family: "Regular-R";
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -43,13 +63,12 @@ const UserMessage = styled(Message)`
 `;
 
 const BotMessage = styled(Message)`
-
   align-self: flex-start;
   background-color: #155c35;
 `;
 
 const InputContainer = styled.div`
-  margin-bottom:100px;
+  margin-bottom: 1%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -73,39 +92,28 @@ const SendButton = styled(motion.button)`
   cursor: pointer;
 `;
 
+const BotAvatar = styled.img`
+  width: 40px; // Adjust the size as needed
+  height: 40px; // Adjust the size as needed
+  border-radius: 50%; // Ensures a circular avatar
+  margin-left: 10px; // Adjust the spacing between the avatar and the message
+`;
+
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [userId, setUserId] = useState("");
 
-  useEffect(() => {
-    // Získať užívateľské ID z cookies
-    const storedUserId = Cookies.get("userId");
-    if (storedUserId) {
-      setUserId(storedUserId);
-    } else {
-      // Ak neexistuje, vytvorte nové ID a uložte ho do cookies
-      const newUserId = generateUserId();
-      setUserId(newUserId);
-      Cookies.set("userId", newUserId);
-    }
-
-    // Načítanie správ chatu z cookies
-    const storedMessages = Cookies.get("chatMessages");
-    if (storedMessages) {
-      setMessages(JSON.parse(storedMessages));
-    }
-  }, []);
+  const chatWindowRef = useRef(null);
 
   useEffect(() => {
-    // Uložiť správy chatu do cookies vždy, keď sa zmenia
-    Cookies.set("chatMessages", JSON.stringify(messages));
+    scrollToBottom();
   }, [messages]);
 
-  const generateUserId = () => {
-    // Generovanie náhodného užívateľského ID
-    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  const scrollToBottom = () => {
+    chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight;
   };
+
 
   const sendMessage = async () => {
     if (input.trim() !== "") {
@@ -143,9 +151,14 @@ const Chatbot = () => {
 
   return (
     <ChatbotContainer>
-      <ChatWindow>
+      <ChatWindow ref={chatWindowRef}>
         <MessageContainer>
-        <BotMessage> Ahoj! Ako ti môžem pomôcť dnes? Máš nejaké otázky ohľadom rastlín alebo niečo iné, čo ťa zaujíma? Som tu, aby som ti pomohol!</BotMessage>
+          <BotAvatar src={BotAvatarImage} alt="Bot Avatar" />
+          <BotMessage>
+            {" "}
+            Ahoj! Ako ti môžem pomôcť dnes? Máš nejaké otázky ohľadom rastlín
+            alebo niečo iné, čo ťa zaujíma? Som tu, aby som ti pomohol!
+          </BotMessage>
           {messages.map((message, index) =>
             message.fromUser ? (
               <UserMessage key={index}>{message.text}</UserMessage>
@@ -163,9 +176,9 @@ const Chatbot = () => {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-          <IconContext.Provider value={{ size: "1.5em" }}>
-            <AiFillCaretRight />
-          </IconContext.Provider>
+        <IconContext.Provider value={{ size: "1.5em" }}>
+          <AiFillCaretRight />
+        </IconContext.Provider>
       </InputContainer>
     </ChatbotContainer>
   );

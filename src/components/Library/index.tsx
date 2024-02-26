@@ -128,6 +128,14 @@ const PlantImage = styled.img`
   object-fit: cover;
   margin-bottom: 10px;
 
+
+  transition: transform 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
   @media (max-width: 900px) {
     width: 250px;
     height: 150x;
@@ -307,7 +315,7 @@ const Library: React.FC = () => {
           
           <Title>Vo vývoji</Title>
           <Title2>
-            Vitaj v ríši rastlín, kde každá vetvička je knihou a každý list má
+          Vitaj v ríši rastlín, kde každá vetvička je knihou a každý list má
             svoj vlastný príbeh!
           </Title2>
 
@@ -355,7 +363,6 @@ const Library: React.FC = () => {
         );
       } catch (error) {
         console.error(`Error loading image for plant ${plant._id}:`, error);
-        // Replace the following line with your placeholder image
         return (
           <PlantImage
             src="path-to-placeholder-image.jpg"
