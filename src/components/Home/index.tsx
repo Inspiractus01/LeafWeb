@@ -7,6 +7,10 @@ import Leafani from "./animation.json";
 import "../styles.css";
 import Logo from "./logo.png";
 
+import image1 from "./r1.jpg";
+import image2 from "./r2.jpg";
+import image3 from "./r3.jpg";
+
 const ColorizedDiv = styled.div`
   position: relative;
   color: white;
@@ -146,6 +150,7 @@ const Button2 = styled(motion.button)`
 `;
 
 const Image = styled.img`
+height:45vh;
   object-fit: cover;
   border: 2px solid #363434;
   border-radius: 30px;
@@ -157,7 +162,7 @@ const Image = styled.img`
     align-self: center;
     justify-self: center;
     width: 80%;
-    height: 80%;
+    height: 20vh;
     box-shadow: 15px -20px 10px rgba(21, 92, 53, 0.7);
   }
 `;
@@ -229,9 +234,23 @@ const CounterText = styled(motion.h1)`
     font-size: 0.8em;
 `;
 
+const images = [image1, image2, image3];
+
 const Homepage = () => {
   const [plantData, setPlantData] = useState([]);
+  const [randomImage, setRandomImage] = useState('');
+  useEffect(() => {
+    // Call function to set random image on component mount
+    setRandomImage(getRandomImage());
+  }, []);
 
+  const getRandomImage = () => {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+
+
+
+  };
   useEffect(() => {
     const fetchPlantData = async () => {
       try {
@@ -320,7 +339,7 @@ const Homepage = () => {
             </CounterWrapper>
           </Textdiv>
           <Imagediv>
-            <Image src="https://media.discordapp.net/attachments/882706828889296974/1200106454359736379/rastlina.jpg?ex=65c4f93b&is=65b2843b&hm=3e20e7ba54917f93baa21a246af053025b625b7c969604df6ac973d0628fef40&=&format=webp&width=1358&height=905" />
+            <Image src= {randomImage} />
           </Imagediv>
         </Div2>
         <Div3>

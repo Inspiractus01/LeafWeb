@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import "../styles.css";
+import image1 from "./LeafLoop.png";
+import image2 from "./LeafLoop_2.png";
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -320,7 +322,7 @@ const Aboutpage = () => {
         <Div2>
         <Title>Tvoja AI Rastlinná Encyklopédia!</Title>
         <Text1>V LeafLoop veríme v úžasný svet rastlín a chceme vám pomôcť objavovať ho jednoduchým a interaktívnym spôsobom. Naša platforma je viac než len encyklopédia - je to komunita nadšencov, ktorí zdieľajú svoju vášeň pre rastliny.</Text1>
-        <Image src="https://cdn.discordapp.com/attachments/1096191061015150754/1200639561819242606/LeafLoop.png?ex=65c6e9ba&is=65b474ba&hm=606eb5256c1e4db441e8d17c97618c3f44455a0fad876bc60ebcba49ec9b6447&"></Image>
+        <Image src={image1}></Image>
         <Title2>Najväčšia knižnica na Slovensku? alebo aj na svete?</Title2>
         <Text>
       Ako je to možné, že máme tolko rastlín v našej databáze? Je to jednoduché, naša knižnica LeafLoop je  generovaná umelou inteligenciou. Momentálne pracujeme na vývoji vlastnej AI, ktorá bude ešte presnejšia a účinnejšia. Vzhľadom na dynamiku sveta rastlín sa môžu vyskytnúť chyby, no s vašou pomocou a spoluprácou našej komunity stále zdokonaľujeme naše služby.
@@ -336,7 +338,7 @@ const Aboutpage = () => {
   <br></br><br></br>
   <u>⚪Open API:</u> Poskytujeme otvorené API, ktoré umožňuje vývojárom a nadšencom pristupovať k našej databáze rastlín a integrovať ju do vlastných projektov. Tým podporujeme otvorenosť a inovácie vo svete rastlín.
 </Text>
-<Image src="https://media.discordapp.net/attachments/1096191061015150754/1204145357542653993/LeafLoop_2.png?ex=65e61fc1&is=65d3aac1&hm=1126274fbf473bbca31b30e66e4a69a7fa13bcff701d6530cfeb54aa52c9f456&=&format=webp&quality=lossless&width=1609&height=905"></Image>
+<Image src={image2}></Image>
 
           
           <Title2>Ako tento zelený projekt vznikol?</Title2>
