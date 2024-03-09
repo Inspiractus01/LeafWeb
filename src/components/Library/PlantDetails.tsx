@@ -315,7 +315,8 @@ const Textpopis2 = styled.h1`
   padding: 0px;
   font-family: "Regular-R";
   font-size: 0.8em;
-  opacity: 0.6;
+  color:#424040;
+  opacity: 2;
 
   @media (max-width: 900px) {
     font-size: 0.8em;

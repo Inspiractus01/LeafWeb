@@ -6,10 +6,11 @@ const SquareContainer = styled.div`
 `;
 
 const Square = styled.div<{ isActive: boolean }>`  
-  width: 10px;
-  height: 10px;
+  border-radius:30px;
+  width: 20px;
+  height: 20px;
   margin-right: 5px; /* pridajte ľubovoľnú medzeru medzi štvorčekmi */
-  background-color: ${({ isActive }) => isActive ? 'Green' : '#ccc'};
+  background-color: ${({ isActive }) => isActive ? '#18914a' : 'white'};
 `;
 
 interface IndicatorProps {
