@@ -268,7 +268,7 @@ const Homepage = () => {
   }, []);
 
   const handleExploreNowClick = () => {
-    window.location.href = "/aboutpage";
+    window.location.href = "/library";
   };
 
   const defaultOptions = {
@@ -344,8 +344,8 @@ const Homepage = () => {
         </Div2>
         <Div3>
           <Text>
-            "Ponor sa do sveta rastlín s našou AI encyklopédiu rastlín a nechaj
-            si poradit naším chatbotom. Odkryjte krásu přírody bez námahy!"
+
+          "Plantnet si všimol našu aplikáciu! Ďakujeme za podporu. Pokračujeme v poskytovaní jedinečného zážitku pri spoznávaní krásy prírody s našou AI encyklopédiou rastlín a chatbotom. Veľká vďaka za vašu dôveru!"
           </Text>
           <a href="https://identify.plantnet.org">
             <Platnetlogo src="https://my.plantnet.org/images/powered-by-plantnet-dark.png" />
