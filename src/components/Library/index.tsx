@@ -148,37 +148,38 @@ const PlantName = styled.p`
   margin-top: 10px;
 `;
 const SearchInput = styled.input`
-    width: 500px;
-    height:30px;
-    background-color: transparent;
-    transition: transform 250ms ease-in-out;
-    font-size: 20px;
-    line-height: 10px;
-    color: #575756;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: 18px 18px;
-    background-position: 95% center;
-    border-radius: 30px;
-    border: 1px solid #575756;
-    transition: all 250ms ease-in-out;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    &::placeholder {
-        color: rgba(87, 87, 86, 0.8);
-        letter-spacing: 1.5px;
-    }
-    &:hover,
-    &:focus {
-        padding: 5px 0;
-        outline: 0;
-        border: 1px solid transparent;
-        border-bottom: 1px solid #575756;
-        border-radius: 0;
-        background-position: 100% center;
-    }
-`;
+  font-family: 'Dosis', sans-serif;
+  background: #424040; /* Vaša pôvodná farba */
+  width: 500px;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  padding-left:30px;
+  margin-top: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 1.6em;
+  transition: all 0.3s ease-in-out;
 
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 0.8em;
+  }
+
+  /* JavaScript efekt pre písmeno po písmene */
+  animation: typing 0.8s steps(40, end);
+
+  &:hover, &:focus {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
 const MockupMessage = styled.div`
   position: fixed;
   top: 50%;
@@ -330,9 +331,11 @@ const Library: React.FC = () => {
               placeholder="Hľadaj rastlinu"
               value={searchInput}
               onChange={(e) => {
+                setPage(1)
                 setSearchInput(e.target.value);
                 setNewPlantName(e.target.value); // Add this line to update newPlantName
               }}
+              
             />
           </div>
           <button onClick={handleAddPlant} disabled={loading}>
