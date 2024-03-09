@@ -179,6 +179,11 @@ const SearchInput = styled.input`
   &:focus {
     outline: none;
   }
+  @media (max-width: 900px) {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+  }
 `;
 const MockupMessage = styled.div`
   position: fixed;

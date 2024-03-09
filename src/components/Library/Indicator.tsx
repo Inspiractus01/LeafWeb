@@ -10,7 +10,7 @@ const Square = styled.div<{ isActive: boolean }>`
   width: 20px;
   height: 20px;
   margin-right: 5px; /* pridajte ľubovoľnú medzeru medzi štvorčekmi */
-  background-color: ${({ isActive }) => isActive ? '#18914a' : 'white'};
+  background-color: ${({ isActive }) => isActive ? '#18914a' : '#E5E6F7'};
 `;
 
 interface IndicatorProps {

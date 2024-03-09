@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
+import Lottie from "react-lottie";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import "../styles.css";
 import Indicator from './Indicator';
-
+import Leafani from "./loading.json";
 interface PlantDetailsProps {}
 
 interface PlantData {
@@ -396,6 +396,16 @@ const Buttonback = styled(motion.button)`
   }
 `;
 
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: Leafani,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
+
 const handleExploreNowClick = () => {
   window.location.href = "/library";
 };
@@ -419,7 +429,9 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
   }, [id]);
 
   if (!plantDetails) {
-    return <div>Načítavá sa ...</div>;
+    return <ColorizedDiv>
+    <Lottie options={defaultOptions} height={600} width={600} />
+    </ColorizedDiv>;
   }
 // <Indicator value={parseInt(plantDetails.špecifikácie.rast.atmosférická_vlhkosť)} />
   return (

@@ -352,7 +352,7 @@ const Homepage = () => {
           </a>
         </Div3>
       </ColorizedDiv>
-      <Lottie options={defaultOptions} height={0} width={0} />
+      
     </>
   );
 };
