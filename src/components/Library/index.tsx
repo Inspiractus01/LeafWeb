@@ -193,7 +193,6 @@ const MockupMessage = styled.div`
 
 interface PlantData {
   _id: string;
-  Slovenčina: {
     špecifikácie: {
       taxonomické_meno: string;
       starostlivosť: string;
@@ -217,7 +216,6 @@ interface PlantData {
         };
       };
     };
-  };
   url: string;
 }
 
@@ -293,7 +291,7 @@ const Library: React.FC = () => {
   };
 
   const filteredPlantData = plantData.filter((plant) =>
-    plant.Slovenčina.špecifikácie.názov
+    plant.špecifikácie.názov
       .toLowerCase()
       .includes(searchInput.toLowerCase()),
   );
@@ -357,7 +355,7 @@ const Library: React.FC = () => {
           <Link to={`/plantdetails/${plant._id}`}>
             <PlantImage
               src={plant.url}
-              alt={plant.Slovenčina.špecifikácie.názov}
+              alt={plant.špecifikácie.názov}
             />
           </Link>
         );
@@ -371,7 +369,7 @@ const Library: React.FC = () => {
         );
       }
     })()}
-    <PlantName>{plant.Slovenčina.špecifikácie.názov}</PlantName>
+    <PlantName>{plant.špecifikácie.názov}</PlantName>
   </PlantInfoContainer>
 ))}
         </div>

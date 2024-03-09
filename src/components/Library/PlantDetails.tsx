@@ -10,7 +10,6 @@ interface PlantDetailsProps {}
 
 interface PlantData {
   _id: string;
-  Slovenčina: {
     špecifikácie: {
       taxonomické_meno: string;
       starostlivosť: string;
@@ -34,7 +33,6 @@ interface PlantData {
         };
       };
     };
-  };
   url: string;
 }
 
@@ -422,7 +420,7 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
   if (!plantDetails) {
     return <div>Načítavá sa ...</div>;
   }
-// <Indicator value={parseInt(plantDetails.Slovenčina.špecifikácie.rast.atmosférická_vlhkosť)} />
+// <Indicator value={parseInt(plantDetails.špecifikácie.rast.atmosférická_vlhkosť)} />
   return (
     <ColorizedDiv id="plantdetails">
       <Div1>
@@ -438,20 +436,20 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
       <Div2>
         <Div4>
           <Image src={plantDetails.url}></Image>
-          <Title2>{plantDetails.Slovenčina.špecifikácie.názov}</Title2>
-          <Text2>({plantDetails.Slovenčina.špecifikácie.taxonomické_meno})</Text2>
+          <Title2>{plantDetails.špecifikácie.názov}</Title2>
+          <Text2>({plantDetails.špecifikácie.taxonomické_meno})</Text2>
           <Textpopis2>Čelaď:</Textpopis2>
-          <Textsmaller2>{plantDetails.Slovenčina.špecifikácie.čelaď}</Textsmaller2>
+          <Textsmaller2>{plantDetails.špecifikácie.čelaď}</Textsmaller2>
           <Textpopis2>Popis:</Textpopis2>
-          <Textsmaller2>{plantDetails.Slovenčina.špecifikácie.popis}</Textsmaller2>
+          <Textsmaller2>{plantDetails.špecifikácie.popis}</Textsmaller2>
           <Textpopis2>Náročnosť:</Textpopis2>
-          <Indicator value={parseInt(plantDetails.Slovenčina.špecifikácie.naročnosť)} />
+          <Indicator value={parseInt(plantDetails.špecifikácie.naročnosť)} />
           <Textpopis2>Svetlo:</Textpopis2>
-          <Indicator value={parseInt(plantDetails.Slovenčina.špecifikácie.rast.svetlo)} />
+          <Indicator value={parseInt(plantDetails.špecifikácie.rast.svetlo)} />
           <Textpopis2>Atmosfericka vlhkosť:</Textpopis2>
-          <Indicator value={parseInt(plantDetails.Slovenčina.špecifikácie.rast.atmosférická_vlhkosť)} />
+          <Indicator value={parseInt(plantDetails.špecifikácie.rast.atmosférická_vlhkosť)} />
           <Textpopis2>Vlhkosť pôdy:</Textpopis2>
-          <Indicator value={parseInt(plantDetails.Slovenčina.špecifikácie.rast.pôda.vlhkosť)} />
+          <Indicator value={parseInt(plantDetails.špecifikácie.rast.pôda.vlhkosť)} />
 
         </Div4>
 
@@ -464,27 +462,27 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
 
           <Divinfo>
             <Textsmallerpopis>Starostlivosť:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.starostlivosť}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.starostlivosť}</Textsmaller>
           </Divinfo>
 
 
           <Divinfo>
             <Textsmallerpopis>Výnimočnosť:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.dar}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.dar}</Textsmaller>
           </Divinfo>
 
 
 
           <Divinfo>
             <Textsmallerpopis>Výška:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.výška}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.výška}</Textsmaller>
           </Divinfo>
 
 
 
           <Divinfo>
             <Textsmallerpopis>Trvanie:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.trvanie}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.trvanie}</Textsmaller>
           </Divinfo>
           <Divider />
 
@@ -493,31 +491,31 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
 
           <Divinfo>
             <Textsmallerpopis>Spôsob rastu:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.spôsob_rastu}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.spôsob_rastu}</Textsmaller>
           </Divinfo>
           <Divinfo>
             <Textsmallerpopis>Náročnosť:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.naročnosť}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.naročnosť}</Textsmaller>
           </Divinfo>
           <Divinfo>
             <Textsmallerpopis>Svetlo:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.svetlo}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.rast.svetlo}</Textsmaller>
           </Divinfo>
 
           <Divinfo>
             <Textsmallerpopis>Atmosferická vlhkosť:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.atmosférická_vlhkosť}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.rast.atmosférická_vlhkosť}</Textsmaller>
            
           </Divinfo>
 
           <Divinfo>
             <Textsmallerpopis>pH:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.ph}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.rast.ph}</Textsmaller>
           </Divinfo>
 
           <Divinfo>
             <Textsmallerpopis>Teplota:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.teplota}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.rast.teplota}</Textsmaller>
           </Divinfo>
          
           <Divider />
@@ -526,22 +524,22 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
           
           <Divinfo>
             <Textsmallerpopis>Vlhkosť pôdy:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.pôda.vlhkosť}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.rast.pôda.vlhkosť}</Textsmaller>
           </Divinfo>
 
           <Divinfo>
             <Textsmallerpopis>Pôdne živiny:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.pôda.pôdne_živiny}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.rast.pôda.pôdne_živiny}</Textsmaller>
           </Divinfo>
 
           <Divinfo>
             <Textsmallerpopis>Slanosť pôdy:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.pôda.slanosť_pôdy}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.rast.pôda.slanosť_pôdy}</Textsmaller>
           </Divinfo>
 
           <Divinfo>
             <Textsmallerpopis>Textúra pôdy:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.Slovenčina.špecifikácie.rast.pôda.textúra_pôdy}</Textsmaller>
+            <Textsmaller>{plantDetails.špecifikácie.rast.pôda.textúra_pôdy}</Textsmaller>
           </Divinfo>
         </Div3>
       </Div2>
