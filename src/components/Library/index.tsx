@@ -366,6 +366,7 @@ const Library: React.FC = () => {
     } finally {
       setLoading(false);
       setNewPlantName("");
+      setOpenModal(false);
       setAddingPlant(false);
     }
   };
