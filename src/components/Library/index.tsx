@@ -7,6 +7,18 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Leafani from "./loading1.json";
+import Lottie from "react-lottie";
+
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: Leafani,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 
 const ColorizedDiv = styled.div`
   position: relative;
@@ -309,7 +321,7 @@ const Library: React.FC = () => {
   const plantsPerPage = isMobile ? 5 : 15;
   const [showMockup, setShowMockup] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
-
+  const [addingPlant, setAddingPlant] = useState<boolean>(false); 
   const [openModal, setOpenModal] = useState(false); 
 
 
@@ -323,6 +335,7 @@ const Library: React.FC = () => {
   const handleAddPlant = async () => {
     try {
       setLoading(true);
+      setAddingPlant(true);
 
       const response = await fetch(
         `https://api.leafloop.wiki/addplant?nazovv=${newPlantName}`,
@@ -353,6 +366,7 @@ const Library: React.FC = () => {
     } finally {
       setLoading(false);
       setNewPlantName("");
+      setAddingPlant(false);
     }
   };
 
@@ -467,7 +481,7 @@ const Library: React.FC = () => {
     <Typography>
       <Text2>Všetci vieme, že nič nie je dokonalé, ale práve ty to môžeš napraviť!🤓</Text2>
       <Text2>Stačí napísať presný názov tvojej obľúbenej rastliny do políčka nižšie a kliknúť na tlačidlo "Pridaj". Pomôž nám rozšíriť túto úžasnú databázu rastlín a priniesť viac zelene do našej komunity! Ďakujeme ti za tvoju pomoc!</Text2>
-
+      
       <Sinput
         type="text"
         placeholder="Správne napísaný názov rastliny"
@@ -479,6 +493,12 @@ const Library: React.FC = () => {
         Pridať
       </Button2>
     </Typography>
+    {addingPlant ? (
+        <div>
+          <Lottie options={defaultOptions} height={300} width={300} />
+          <Text2>Rastlina sa pridáva</Text2>
+        </div>
+      ) : null}
   </Box>
 </Modal>
 
