@@ -17,7 +17,8 @@ interface PlantData {
       dar: string;
       názov: string;
       výška: string;
-      náročnosť:string;
+      naročnost?: string ; // Change to accept string or number
+      náročnost?: string ; // Add the alternative key
       spôsob_rastu: string;
       trvanie: string;
       rast: {
@@ -405,6 +406,21 @@ const defaultOptions = {
   },
 };
 
+const getDifficultyValue = (details: PlantData['špecifikácie']) => {
+  // Pokúsi sa získať hodnotu pomocou klúča 'naročnosť'
+  let difficultyValue = details.naročnosť;
+  // Ak hodnota nie je definovaná alebo je neplatná, pokračujeme s klúčom 'náročnosť'
+  if (!difficultyValue || isNaN(parseInt(difficultyValue))) {
+    difficultyValue = details.náročnosť;
+  }
+  // Ak aj tak nemôžeme získať platnú hodnotu, vrátime undefined
+  if (!difficultyValue || isNaN(parseInt(difficultyValue))) {
+    return undefined;
+  }
+  // Inak vrátime parsovanú hodnotu
+  return parseInt(difficultyValue);
+};
+
 
 const handleExploreNowClick = () => {
   window.location.href = "/library";
@@ -456,7 +472,7 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
           <Textpopis2>Popis:</Textpopis2>
           <Textsmaller2>{plantDetails.špecifikácie.popis}</Textsmaller2>
           <Textpopis2>Náročnosť:</Textpopis2>
-          <Indicator value={parseInt(plantDetails.špecifikácie.naročnosť)} />
+          <Indicator value={getDifficultyValue(plantDetails.špecifikácie)} />
           <Textpopis2>Svetlo:</Textpopis2>
           <Indicator value={parseInt(plantDetails.špecifikácie.rast.svetlo)} />
           <Textpopis2>Atmosfericka vlhkosť:</Textpopis2>
@@ -508,7 +524,7 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
           </Divinfo>
           <Divinfo>
             <Textsmallerpopis>Náročnosť:</Textsmallerpopis>
-            <Textsmaller>{plantDetails.špecifikácie.naročnosť}</Textsmaller>
+            <Textsmaller>{getDifficultyValue(plantDetails.špecifikácie)}</Textsmaller>
           </Divinfo>
           <Divinfo>
             <Textsmallerpopis>Svetlo:</Textsmallerpopis>
