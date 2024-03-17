@@ -3,6 +3,23 @@ import styled from "styled-components";
 import { Button, Pagination, Stack, useMediaQuery } from "@mui/material";
 import PlantDetails from "./PlantDetails";
 import { Link } from 'react-router-dom';
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Leafani from "./loading1.json";
+import Lottie from "react-lottie";
+
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: Leafani,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
 const ColorizedDiv = styled.div`
   position: relative;
   color: white;
@@ -30,6 +47,7 @@ const Title = styled.h1`
 const Title2 = styled.h1`
   margin: 0;
   padding-top: 2vh;
+  padding-bottom: 3vh;
   font-family: "Regular-R";
   font-size: 1em;
   z-index: 1;
@@ -106,6 +124,18 @@ const Text1 = styled.h1`
     font-size: 10px;
   }
 `;
+const Text2 = styled.h1`
+  width: 100%;
+  padding-top: 5vh;
+  font-family: "Regular-R";
+  font-size: 1em;
+  z-index: 1;
+
+  @media (max-width: 900px) {
+    align-self: center;
+    font-size: 10px;
+  }
+`;
 
 const PlantInfoContainer = styled.div`
   display: flex;
@@ -120,10 +150,20 @@ const PlantInfoContainer = styled.div`
 `;
 
 const PlantImage = styled.img`
+  border-radius:30px;
+  border: 3px solid #363434;
   width: 300px;
   height: 200px;
   object-fit: cover;
   margin-bottom: 10px;
+
+
+  transition: transform 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 
   @media (max-width: 900px) {
     width: 250px;
@@ -136,15 +176,121 @@ const PlantName = styled.p`
   font-size: 15px;
   margin-top: 10px;
 `;
+const SearchInput = styled.input`
+  font-family: 'Dosis', sans-serif;
+  background: #424040; /* Vaša pôvodná farba */
+  width: 500px;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 20px;
+  border: none;
+  color: #E5E6F7;
+  padding-left:30px;
+  margin-top: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 1.6em;
+  transition: all 0.3s ease-in-out;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 0.8em;
+  }
+
+  /* JavaScript efekt pre písmeno po písmene */
+  animation: typing 0.8s steps(40, end);
+
+  &:hover, &:focus {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  &:focus {
+    outline: none;
+  }
+  @media (max-width: 900px) {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+  }
+`;
+const MockupMessage = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2ab96b;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 999;
+`;
+
+const Sinput = styled.input`
+  font-family: 'Dosis', sans-serif;
+  background: #424040; /* Vaša pôvodná farba */
+  width: 500px;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 20px;
+  border: none;
+  color: #E5E6F7;
+  padding-left:30px;
+  margin-top: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 1.6em;
+  transition: all 0.3s ease-in-out;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 0.8em;
+  }
+
+
+  @media (max-width: 900px) {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+  }
+`;
+const Boxx=styled(Box)`
+display: flex,
+alignItems: center,
+justifyContent: center,
+`;
+const Button2 = styled(motion.button)`
+margin: 1vh;
+width: 20vh;
+height: 4vh;
+font-family: "Regular-R";
+font-size: 1em;
+background-color: #2ab96b;
+color: white;
+border: 2px solid white;
+border-radius: 10px;
+cursor: pointer;
+transition: background-color 0.3s ease-in-out;
+
+&:hover {
+  
+  background-color: white;
+  color: #2ab96b;
+}
+
+@media (max-width: 900px) {
+  font-size: 0.8em;
+}
+}`;
 
 interface PlantData {
   _id: string;
-  Slovenčina: {
     špecifikácie: {
       taxonomické_meno: string;
       starostlivosť: string;
       popis: string;
       dar: string;
+      naročnosť:string;
       názov: string;
       výška: string;
       spôsob_rastu: string;
@@ -162,7 +308,6 @@ interface PlantData {
         };
       };
     };
-  };
   url: string;
 }
 
@@ -174,12 +319,23 @@ const Library: React.FC = () => {
   const [page, setPage] = useState<number>(1);
   const isMobile = useMediaQuery("(max-width: 900px)");
   const plantsPerPage = isMobile ? 5 : 15;
-
+  const [showMockup, setShowMockup] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
+  const [addingPlant, setAddingPlant] = useState<boolean>(false); 
+  const [openModal, setOpenModal] = useState(false); 
+
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
 
   const handleAddPlant = async () => {
     try {
       setLoading(true);
+      setAddingPlant(true);
 
       const response = await fetch(
         `https://api.leafloop.wiki/addplant?nazovv=${newPlantName}`,
@@ -210,6 +366,8 @@ const Library: React.FC = () => {
     } finally {
       setLoading(false);
       setNewPlantName("");
+      setOpenModal(false);
+      setAddingPlant(false);
     }
   };
 
@@ -225,9 +383,12 @@ const Library: React.FC = () => {
         console.error("Error fetching plant data:", error);
       }
     };
+    
 
+    
     fetchPlantData();
   }, []);
+  
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -238,7 +399,7 @@ const Library: React.FC = () => {
   };
 
   const filteredPlantData = plantData.filter((plant) =>
-    plant.Slovenčina.špecifikácie.názov
+    plant.špecifikácie.názov
       .toLowerCase()
       .includes(searchInput.toLowerCase()),
   );
@@ -257,12 +418,13 @@ const Library: React.FC = () => {
         </Div1>
 
         <Div2>
+          
           <Title>Vo vývoji</Title>
-          <Text></Text>
           <Title2>
-            Vitaj v ríši rastlín, kde každá vetvička je knihou a každý list má
+          Vitaj v ríši rastlín, kde každá vetvička je knihou a každý list má
             svoj vlastný príbeh!
           </Title2>
+
 
           <div
             style={{
@@ -271,20 +433,81 @@ const Library: React.FC = () => {
               marginBottom: "10px",
             }}
           >
-            <input
+            <SearchInput
               type="text"
-              placeholder="Enter plant name"
+              placeholder="Hľadaj rastlinu"
               value={searchInput}
               onChange={(e) => {
+                setPage(1)
                 setSearchInput(e.target.value);
                 setNewPlantName(e.target.value); // Add this line to update newPlantName
               }}
+              
             />
-            <button onClick={() => setPage(1)}>Search</button>
           </div>
-          <button onClick={handleAddPlant} disabled={loading}>
-            add
-          </button>
+          {paginatedFilteredPlantData.length === 0 && (
+  <>
+  <Title2>Vyzerá to tak, že tvoju rastlinu ešte nemáme v databáze...Chceš ju Pridať pomocou AI 🤔?
+    </Title2>
+      <Button2 
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleOpenModal}>
+          Pridať novú rastlinu🌱
+        </Button2>
+        
+        {/* Modálny dialóg */}
+        <Modal
+  open={openModal}
+  onClose={handleCloseModal}
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }}
+>
+  <Box
+    sx={{
+      backgroundColor: '#2ab96b',
+      color: 'white',
+      padding: '20px',
+      borderRadius: '10px',
+      height: '800px',
+      width: '900px',
+      textAlign: 'center', // Center align text
+      justifyContent: 'center', // Justify content to center
+    }}
+  >
+    <Title>Pridaj novú rastlinu!</Title>
+    <Typography>
+      <Text2>Všetci vieme, že nič nie je dokonalé, ale práve ty to môžeš napraviť!🤓</Text2>
+      <Text2>Stačí napísať presný názov tvojej obľúbenej rastliny do políčka nižšie a kliknúť na tlačidlo "Pridaj". Pomôž nám rozšíriť túto úžasnú databázu rastlín a priniesť viac zelene do našej komunity! Ďakujeme ti za tvoju pomoc!</Text2>
+      
+      <Sinput
+        type="text"
+        placeholder="Správne napísaný názov rastliny"
+        onChange={(e) => {
+          setNewPlantName(e.target.value);
+        }}
+      ></Sinput>
+      <Button2 onClick={handleAddPlant} disabled={loading}>
+        Pridať
+      </Button2>
+    </Typography>
+    {addingPlant ? (
+        <div>
+          <Lottie options={defaultOptions} height={300} width={300} />
+          <Text2>Rastlina sa pridáva</Text2>
+        </div>
+      ) : null}
+  </Box>
+</Modal>
+
+    
+
+  </>
+  
+)}
 
           <div
           style={{
@@ -302,13 +525,12 @@ const Library: React.FC = () => {
           <Link to={`/plantdetails/${plant._id}`}>
             <PlantImage
               src={plant.url}
-              alt={plant.Slovenčina.špecifikácie.názov}
+              alt={plant.špecifikácie.názov}
             />
           </Link>
         );
       } catch (error) {
         console.error(`Error loading image for plant ${plant._id}:`, error);
-        // Replace the following line with your placeholder image
         return (
           <PlantImage
             src="path-to-placeholder-image.jpg"
@@ -317,7 +539,7 @@ const Library: React.FC = () => {
         );
       }
     })()}
-    <PlantName>{plant.Slovenčina.špecifikácie.názov}</PlantName>
+    <PlantName>{plant.špecifikácie.názov}</PlantName>
   </PlantInfoContainer>
 ))}
         </div>

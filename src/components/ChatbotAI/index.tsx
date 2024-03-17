@@ -1,231 +1,186 @@
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
-import "../styles.css";
+import { AiFillCaretRight } from "react-icons/ai";
+import { IconContext } from "react-icons";
+import BotAvatarImage from "./groot.jpg";
 
-const ColorizedDiv = styled.div`
-  position: relative;
+const ChatbotContainer = styled.div`
+  background-color: #2ab96b;
   color: white;
   height: 100vh;
   display: flex;
-  align-items: top;
-  justify-content: center;
-  overflow: hidden;
-  background-color: #2ab96b; /* Change the background color here */
   flex-direction: column;
-`;
-
-const Title = styled.h1`
-  margin: 0;
-  padding: 0;
-  font-family: "Regular-R";
-  font-size: 3.5em;
-  z-index: 1;
-
-  @media (max-width: 900px) {
-    font-size: 2em; /* Adjust the font size as needed for smaller screens */
-  }
-`;
-
-const StyledTypewriterWrapper = styled.div`
-  padding-top: 3vh;
-  padding-bottom: 4vh;
-  font-family: "Regular-r";
-  font-size: 1.3em;
-  z-index: 1;
-
-  @media (max-width: 900px) {
-    font-size: 0.6em; /* Adjust the font size as needed for smaller screens */
-  }
-`;
-
-const Div1 = styled.div`
-  justify-content: center; /* Add this line to center content horizontally */
-  align-items: center; /* Optionally, you can also center vertically */
-
-  flex: 0.7;
-  display: flex;
-  flex-direction: row;
-  background-color: transparent;
-`;
-
-const Titleleaf = styled.h1`
-  margin-top: 2vh;
-  margin-left: 2vh;
+  align-items: center;
   justify-content: center;
-  width: 90%;
-  font-family: "Regular-R";
-  font-size: 1.4em;
-
-  @media (max-width: 900px) {
-    margin-left: 3vh;
-    font-size: 1em; /* Adjust the font size as needed for smaller screens */
-  }
-`;
-const Logoloop = styled.img`
-  margin-top: 1vh;
-  margin-left: 1vh;
-  width: 8vh;
-  border-radius: 20px;
 `;
 
-const Button = styled(motion.button)`
-  margin: 1vh;
-  width: 20vh;
-  height: 5vh;
-  font-family: "Regular-R";
-  font-size: 1em;
-  background-color: #2ab96b;
-  color: white;
-  border: 2px solid white;
+const ChatWindow = styled.div`
+  background-color: #363434;
   border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: white;
-    color: #2ab96b;
+  width: 90%;
+  height: 80%;
+  overflow-y: scroll;
+  padding: 20px;
+  /* Style the scrollbar */
+  &::-webkit-scrollbar {
+    width: 12px;
   }
 
-  @media (max-width: 900px) {
-    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #2ab96b;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #363434;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 `;
 
-const Div2 = styled.div`
-  justify-content: flex-start;
-  align-items: center;
-  flex: 6;
-  background-color: transparent;
-  flex-direction: row;
-  display: flex;
-  @media (max-width: 900px) {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-`;
-
-const Textdiv = styled.div`
-  margin-left: 3vh;
-  display: flex;
-  width: 55%;
-  flex-direction: column;
-
-  @media (max-width: 900px) {
-    margin-top:3vh;
-    width:100%;
-
-`;
-
-const Button2 = styled(motion.button)`
-  margin: 1vh;
-  width: 20vh;
-  height: 5vh;
+const MessageContainer = styled.div`
   font-family: "Regular-R";
-  font-size: 1em;
-  background-color: #18914a;
-  color: black;
-  border: 2px solid #18914a;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: white;
-    color: black;
-  }
-
-  @media (max-width: 900px) {
-    font-size: 0.8em; /* Adjust the font size as needed for smaller screens */
-  }
-`;
-
-const Image = styled.img`
-  object-fit: cover;
-  border: 2px solid #363434;
-  border-radius: 30px;
-  width: 70vh;
-  box-shadow: 30px -40px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
-
-  @media (max-width: 900px) {
-    margin-left: 3vh;
-    align-self: center;
-    justify-self: center;
-    width: 80%;
-    height: 80%;
-    box-shadow: 15px -20px 10px rgba(21, 92, 53, 0.7); /* Add box-shadow for a subtle shadow effect */
-  }
-`;
-const Imagediv = styled.div`
   display: flex;
-  @media (max-width: 900px) {
-    width: 100%;
-    height:100%;
-  
+  flex-direction: column;
 `;
 
-const Div3 = styled.div`
+const Message = styled.div`
+  font-family: "Regular-R";
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+`;
+
+const UserMessage = styled(Message)`
+  align-self: flex-end;
+  background-color: #2ab96b;
+`;
+
+const BotMessage = styled(Message)`
+  align-self: flex-start;
   background-color: #155c35;
-  flex: 2;
+`;
+
+const InputContainer = styled.div`
+  margin-bottom: 1%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 `;
 
-const Text = styled.h1`
-  margin-right: 10vh;
-  font-family: "Regular-R";
-  font-size: 1em;
-  z-index: 1;
-
-  @media (max-width: 900px) {
-    font-size: 0.4em; /* Adjust the font size as needed for smaller screens */
-  }
+const InputField = styled.input`
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
 `;
-const Platnetlogo = styled.img`
-  width: 20vh;
-  @media (max-width: 900px) {
-    margin-left: 3vh;
-    width: 10vh;
-  }
+
+const SendButton = styled(motion.button)`
+  background-color: #ffffff;
+  color: #2ab96b;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const BotAvatar = styled.img`
+  width: 40px; // Adjust the size as needed
+  height: 40px; // Adjust the size as needed
+  border-radius: 50%; // Ensures a circular avatar
+  margin-left: 10px; // Adjust the spacing between the avatar and the message
 `;
 
 const Chatbot = () => {
-  const handleExploreNowClick = () => {
-    window.location.href = "/aboutpage";
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+  const [userId, setUserId] = useState("");
+
+  const chatWindowRef = useRef(null);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const scrollToBottom = () => {
+    chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight;
+  };
+
+
+  const sendMessage = async () => {
+    if (input.trim() !== "") {
+      const newMessage = { text: input, fromUser: true };
+      setMessages((prevState) => [...prevState, newMessage]);
+      setInput("");
+
+      try {
+        const response = await fetch("https://api.leafloop.wiki/chatbot", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: input, userId: userId }), // Poslať userID spolu s správou
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch response from chatbot");
+        }
+
+        const data = await response.json();
+        const botMessage = { text: data.text, fromUser: false };
+        setMessages((prevState) => [...prevState, botMessage]);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
   };
 
   return (
-    <>
-      <ColorizedDiv id="homepage">
-        <Div1>
-          <Logoloop></Logoloop>
-          <Titleleaf>LeafLoop</Titleleaf>
-        </Div1>
-
-        <Div2>
-          <Textdiv>
-            <Title>COMMING SOON, IN DEVELOPEMENT</Title>
-
-            <StyledTypewriterWrapper>
-              <Typewriter
-                cursor
-                cursorStyle="_"
-                words={[
-                  "Ai powered chatbot helping your plants to live longer :)- comming soon ",
-                  ,
-                ]}
-                loop={true}
-                typeSpeed={50}
-                deleteSpeed={0}
-                delaySpeed={40000000}
-              />
-            </StyledTypewriterWrapper>
-          </Textdiv>
-          <Imagediv></Imagediv>
-        </Div2>
-      </ColorizedDiv>
-    </>
+    <ChatbotContainer>
+      <ChatWindow ref={chatWindowRef}>
+        <MessageContainer>
+          <BotAvatar src={BotAvatarImage} alt="Bot Avatar" />
+          <BotMessage>
+            {" "}
+            Ahoj! Ako ti môžem pomôcť dnes? Máš nejaké otázky ohľadom rastlín
+            alebo niečo iné, čo ťa zaujíma? Som tu, aby som ti pomohol!
+          </BotMessage>
+          {messages.map((message, index) =>
+            message.fromUser ? (
+              <UserMessage key={index}>{message.text}</UserMessage>
+            ) : (
+              <BotMessage key={index}>{message.text}</BotMessage>
+            )
+          )}
+        </MessageContainer>
+      </ChatWindow>
+      <InputContainer>
+        <InputField
+          type="text"
+          placeholder="Napíš tvoju otázku"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        <IconContext.Provider value={{ size: "1.5em" }}>
+          <AiFillCaretRight />
+        </IconContext.Provider>
+      </InputContainer>
+    </ChatbotContainer>
   );
 };
 
