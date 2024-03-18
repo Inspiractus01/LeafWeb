@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import Lottie from "react-lottie";
 import styled from "styled-components";
@@ -6,6 +6,9 @@ import { motion } from "framer-motion";
 import "../styles.css";
 import Indicator from './Indicator';
 import Leafani from "./loading.json";
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 interface PlantDetailsProps {}
 
 interface PlantData {
@@ -111,6 +114,28 @@ const Button = styled(motion.button)`
   &:hover {
     background-color: white;
     color: #2ab96b;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 0.8em;
+  }
+`;
+const Buttonreport = styled(motion.button)`
+  margin: 1vh;
+  width: 8vh;
+  height: 3vh;
+  font-family: "Regular-R";
+  font-size: 1em;
+  background-color: #FF4747;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: white;
+    color: #FF4747;
   }
 
   @media (max-width: 900px) {
@@ -396,7 +421,34 @@ const Buttonback = styled(motion.button)`
     font-size: 0.8em;
   }
 `;
+const Sinput = styled.input`
+  font-family: 'Dosis', sans-serif;
+  background: #424040; /* Vaša pôvodná farba */
+  width: 800px;
+  height: 200px;
+  padding: 0 20px;
+  border-radius: 20px;
+  border: none;
+  color: #E5E6F7;
+  padding-left:30px;
+  margin-top: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 1.6em;
+  transition: all 0.3s ease-in-out;
 
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 0.8em;
+  }
+
+
+  @media (max-width: 900px) {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+  }
+`;
 const defaultOptions = {
   loop: true,
   autoplay: true,
@@ -421,14 +473,21 @@ const getDifficultyValue = (details: PlantData['špecifikácie']) => {
   return parseInt(difficultyValue);
 };
 
-
 const handleExploreNowClick = () => {
   window.location.href = "/library";
 };
 const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
   const { id } = useParams<{ id: string }>();
   const [plantDetails, setPlantDetails] = useState<PlantData | null>(null);
+  const [openModal, setOpenModal] = useState(false);
 
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
   useEffect(() => {
     const fetchPlantDetails = async () => {
       try {
@@ -455,16 +514,22 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
       <Div1>
         <Logoloop></Logoloop>
         <Titleleaf>LeafLoop</Titleleaf>
+        
         <Button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={handleExploreNowClick}
           >Späť</Button>
+
+
+
       </Div1>
 
       <Div2>
         <Div4>
+          
           <Image src={plantDetails.url}></Image>
+          
           <Title2>{plantDetails.špecifikácie.názov}</Title2>
           <Text2>({plantDetails.špecifikácie.taxonomické_meno})</Text2>
           <Textpopis2>Čelaď:</Textpopis2>
@@ -480,7 +545,55 @@ const PlantDetailsPage: React.FC<PlantDetailsProps> = () => {
           <Textpopis2>Vlhkosť pôdy:</Textpopis2>
           <Indicator value={parseInt(plantDetails.špecifikácie.rast.pôda.vlhkosť)} />
 
+          <Textsmaller><br></br> <br></br>Narazil/a si na chybu? Neboj sa, pomôž nám ju napraviť!🛠️ </Textsmaller>
+
+          <Buttonreport
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleOpenModal}
+          >Nahlásiť</Buttonreport>
         </Div4>
+
+        <Modal
+  open={openModal}
+  onClose={handleCloseModal}
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }}
+>
+  <Box
+    sx={{
+      backgroundColor: '#2ab96b',
+      color: 'white',
+      padding: '20px',
+      borderRadius: '10px',
+      height: '800px',
+      width: '900px',
+      textAlign: 'center', // Center align text
+      justifyContent: 'center', // Justify content to center
+    }}
+  >
+    <Title>Nahlásenie chyby v údajoch 🛠️ </Title>
+    <Text2><br></br><br></br><br></br>Všetci vieme, že dokonalosť neexistuje, ale práve ty môžeš prispieť k zlepšeniu našej platformy! Ak si všimol/a niečo, čo by sme mali opraviť alebo vylepšiť, neváhaj nám to oznámiť. Sme vďační za každú spätnú väzbu, ktorá nám pomôže posunúť sa vpred.
+</Text2>
+<Text2><br></br>Prosím, opíš chybu alebo problém čo najpodrobnejšie, aby sme si s ním vedeli poradiť. Čím viac informácií nám poskytneš, tým rýchlejšie budeme schopní nájsť a opraviť príčinu. Vďaka tvojej účasti môžeme našu službu ešte viac zlepšiť pre všetkých našich používateľov.
+<br></br><br></br>Ďakujeme ti za spoluprácu a za to, že si súčasťou našej komunity!</Text2>
+    <Sinput
+        type="text"
+        placeholder="Popíš chybu ktorú si našiel"
+        onChange={(e) => {
+        }}
+      ></Sinput>
+    <Button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleCloseModal}
+          >Nahlásiť chybu</Button>
+
+  </Box>
+</Modal>
 
         <Div3>
           <Title3>O rastline:</Title3>
