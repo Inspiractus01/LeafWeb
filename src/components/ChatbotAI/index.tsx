@@ -68,13 +68,13 @@ const BotMessage = styled(Message)`
 `;
 
 const InputContainer = styled.div`
-  margin-bottom: 1%;
+  margin-bottom: 5%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-`;
+`
 
 const InputField = styled.input`
   width: 80%;

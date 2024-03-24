@@ -261,8 +261,8 @@ justifyContent: center,
 `;
 const Button2 = styled(motion.button)`
 margin: 1vh;
-width: 20vh;
-height: 4vh;
+width: 20%;
+height: 5vh;
 font-family: "Regular-R";
 font-size: 1em;
 background-color: #2ab96b;
@@ -472,8 +472,8 @@ const Library: React.FC = () => {
       color: 'white',
       padding: '20px',
       borderRadius: '10px',
-      height: '800px',
-      width: '900px',
+      height: '600px',
+      width: '800px',
       textAlign: 'center', // Center align text
       justifyContent: 'center', // Justify content to center
     }}
