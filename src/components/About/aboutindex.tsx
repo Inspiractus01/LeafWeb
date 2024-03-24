@@ -184,8 +184,8 @@ const Image2 = styled.img`
   margin-top:20px;
   object-fit: fill;
   border: 2px solid #363434;
-  width: 20vh;
-  height:20vh;
+  width: 15vh;
+  height:15vh;
   border-radius: 500px;
 
   @media (max-width: 900px) {
@@ -255,7 +255,7 @@ const HoverOverlay = styled.div`
 
   &:hover {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.02);
   }
   @media (max-width: 900px) {
   
@@ -281,7 +281,7 @@ const ImageContainer = styled.div`
 const ImageName = styled.p`
 font-family: "Regular-R";
   color: white;
-  font-size: 1.5em;
+  font-size: 1em;
   text-align: center;
   margin: 0;
   z-index: 1;
@@ -361,13 +361,28 @@ const Aboutpage = () => {
   <HoverOverlay>
     <ImageContainer>
       <Image2
-        src="https://michalfly.site/assets/images/fotka.jpg"
+        src="https://cdn.discordapp.com/attachments/1096191061015150754/1221407909678682174/IMG_20240318_010041_044.jpg?ex=661277c2&is=660002c2&hm=3d49281ea3f4fd90dfb073dddac1f36176f6547dd000e8f9160c9acf1819d9ac&"
         alt="Michal Mucha"
         onClick={() => (window.location.href = "https://michalfly.site")}
       />
-      <ImageName>Michal Mucha-Junior Developer</ImageName>
+      <ImageName>Michal Mucha-Developer</ImageName>
     </ImageContainer>
+
+    
   </HoverOverlay>
+  <HoverOverlay>
+    <ImageContainer>
+      <Image2
+        src="https://cdn.discordapp.com/attachments/1096191061015150754/1204158597999894528/image.png?ex=660b1615&is=65f8a115&hm=8b0ad918bab8a966a20717b64de1513a8c7ede35d05e3b1eeaff52dddda64bdb&"
+        alt="Pavol Mihál"
+        onClick={() => (window.location.href = "https://www.instagram.com/mihalpalino/")}
+      />
+      <ImageName>Pavol Mihál-Kreatívny konzultant</ImageName>
+    </ImageContainer>
+
+    
+  </HoverOverlay>
+
 
 
 

@@ -112,6 +112,12 @@ const Navbar = () => {
             AI-LeafBot
           </NavLink>
         </NavItem>
+
+        <NavItem whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+  <NavLink to="https://openapi.leafloop.wiki/docs" onClick={resetScroll}>
+    Openapi
+  </NavLink>
+</NavItem>
       </NavbarContent>
     </NavbarContainer>
   );
